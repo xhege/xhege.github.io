@@ -99,6 +99,250 @@
       </tags>
   </entry>
   <entry>
+    <title>Java知识点复习（三）流程控制之循环语句</title>
+    <url>/posts/java-xunhuan/</url>
+    <content><![CDATA[<h1 id="循环语句🔥"><a href="#循环语句🔥" class="headerlink" title="循环语句🔥"></a>循环语句🔥</h1><h2 id="for-循环🔥"><a href="#for-循环🔥" class="headerlink" title="for 循环🔥"></a>for 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
+<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
+<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
+<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
+</li>
+<li><p><strong>理解：</strong> </p>
+<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
+<blockquote>
+<p>案例1：打印3次HelloWorld</p>
+</blockquote>
+<p>代码实现：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;普通写法:
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+        	System.out.println(&quot;HelloWord&quot;);
+       		System.out.println(&quot;HelloWord&quot;);
+        	System.out.println(&quot;HelloWord&quot;);
+        &#125;
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重复性动作，可以用for循环语句解决</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ForExample &#123;
+    public static void main(String[] args) &#123;
+        &#x2F;&#x2F;int i&#x3D;1；是一个局部变量，作用域是for的循环体
+        for(int i&#x3D;1;i&lt;&#x3D;3;i++)&#123;
+            System.out.println(&quot;HelloWord&quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png" alt="For"></p>
+<blockquote>
+<p>案例2：打印数字1到100</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ForExample02 &#123;
+    public static void main(String[] args) &#123;
+       
+        for(int i&#x3D;1;i&lt;&#x3D;100;i++)&#123;
+            System.out.println(i + &quot; &quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png" alt="image-20220329204146669"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环问题（条件恒成立）</p>
+<p>一直重复输出System.out.println( ) 内容</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+
+&#x2F;&#x2F;        for(;;)&#123;
+&#x2F;&#x2F;            System.out.println(&quot;HelloWord&quot;);
+&#x2F;&#x2F;        &#125; 
+  
+        for(;true;)&#123;
+           System.out.println(&quot;HelloWord&quot;);
+            
+       &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  2.初始表达式作用域问题</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo02 &#123;
+public static void main(String[] args) &#123;
+    int i;
+    for (i&#x3D;1;i&lt;&#x3D;5;i++)&#123;
+       System.out.println(&quot;hello!&quot;+i);&#x2F;&#x2F; 1 2 3 4 5
+     	 &#125;
+    System.out.println(i); &#x2F;&#x2F; 6
+  &#125;
+&#125; 
+&#x2F;&#x2F; 输出结果为：1 2 3 4 5 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  例题：</p>
+<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
+<p>  3.迭代语句问题</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo03 &#123;
+    public static void main(String[] args) &#123;
+        for(int i&#x3D;10;i&gt;0;i--)&#123;
+            System.out.println(&quot;hello&quot;); &#x2F;&#x2F;输出 3次 hello
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  4.多个初始表达式，多个迭代语句</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo04 &#123;
+    public static void main(String[] args) &#123;
+        for(int i&#x3D;1,j&#x3D;10;i&lt;j;i++,j--)&#123;
+            System.out.println(i+&quot;——&quot;+j);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
+<h2 id="while-循环🔥"><a href="#while-循环🔥" class="headerlink" title="while 循环🔥"></a>while 循环🔥</h2><ul>
+<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
+<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：用while 循环 打印3次HelloWorld</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class WhileExample &#123;
+    public static void main(String[] args) &#123;
+        int i &#x3D; 1;
+        while(i&lt;&#x3D;3)&#123;
+            System.out.println(&quot;HelloWord&quot;);
+            i++;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
+<ul>
+<li><strong>注意问题：</strong></li>
+</ul>
+<ol>
+<li>死循环（一直重复输出内容）</li>
+</ol>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class WhileExamle02 &#123;
+    public static void main(String[] args) &#123;
+        while (true)&#123;
+            System.out.println(&quot;我要变有钱。。。&quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<br>
+
+<h2 id="do-while-循环🔥"><a href="#do-while-循环🔥" class="headerlink" title="do-while 循环🔥"></a>do-while 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
+<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：输出3次HelloWorld</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class DoWhileExamle &#123;
+    public static void main(String[] args) &#123;
+        int i &#x3D; 1;
+        do&#123;
+            System.out.println(&quot;HelloWord&quot;);
+            i++;
+        &#125;while(i&lt;&#x3D;3);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环</p>
+<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class DoWhileExamle02 &#123;
+    public static void main(String[] args) &#123;
+        do &#123;
+            System.out.println(&quot;停不下来。。。&quot;);
+        &#125;while(true);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<br>
+
+
+<h2 id="循环语句总结"><a href="#循环语句总结" class="headerlink" title="循环语句总结"></a>循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
+<p>while和do-while的区别：</p>
+<p>while是先判断，后执行</p>
+<p>do-while是先执行，后判断</p>
+<ul>
+<li><strong>注意：</strong> </li>
+</ul>
+<ol>
+<li>所有的循环语句都可以省略大括号</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"> &#x2F;&#x2F;省略循环语句中的大括号
+&#x2F;&#x2F; 例：
+public class loop &#123;
+    public static void main(String[] args) &#123;
+
+        &#x2F;&#x2F;for循环
+        for (int i&#x3D;1;i&lt;&#x3D;3;i++)
+            System.out.println(&quot;HelloWord&quot;);
+
+        &#x2F;&#x2F;while循环
+        int j &#x3D; 1;
+        while(j&lt;&#x3D;3)
+            &#x2F;*注：i++需要写在输出语句里面才可以省略大括号，
+               否则会变成死循环（以下同理）*&#x2F;
+            System.out.println(&quot;HelloWord&quot;+(j++));
+
+        &#x2F;&#x2F;do-while循环
+        int x &#x3D; 3;
+        do&#123;
+            System.out.println(&quot;HelloWord&quot;+(x--));
+
+        &#125;while(x&gt;&#x3D;0);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;例：
+public class loop02 &#123;
+    public static void main(String[] args) &#123;
+        &#x2F;&#x2F;do-while循环小括号后面必须加分号 写法正确
+        int x &#x3D; 3;
+         do&#123;
+             System.out.println(&quot;HelloWord&quot;+(x--));
+         &#125; while (x&gt;&#x3D;0);
+        
+          &#x2F;&#x2F;for循环小括号后加 ; 是错误的
+         for(int i&#x3D;1;i&lt;&#x3D;3;i++); &#123;
+             System.out.println(&quot;HelloWord&quot;);
+         &#125;
+         int j&#x3D;1;
+        &#x2F;&#x2F;while循环小括号后加 ; 也是是错误的
+         while (j&lt;&#x3D;3); &#123;
+             System.out.println(&quot;HelloWord&quot; + (j++));
+         &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<br>
+
+<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java知识点复习（一）运算符</title>
     <url>/posts/java-operator/</url>
     <content><![CDATA[<h1 id="运算符🔥"><a href="#运算符🔥" class="headerlink" title="运算符🔥"></a>运算符🔥</h1><h2 id="算数运算符🔥"><a href="#算数运算符🔥" class="headerlink" title="算数运算符🔥"></a>算数运算符🔥</h2><p><strong>+　-　*　/　%</strong> </p>
@@ -363,289 +607,6 @@ System.out.println(3&#x2F;3);
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java知识点复习（三）流程控制之循环语句</title>
-    <url>/posts/java-xunhuan/</url>
-    <content><![CDATA[<h1 id="循环语句🔥"><a href="#循环语句🔥" class="headerlink" title="循环语句🔥"></a>循环语句🔥</h1><h2 id="for-循环🔥"><a href="#for-循环🔥" class="headerlink" title="for 循环🔥"></a>for 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
-<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
-<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
-<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
-</li>
-<li><p><strong>理解：</strong> </p>
-<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
-<blockquote>
-<p>案例1：打印3次HelloWorld</p>
-</blockquote>
-<p>代码实现：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;普通写法:
-public class Demo01 &#123;
-    public static void main(String[] args) &#123;
-        	System.out.println(&quot;HelloWord&quot;);
-       		System.out.println(&quot;HelloWord&quot;);
-        	System.out.println(&quot;HelloWord&quot;);
-        &#125;
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>重复性动作，可以用for循环语句解决</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ForExample &#123;
-    public static void main(String[] args) &#123;
-        &#x2F;&#x2F;int i&#x3D;1；是一个局部变量，作用域是for的循环体
-        for(int i&#x3D;1;i&lt;&#x3D;3;i++)&#123;
-            System.out.println(&quot;HelloWord&quot;);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png" alt="For"></p>
-<blockquote>
-<p>案例2：打印数字1到100</p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ForExample02 &#123;
-    public static void main(String[] args) &#123;
-       
-        for(int i&#x3D;1;i&lt;&#x3D;100;i++)&#123;
-            System.out.println(i + &quot; &quot;);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png" alt="image-20220329204146669"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环问题（条件恒成立）</p>
-<p>一直重复输出System.out.println( ) 内容</p>
-</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo01 &#123;
-    public static void main(String[] args) &#123;
-
-&#x2F;&#x2F;        for(;;)&#123;
-&#x2F;&#x2F;            System.out.println(&quot;HelloWord&quot;);
-&#x2F;&#x2F;        &#125; 
-  
-        for(;true;)&#123;
-           System.out.println(&quot;HelloWord&quot;);
-            
-       &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  2.初始表达式作用域问题</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo02 &#123;
-public static void main(String[] args) &#123;
-    int i;
-    for (i&#x3D;1;i&lt;&#x3D;5;i++)&#123;
-       System.out.println(&quot;hello!&quot;+i);&#x2F;&#x2F; 1 2 3 4 5
-     	 &#125;
-    System.out.println(i); &#x2F;&#x2F; 6
-  &#125;
-&#125; 
-&#x2F;&#x2F; 输出结果为：1 2 3 4 5 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  例题：</p>
-<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
-<p>  3.迭代语句问题</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo03 &#123;
-    public static void main(String[] args) &#123;
-        for(int i&#x3D;10;i&gt;0;i--)&#123;
-            System.out.println(&quot;hello&quot;); &#x2F;&#x2F;输出 3次 hello
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  4.多个初始表达式，多个迭代语句</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Demo04 &#123;
-    public static void main(String[] args) &#123;
-        for(int i&#x3D;1,j&#x3D;10;i&lt;j;i++,j--)&#123;
-            System.out.println(i+&quot;——&quot;+j);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
-<h2 id="while-循环🔥"><a href="#while-循环🔥" class="headerlink" title="while 循环🔥"></a>while 循环🔥</h2><ul>
-<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
-<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：用while 循环 打印3次HelloWorld</p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class WhileExample &#123;
-    public static void main(String[] args) &#123;
-        int i &#x3D; 1;
-        while(i&lt;&#x3D;3)&#123;
-            System.out.println(&quot;HelloWord&quot;);
-            i++;
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
-<ul>
-<li><strong>注意问题：</strong></li>
-</ul>
-<ol>
-<li>死循环（一直重复输出内容）</li>
-</ol>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class WhileExamle02 &#123;
-    public static void main(String[] args) &#123;
-        while (true)&#123;
-            System.out.println(&quot;我要变有钱。。。&quot;);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<br>
-
-<h2 id="do-while-循环🔥"><a href="#do-while-循环🔥" class="headerlink" title="do-while 循环🔥"></a>do-while 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
-<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：输出3次HelloWorld</p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class DoWhileExamle &#123;
-    public static void main(String[] args) &#123;
-        int i &#x3D; 1;
-        do&#123;
-            System.out.println(&quot;HelloWord&quot;);
-            i++;
-        &#125;while(i&lt;&#x3D;3);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环</p>
-<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
-</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class DoWhileExamle02 &#123;
-    public static void main(String[] args) &#123;
-        do &#123;
-            System.out.println(&quot;停不下来。。。&quot;);
-        &#125;while(true);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<br>
-
-
-<h2 id="循环语句总结"><a href="#循环语句总结" class="headerlink" title="循环语句总结"></a>循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
-<p>while和do-while的区别：</p>
-<p>while是先判断，后执行</p>
-<p>do-while是先执行，后判断</p>
-<ul>
-<li><strong>注意：</strong> </li>
-</ul>
-<ol>
-<li>所有的循环语句都可以省略大括号</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"> &#x2F;&#x2F;省略循环语句中的大括号
-&#x2F;&#x2F; 例：
-public class loop &#123;
-    public static void main(String[] args) &#123;
-
-        &#x2F;&#x2F;for循环
-        for (int i&#x3D;1;i&lt;&#x3D;3;i++)
-            System.out.println(&quot;HelloWord&quot;);
-
-        &#x2F;&#x2F;while循环
-        int j &#x3D; 1;
-        while(j&lt;&#x3D;3)
-            &#x2F;*注：i++需要写在输出语句里面才可以省略大括号，
-               否则会变成死循环（以下同理）*&#x2F;
-            System.out.println(&quot;HelloWord&quot;+(j++));
-
-        &#x2F;&#x2F;do-while循环
-        int x &#x3D; 3;
-        do&#123;
-            System.out.println(&quot;HelloWord&quot;+(x--));
-
-        &#125;while(x&gt;&#x3D;0);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;例：
-public class loop02 &#123;
-    public static void main(String[] args) &#123;
-        &#x2F;&#x2F;do-while循环小括号后面必须加分号 写法正确
-        int x &#x3D; 3;
-         do&#123;
-             System.out.println(&quot;HelloWord&quot;+(x--));
-         &#125; while (x&gt;&#x3D;0);
-        
-          &#x2F;&#x2F;for循环小括号后加 ; 是错误的
-         for(int i&#x3D;1;i&lt;&#x3D;3;i++); &#123;
-             System.out.println(&quot;HelloWord&quot;);
-         &#125;
-         int j&#x3D;1;
-        &#x2F;&#x2F;while循环小括号后加 ; 也是是错误的
-         while (j&lt;&#x3D;3); &#123;
-             System.out.println(&quot;HelloWord&quot; + (j++));
-         &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<br>
-
-<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Office 2021专业增强版 下载及安装教程</title>
-    <url>/posts/office/</url>
-    <content><![CDATA[<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>office 2021是微软2021最新上线的办公软件套装，包括了excel、word、PPT等办公软件。增强版相比于之前的版本，全新推出了云存储功能，可以上传自己的办公文件至云端，避免重要文件丢失的问题，能够有效的提升工作效率。还带来了更好的性能、支持暗黑模式、无障碍优化、Excel的动态数组等功能。  </p>
-<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>1.在电脑上下载安装文件，鼠标左键双击ProPlus2021Retail.img打开文件（安装程序在这个映像文件里）。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/06b4c7764f0ba2da0d284ab0fe7e5179.png" alt="图片"></p>
-<p>3.找到Setup文件鼠标右击选择以管理员身份运行，即可开始执行安装。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/f5800d7eed639c90b1fe4b3cb416e2e3.png" alt="图片"></p>
-<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/0f9e957ded6a91beede12d0d965c4693.png" alt="图片"></p>
-<p>5.软件安装完成后，点击关闭按钮。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/9e5dfcf4e4a0aea49c2b22c5c4b03b8c.png" alt="图片"></p>
-<p>6.安装好后先不要使用，下面开始Office软件的激活教程。</p>
-<h2 id="激活教程"><a href="#激活教程" class="headerlink" title="激活教程"></a>激活教程</h2><p>1.解压下载的激活工具，鼠标选中压缩包右键单击，选择解压到当前文件夹。</p>
-<p><strong>注：</strong>开始激活前请先关闭360、电脑管家、系统自带杀毒等防护软件，防止误杀激活补丁。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/2e93d7ff79de6f4140fcc451d77db0d5.png" alt="图片"></p>
-<p>2.鼠标右击选择以管理员身份运行，打开激活工具。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/2c277d82dffcce143dba92037ab798a9.png" alt="图片"></p>
-<p>3.打开软件不需要更改什么复杂设置，我们用来激活office选择智能激活，直接点击开始按钮就可以自动识别激活了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/f5e5878db385e2828263367dff393e72.png" alt="图片"></p>
-<p>4.点击开始按钮后，可以看到下边有激活过程进度条，耐心等待一会。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/8f9d8a453ae38e66bcffac3131bd21e3.png" alt="图片"></p>
-<p>5.激活成功后会有弹窗提醒哦，Office激活一次有效期是180天，到期后使用此工具重复激活即可无限续期。</p>
-<p>如果你的电脑系统还没有激活，它识别到也能一块激活了，功能非常强大，内有多种激活方式，有兴趣的小伙伴可自行研究使用。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/c81a95ce95a97b372d85f8016d99c558.png" alt="图片"></p>
-<p>激活后可以在任务栏开始菜单里看到软件列表，或者在桌面右键菜单选择新建文档。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/4fcafd939662a52f8b6246311f187bbe.png" alt="图片"></p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw">https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw</a></p>
-<p>提取码: ki4s</p>
-<h2 id="激活工具"><a href="#激活工具" class="headerlink" title="激活工具"></a>激活工具</h2><p>链接：<a href="https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA">https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA</a> </p>
-<p>提取码: qtnj</p>
-]]></content>
-      <categories>
-        <category>电脑软件</category>
-      </categories>
-      <tags>
-        <tag>Office办公</tag>
       </tags>
   </entry>
   <entry>
@@ -960,6 +921,45 @@ public class Demo02 &#123;
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Office 2021专业增强版 下载及安装教程</title>
+    <url>/posts/office/</url>
+    <content><![CDATA[<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>office 2021是微软2021最新上线的办公软件套装，包括了excel、word、PPT等办公软件。增强版相比于之前的版本，全新推出了云存储功能，可以上传自己的办公文件至云端，避免重要文件丢失的问题，能够有效的提升工作效率。还带来了更好的性能、支持暗黑模式、无障碍优化、Excel的动态数组等功能。  </p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>1.在电脑上下载安装文件，鼠标左键双击ProPlus2021Retail.img打开文件（安装程序在这个映像文件里）。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/06b4c7764f0ba2da0d284ab0fe7e5179.png" alt="图片"></p>
+<p>3.找到Setup文件鼠标右击选择以管理员身份运行，即可开始执行安装。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f5800d7eed639c90b1fe4b3cb416e2e3.png" alt="图片"></p>
+<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/0f9e957ded6a91beede12d0d965c4693.png" alt="图片"></p>
+<p>5.软件安装完成后，点击关闭按钮。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/9e5dfcf4e4a0aea49c2b22c5c4b03b8c.png" alt="图片"></p>
+<p>6.安装好后先不要使用，下面开始Office软件的激活教程。</p>
+<h2 id="激活教程"><a href="#激活教程" class="headerlink" title="激活教程"></a>激活教程</h2><p>1.解压下载的激活工具，鼠标选中压缩包右键单击，选择解压到当前文件夹。</p>
+<p><strong>注：</strong>开始激活前请先关闭360、电脑管家、系统自带杀毒等防护软件，防止误杀激活补丁。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2e93d7ff79de6f4140fcc451d77db0d5.png" alt="图片"></p>
+<p>2.鼠标右击选择以管理员身份运行，打开激活工具。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/2c277d82dffcce143dba92037ab798a9.png" alt="图片"></p>
+<p>3.打开软件不需要更改什么复杂设置，我们用来激活office选择智能激活，直接点击开始按钮就可以自动识别激活了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/f5e5878db385e2828263367dff393e72.png" alt="图片"></p>
+<p>4.点击开始按钮后，可以看到下边有激活过程进度条，耐心等待一会。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/8f9d8a453ae38e66bcffac3131bd21e3.png" alt="图片"></p>
+<p>5.激活成功后会有弹窗提醒哦，Office激活一次有效期是180天，到期后使用此工具重复激活即可无限续期。</p>
+<p>如果你的电脑系统还没有激活，它识别到也能一块激活了，功能非常强大，内有多种激活方式，有兴趣的小伙伴可自行研究使用。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c81a95ce95a97b372d85f8016d99c558.png" alt="图片"></p>
+<p>激活后可以在任务栏开始菜单里看到软件列表，或者在桌面右键菜单选择新建文档。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/4fcafd939662a52f8b6246311f187bbe.png" alt="图片"></p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw">https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw</a></p>
+<p>提取码: ki4s</p>
+<h2 id="激活工具"><a href="#激活工具" class="headerlink" title="激活工具"></a>激活工具</h2><p>链接：<a href="https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA">https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA</a> </p>
+<p>提取码: qtnj</p>
+]]></content>
+      <categories>
+        <category>电脑软件</category>
+      </categories>
+      <tags>
+        <tag>Office办公</tag>
       </tags>
   </entry>
   <entry>

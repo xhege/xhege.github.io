@@ -99,6 +99,126 @@
       </tags>
   </entry>
   <entry>
+    <title>Java知识点复习（三）流程控制之循环语句</title>
+    <url>/posts/java-xunhuan/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="循环语句🔥"><a href="#循环语句🔥" class="headerlink" title="循环语句🔥"></a>循环语句🔥</h1><h2 id="for-循环🔥"><a href="#for-循环🔥" class="headerlink" title="for 循环🔥"></a>for 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
+<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
+<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
+<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
+</li>
+<li><p><strong>理解：</strong> </p>
+<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
+<blockquote>
+<p>案例1：打印3次HelloWorld</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//普通写法:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">       		System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>重复性动作，可以用for循环语句解决</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//int i=1；是一个局部变量，作用域是for的循环体</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png" alt="For"></p>
+<blockquote>
+<p>案例2：打印数字1到100</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(i + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png" alt="image-20220329204146669"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环问题（条件恒成立）</p>
+<p>一直重复输出System.out.println( ) 内容</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for(;;)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(&quot;HelloWord&quot;);</span></span><br><span class="line"><span class="comment">//        &#125; </span></span><br><span class="line">  </span><br><span class="line">        <span class="keyword">for</span>(;<span class="literal">true</span>;)&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  2.初始表达式作用域问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;hello!&quot;</span>+i);<span class="comment">// 1 2 3 4 5</span></span><br><span class="line">     	 &#125;</span><br><span class="line">    System.out.println(i); <span class="comment">// 6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 输出结果为：1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
+
+<p>  例题：</p>
+<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
+<p>  3.迭代语句问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">10</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;hello&quot;</span>); <span class="comment">//输出 3次 hello</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  4.多个初始表达式，多个迭代语句</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">10</span>;i&lt;j;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;——&quot;</span>+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
+<h2 id="while-循环🔥"><a href="#while-循环🔥" class="headerlink" title="while 循环🔥"></a>while 循环🔥</h2><ul>
+<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
+<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：用while 循环 打印3次HelloWorld</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
+<ul>
+<li><strong>注意问题：</strong></li>
+</ul>
+<ol>
+<li>死循环（一直重复输出内容）</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我要变有钱。。。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="do-while-循环🔥"><a href="#do-while-循环🔥" class="headerlink" title="do-while 循环🔥"></a>do-while 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
+<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：输出3次HelloWorld</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;<span class="keyword">while</span>(i&lt;=<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环</p>
+<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;停不下来。。。&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">while</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+<h2 id="循环语句总结"><a href="#循环语句总结" class="headerlink" title="循环语句总结"></a>循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
+<p>while和do-while的区别：</p>
+<p>while是先判断，后执行</p>
+<p>do-while是先执行，后判断</p>
+<ul>
+<li><strong>注意：</strong> </li>
+</ul>
+<ol>
+<li>所有的循环语句都可以省略大括号</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//省略循环语句中的大括号</span></span><br><span class="line"><span class="comment">// 例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//for循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=<span class="number">3</span>)</span><br><span class="line">            <span class="comment">/*注：i++需要写在输出语句里面才可以省略大括号，</span></span><br><span class="line"><span class="comment">               否则会变成死循环（以下同理）*/</span></span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(j++));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//do-while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">while</span>(x&gt;=<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//do-while循环小括号后面必须加分号 写法正确</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">         <span class="keyword">do</span>&#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line">         &#125; <span class="keyword">while</span> (x&gt;=<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">          <span class="comment">//for循环小括号后加 ; 是错误的</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//while循环小括号后加 ; 也是是错误的</span></span><br><span class="line">         <span class="keyword">while</span> (j&lt;=<span class="number">3</span>); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span> + (j++));</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java知识点复习（一）运算符</title>
     <url>/posts/java-operator/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="运算符🔥"><a href="#运算符🔥" class="headerlink" title="运算符🔥"></a>运算符🔥</h1><h2 id="算数运算符🔥"><a href="#算数运算符🔥" class="headerlink" title="算数运算符🔥"></a>算数运算符🔥</h2><p><strong>+　-　*　/　%</strong> </p>
@@ -314,126 +434,6 @@
 <p>  required: “  char, byte, short, int, Character, Byte, Short, Integer, String, or an enum ”</p>
 <p>  ​    不支持 long类型，double类型，boolean类型</p>
 <p>  jdk1.7(7.0)之前都不支持String字符串     </p>
-<br>
-
-<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java知识点复习（三）流程控制之循环语句</title>
-    <url>/posts/java-xunhuan/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="循环语句🔥"><a href="#循环语句🔥" class="headerlink" title="循环语句🔥"></a>循环语句🔥</h1><h2 id="for-循环🔥"><a href="#for-循环🔥" class="headerlink" title="for 循环🔥"></a>for 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
-<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
-<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
-<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
-</li>
-<li><p><strong>理解：</strong> </p>
-<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
-<blockquote>
-<p>案例1：打印3次HelloWorld</p>
-</blockquote>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//普通写法:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">       		System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>重复性动作，可以用for循环语句解决</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//int i=1；是一个局部变量，作用域是for的循环体</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png" alt="For"></p>
-<blockquote>
-<p>案例2：打印数字1到100</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(i + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png" alt="image-20220329204146669"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环问题（条件恒成立）</p>
-<p>一直重复输出System.out.println( ) 内容</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for(;;)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(&quot;HelloWord&quot;);</span></span><br><span class="line"><span class="comment">//        &#125; </span></span><br><span class="line">  </span><br><span class="line">        <span class="keyword">for</span>(;<span class="literal">true</span>;)&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  2.初始表达式作用域问题</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;hello!&quot;</span>+i);<span class="comment">// 1 2 3 4 5</span></span><br><span class="line">     	 &#125;</span><br><span class="line">    System.out.println(i); <span class="comment">// 6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 输出结果为：1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
-
-<p>  例题：</p>
-<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
-<p>  3.迭代语句问题</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">10</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;hello&quot;</span>); <span class="comment">//输出 3次 hello</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  4.多个初始表达式，多个迭代语句</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">10</span>;i&lt;j;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;——&quot;</span>+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
-<h2 id="while-循环🔥"><a href="#while-循环🔥" class="headerlink" title="while 循环🔥"></a>while 循环🔥</h2><ul>
-<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
-<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：用while 循环 打印3次HelloWorld</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
-<ul>
-<li><strong>注意问题：</strong></li>
-</ul>
-<ol>
-<li>死循环（一直重复输出内容）</li>
-</ol>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我要变有钱。。。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h2 id="do-while-循环🔥"><a href="#do-while-循环🔥" class="headerlink" title="do-while 循环🔥"></a>do-while 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
-<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：输出3次HelloWorld</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;<span class="keyword">while</span>(i&lt;=<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环</p>
-<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;停不下来。。。&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">while</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-<h2 id="循环语句总结"><a href="#循环语句总结" class="headerlink" title="循环语句总结"></a>循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
-<p>while和do-while的区别：</p>
-<p>while是先判断，后执行</p>
-<p>do-while是先执行，后判断</p>
-<ul>
-<li><strong>注意：</strong> </li>
-</ul>
-<ol>
-<li>所有的循环语句都可以省略大括号</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//省略循环语句中的大括号</span></span><br><span class="line"><span class="comment">// 例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//for循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=<span class="number">3</span>)</span><br><span class="line">            <span class="comment">/*注：i++需要写在输出语句里面才可以省略大括号，</span></span><br><span class="line"><span class="comment">               否则会变成死循环（以下同理）*/</span></span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(j++));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//do-while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">while</span>(x&gt;=<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//do-while循环小括号后面必须加分号 写法正确</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">         <span class="keyword">do</span>&#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line">         &#125; <span class="keyword">while</span> (x&gt;=<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">          <span class="comment">//for循环小括号后加 ; 是错误的</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//while循环小括号后加 ; 也是是错误的</span></span><br><span class="line">         <span class="keyword">while</span> (j&lt;=<span class="number">3</span>); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span> + (j++));</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <br>
 
 <p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>

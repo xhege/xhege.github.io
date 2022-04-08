@@ -36,9 +36,13 @@
     
   
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kratosr.min.css" type="text/css" media="all">
   
-    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/highlight/night.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/highlight/night-eighties.min.css" type="text/css" media="all">
   
   
   <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
@@ -49,9 +53,6 @@
   
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-  
-  
-    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/kr-dark.min.css" type="text/css" media="all">
   
   <!-- 不得不预先加载的一些JS文件 -->
   <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -212,14 +213,14 @@
             <p>搜索多个关键词时请用空格分割，例如「AE Adobe软件 Ai」这样；</p>
             <p>您也可以使用这些标签碰碰运气哦~</p>
             <p class="search-demo-tags">
-                <a href="/tags/AE/" style="font-size: 18px; color: #b2b7be">AE</a> <a href="/tags/Adobe%E8%BD%AF%E4%BB%B6/" style="font-size: 21px; color: #8f96a3">Adobe软件</a> <a href="/tags/Ai/" style="font-size: 18px; color: #b2b7be">Ai</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%95%99%E7%A8%8B/" style="font-size: 18px; color: #b2b7be">下载教程</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #b2b7be">下载工具</a> <a href="/tags/Java/" style="font-size: 21px; color: #8f96a3">Java</a> <a href="/tags/Office%E5%8A%9E%E5%85%AC/" style="font-size: 18px; color: #b2b7be">Office办公</a> <a href="/tags/pr/" style="font-size: 18px; color: #b2b7be">pr</a> <a href="/tags/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/" style="font-size: 18px; color: #b2b7be">办公软件</a> <a href="/tags/ps/" style="font-size: 18px; color: #b2b7be">ps</a> <a href="/tags/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/" style="font-size: 18px; color: #b2b7be">手机软件</a> <a href="/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 18px; color: #b2b7be">影视</a> <a href="/tags/%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90/" style="font-size: 18px; color: #b2b7be">电视盒子</a> <a href="/tags/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/" style="font-size: 24px; color: #6c7588">单机游戏</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F/" style="font-size: 18px; color: #b2b7be">模拟器游戏</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E8%A3%85/" style="font-size: 18px; color: #b2b7be">游戏安装</a> <a href="/tags/%E5%A4%A9%E7%BF%BC%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90/" style="font-size: 18px; color: #b2b7be">天翼游戏资源</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AF%B4%E6%98%8E/" style="font-size: 18px; color: #b2b7be">游戏说明</a>
+                <a href="/tags/AE/" style="font-size: 18px; color: #b2b7be">AE</a> <a href="/tags/Adobe%E8%BD%AF%E4%BB%B6/" style="font-size: 21px; color: #8f96a3">Adobe软件</a> <a href="/tags/Ai/" style="font-size: 18px; color: #b2b7be">Ai</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%95%99%E7%A8%8B/" style="font-size: 18px; color: #b2b7be">下载教程</a> <a href="/tags/Java/" style="font-size: 21px; color: #8f96a3">Java</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" style="font-size: 18px; color: #b2b7be">下载工具</a> <a href="/tags/pr/" style="font-size: 18px; color: #b2b7be">pr</a> <a href="/tags/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/" style="font-size: 18px; color: #b2b7be">办公软件</a> <a href="/tags/ps/" style="font-size: 18px; color: #b2b7be">ps</a> <a href="/tags/Office%E5%8A%9E%E5%85%AC/" style="font-size: 18px; color: #b2b7be">Office办公</a> <a href="/tags/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/" style="font-size: 18px; color: #b2b7be">手机软件</a> <a href="/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 18px; color: #b2b7be">影视</a> <a href="/tags/%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90/" style="font-size: 18px; color: #b2b7be">电视盒子</a> <a href="/tags/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/" style="font-size: 24px; color: #6c7588">单机游戏</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E8%A3%85/" style="font-size: 18px; color: #b2b7be">游戏安装</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F/" style="font-size: 18px; color: #b2b7be">模拟器游戏</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AF%B4%E6%98%8E/" style="font-size: 18px; color: #b2b7be">游戏说明</a> <a href="/tags/%E5%A4%A9%E7%BF%BC%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90/" style="font-size: 18px; color: #b2b7be">天翼游戏资源</a>
             </p>
         </div>
     </div>
 </div>
 
 <script>var searchDataFile = "/search.json";</script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/local-search.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/local-search.min.js"></script>
 
         
 
@@ -440,7 +441,7 @@
 </script>
 
 
-    <script async src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/candy.min.js"></script>
+    <script async src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/candy.min.js"></script>
 
 
 
@@ -461,13 +462,10 @@
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/kratosr.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/pjax.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kratosr.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/pjax.min.js"></script>
 
     <script defer src="https://unpkg.com/layui-src@2.5.5/dist/layui.all.js"></script>
-
-
-    <script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/kr-dark.min.js"></script>
 
 
 

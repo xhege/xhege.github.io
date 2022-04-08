@@ -39,9 +39,13 @@
     
   
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kratosr.min.css" type="text/css" media="all">
   
-    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/highlight/night.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/highlight/night-eighties.min.css" type="text/css" media="all">
   
   
   <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
@@ -52,9 +56,6 @@
   
   
     <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-  
-  
-    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.7.1/source/css/kr-dark.min.css" type="text/css" media="all">
   
   <!-- 不得不预先加载的一些JS文件 -->
   <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -214,17 +215,6 @@
                     字
                 </li>
                 
-                    <li id="/posts/shuo-ming/" class="leancloud_visitors" data-flag-title="游戏常见问题说明">
-                        <i class="fa fa-eye"></i>
-                        <span class="leancloud-visitors-count"> </span> 次阅读
-                    </li>
-                    
-                        <li>
-                            <i class="fa fa-commenting-o"></i>
-                            <span data-xid="/posts/shuo-ming/" class="waline-comment-count"> </span> 条评论
-                        </li>
-                    
-                
             </ul>
         </header>
         <div class="kratos-post-content">
@@ -234,7 +224,7 @@
             </div>
             
                 <div class="kratos-post-inner-toc">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AF%B4%E6%98%8E"><span class="toc-text">游戏说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">错误提示解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%8E%A9%E5%AE%B6%E4%BA%A4%E6%B5%81"><span class="toc-text">游戏玩家交流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E5%BA%93%E4%B8%8B%E8%BD%BD"><span class="toc-text">游戏运行库下载</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">游戏说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">错误提示解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%8E%A9%E5%AE%B6%E4%BA%A4%E6%B5%81"><span class="toc-number">3.</span> <span class="toc-text">游戏玩家交流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BF%90%E8%A1%8C%E5%BA%93%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.</span> <span class="toc-text">游戏运行库下载</span></a></li></ol>
                 </div>
             
             <hr />
@@ -362,7 +352,8 @@
         </nav>
     
     
-        <div id="w-comments" class="post-comments"></div>
+    
+        <div id="w-comments" class="post-comments bg-image"></div>
 <script>
     var load_comm = () => {
         const init = () => {
@@ -615,7 +606,7 @@
 </script>
 
 
-    <script async src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/candy.min.js"></script>
+    <script async src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/candy.min.js"></script>
 
 
 
@@ -636,13 +627,10 @@
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/kratosr.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/pjax.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kratosr.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/pjax.min.js"></script>
 
     <script defer src="https://unpkg.com/layui-src@2.5.5/dist/layui.all.js"></script>
-
-
-    <script defer src="https://unpkg.com/kratos-rebirth@1.7.1/source/js/kr-dark.min.js"></script>
 
 
 

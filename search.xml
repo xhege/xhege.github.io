@@ -651,6 +651,35 @@
       </tags>
   </entry>
   <entry>
+    <title>游戏常见问题说明</title>
+    <url>/posts/shuo-ming/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
+<p style="line-height:1.8"> 
+<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
+<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
+
+<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
+<p style="line-height:1.8">4.如果运行游戏时
+<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
+<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
+
+<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
+<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
+<p>提取码：f1m7</p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>单机游戏</tag>
+        <tag>游戏说明</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>单机游戏资源分享</title>
     <url>/posts/you-xi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>  <p style="line-height:1.8">
@@ -1373,35 +1402,6 @@
       </categories>
       <tags>
         <tag>单机游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>游戏常见问题说明</title>
-    <url>/posts/shuo-ming/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
-<p style="line-height:1.8"> 
-<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
-<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
-
-<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
-<p style="line-height:1.8">4.如果运行游戏时
-<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
-<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
-
-<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
-<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
-<p>提取码：f1m7</p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>单机游戏</tag>
-        <tag>游戏说明</tag>
       </tags>
   </entry>
   <entry>

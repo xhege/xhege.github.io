@@ -15,14 +15,14 @@
   
     <meta name="keywords" content="小鹤资源屋,小鹤游戏资源网,单机游戏资源" />
   
-  <meta property="og:type" content="website">
+  <meta name="description" content="好伙伴们在哪里~">
+<meta property="og:type" content="website">
 <meta property="og:title" content="好伙伴们">
 <meta property="og:url" content="http://xhgblog.club/friends/index.html">
 <meta property="og:site_name" content="小鹤资源屋">
+<meta property="og:description" content="好伙伴们在哪里~">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xhgblog.club/images/favicon.webp">
-<meta property="article:published_time" content="2018-12-12T13:25:30.000Z">
-<meta property="article:modified_time" content="2022-03-27T01:42:26.371Z">
 <meta property="article:author" content="小鹤哥">
 <meta property="article:tag" content="小鹤资源屋,小鹤游戏资源网,单机游戏资源">
 <meta name="twitter:card" content="summary">
@@ -36,17 +36,18 @@
     
   
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/kratosr.min.css" type="text/css" media="all">
   
-    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
-    <script src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kr-dark.min.js"></script>
+    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/kr-dark.min.js"></script>
   
   
-    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.8.0/source/css/highlight/night-eighties.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/highlight/night-eighties.min.css" type="text/css" media="all">
   
   
   <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
   
   
     <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
@@ -197,37 +198,32 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <div class="kratos-post-content">
             <h2 class="title-h2 text-center">好伙伴们</h2>
-            
+            <div class="linkpage">
+    <ul id="friendsList"></ul>
+</div>
+
+<script type="text/javascript">
+{
+    const flist = [{"name":"猫猫①号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"喵~"},{"name":"猫猫②号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"喵喵~"},{"name":"猫猫⑨号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"咪啪~"}];
+    let friendNodes = '';
+    while (flist.length > 0) {
+        const rndNum = Math.floor(Math.random()*flist.length);
+        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar}" onerror="this.src='https://unpkg.com/kratos-rebirth@1.8.1/source/images/avatar.webp';this.onerror=null;"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio}</p></a></li>`;
+        flist.splice(rndNum, 1);
+    }
+    document.getElementById("friendsList").innerHTML = friendNodes;
+}
+</script>
         </div>
         <footer class="kratos-entry-footer clearfix">
             <div class="footer-tag clearfix">
                 <div class="pull-date">
-                <span>最后编辑：2022-03-27</span>
+                <span>最后编辑：2021-01-18</span>
                 </div>
             </div>
         </footer>
     </div>
     
-    
-        <div id="w-comments" class="post-comments bg-image"></div>
-<script>
-    var load_comm = () => {
-        const init = () => {
-            new Waline(Object.assign({
-                el: '#w-comments',
-                path: '/friends/index.html'
-            }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true}')));
-        }
-        if (typeof Waline === 'undefined') {
-            const src = 'https://unpkg.com/@waline/client/dist/Waline.min.js';
-            $.getScript(src, init);
-        } else {
-            init();
-        }
-    };
-</script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
-
     
 </article>
 
@@ -242,6 +238,8 @@
 
 <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
     
     
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
@@ -282,8 +280,6 @@
     </div>
 </aside>
             
-                    <div class="sticky-area">
-                
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
@@ -452,7 +448,7 @@
 </script>
 
 
-    <script async src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/candy.min.js"></script>
+    <script async src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/candy.min.js"></script>
 
 
 
@@ -473,8 +469,8 @@
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/kratosr.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.8.0/source/js/pjax.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/kratosr.min.js"></script>
+<script defer src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/pjax.min.js"></script>
 
     <script defer src="https://unpkg.com/layui-src@2.5.5/dist/layui.all.js"></script>
 

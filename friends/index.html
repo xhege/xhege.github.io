@@ -27,7 +27,6 @@
 <meta property="article:tag" content="小鹤资源屋,小鹤游戏资源网,单机游戏资源">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://xhgblog.club/images/favicon.webp">
-<meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
   
@@ -179,11 +178,12 @@
 
         
 
-            <article>
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <div class="kratos-post-content">
-            <h2 class="title-h2 text-center">好伙伴们</h2>
-            <div class="linkpage">
+            <h2 class="title-h2 text-center" itemprop="name headline">好伙伴们</h2>
+            <div itemprop="articleBody"><div class="linkpage">
     <ul id="friendsList"></ul>
 </div>
 
@@ -198,12 +198,12 @@
     }
     document.getElementById("friendsList").innerHTML = friendNodes;
 }
-</script>
+</script></div>
         </div>
         <footer class="kratos-entry-footer clearfix">
             <div class="footer-tag clearfix">
                 <div class="pull-date">
-                <span>最后编辑：2021-01-18</span>
+                    <time datetime="2021-01-18T00:00:00.000Z" itemprop="dateModified">最后编辑：2021-01-18</time>
                 </div>
             </div>
         </footer>

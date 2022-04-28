@@ -209,7 +209,7 @@
             }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true,"locale.placeholder":"欢迎留言。(建议填写邮箱可在被回复时收到邮件提醒)","placeholder":"欢迎留言。(建议填写邮箱可在被回复时收到邮件提醒)"}')));
         }
         if (typeof Waline === 'undefined') {
-            const src = 'https://unpkg.com/@waline/client/dist/Waline.min.js';
+            const src = 'https://unpkg.com/@waline/client@1/dist/Waline.min.js';
             $.getScript(src, init);
         } else {
             init();

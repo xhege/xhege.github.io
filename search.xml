@@ -252,87 +252,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java知识点复习（六）数组</title>
-    <url>/posts/java-array/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-数组"><a href="#1-数组" class="headerlink" title="1.数组"></a>1.数组</h1><h2 id="1-1、数组概述"><a href="#1-1、数组概述" class="headerlink" title="1.1、数组概述"></a>1.1、数组概述</h2><ul>
-<li><p>数组：可以存放同一类型的数据。数组也是一种数据，是引用类型。</p>
-<p>即：数（数据）组（一组）就是一组数据。</p>
-</li>
-</ul>
-<h2 id="1-2、数组的使用"><a href="#1-2、数组的使用" class="headerlink" title="1.2、数组的使用"></a>1.2、数组的使用</h2><h3 id="1-2-1、使用方式1—动态初始化"><a href="#1-2-1、使用方式1—动态初始化" class="headerlink" title="1.2.1、使用方式1—动态初始化"></a>1.2.1、使用方式1—动态初始化</h3><ul>
-<li><p>数组的定义：</p>
-<p>数组类型  数据名[ ] = new 数据类型 [大小]</p>
-<p> int a [ ] = new int [5];      //创建了一个数组，名字a ，存放5个int</p>
-</li>
-<li><p>数组的引用 (使用/访问/获取数组元素) ：</p>
-<p>数组名 [下标/索引/index]   </p>
-<p><strong>数组的下标是从 0 开始编号的</strong></p>
-<p>通过 a[下标] 来访问其中的元素。</p>
-<p>比如：a [2]  表示使用a数组的第三个数</p>
-<p>通过 a.length（数据名.length），这种写法可以得到数组中元素的长度。</p>
-</li>
-</ul>
-<h3 id="1-2-2、使用方式2—动态初始化"><a href="#1-2-2、使用方式2—动态初始化" class="headerlink" title="1.2.2、使用方式2—动态初始化"></a>1.2.2、使用方式2—动态初始化</h3><ul>
-<li><p>先声明数组：</p>
-<p><strong>语法：</strong> <code>数据类型 数组名[]; </code>  或者   <code>数据类型[] 数组名; </code></p>
-<p>  <code>int a[];</code>  或者  <code>int[] a;</code></p>
-</li>
-<li><p>创建数组：</p>
-<p><strong>语法：</strong> <code> 数组名=new 数据类型[大小]；</code></p>
-<p>​            <code>a=new int[10];</code>    </p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">例：</span><br><span class="line"><span class="type">double</span> scores[];    <span class="comment">//声明数组，这时scores是 null</span></span><br><span class="line">scores = <span class="keyword">new</span> <span class="title class_">double</span>[<span class="number">5</span>];	<span class="comment">//分配内存空间，可以存放数据</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-2-3、使用方式3—静态初始化"><a href="#1-2-3、使用方式3—静态初始化" class="headerlink" title="1.2.3、使用方式3—静态初始化"></a>1.2.3、使用方式3—静态初始化</h3><ul>
-<li><p>初始化数组：</p>
-<p><strong>语法：</strong> <code>数据类型  数据名[] = &#123;元素值，元素值...&#125;</code></p>
-<p>例：int a[] = {2,5,6,7,8,20,30,40}    如果知道数组有多少元素，具体值</p>
-<p>上面的写法相当于：int a[] = new int[9];</p>
-<p>a[0]=2;  a[1]=5;  a[2]=6;  a[3]=7;  以此类推……</p>
-</li>
-</ul>
-<h2 id="1-3、数组使用注意事项"><a href="#1-3、数组使用注意事项" class="headerlink" title="1.3、数组使用注意事项"></a>1.3、数组使用注意事项</h2><ol>
-<li><p>数组是多个相同类型数据的组合，实现对这些数据的统一管理</p>
-</li>
-<li><p>数组中的元素可以是任何数据类型，包括基本类型和引用类型，但是不能混用。</p>
-</li>
-</ol>
-<ol start="3">
-<li>数组创建后，如果没有赋值，有默认值。<br> int 0，short 0, byte 0, long 0, float 0.0,double 0.0，char \u0000，boolean false，String null</li>
-</ol>
-<ol start="4">
-<li><p>使用数组的步骤 ①声明数组并开辟空间   ②给数组各个元素赋值   ③使用数组</p>
-</li>
-<li><p>数组的下标是从 0 开始的。</p>
-</li>
-<li><p>数组下标必须在指定范围内使用，否则报：下标越界异常，</p>
-</li>
-</ol>
-<p>  比如int[] arr=new int[6]; 则有效下标为 0-5</p>
-<ol start="7">
-<li>数组属引用类型，数组型数据是对象(object)</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//部分注意事项理解</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayDetail</span> &#123; </span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//1. 数组是多个相同类型数据的组合，实现对这些数据的统一管理</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//int[] arr1 = &#123;1, 2, 3, 60,&quot;hello&quot;&#125;;//String -&gt;int</span></span><br><span class="line">		<span class="type">double</span>[] arr2 = &#123;<span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>, <span class="number">60.6</span>, <span class="number">100</span>&#125;;<span class="comment">//int -&gt;double</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//2. 数组中的元素可以是任何数据类型，包括基本类型和引用类型，但是不能混用</span></span><br><span class="line">		String[] arr3 = &#123;<span class="string">&quot;北京&quot;</span>,<span class="string">&quot;jack&quot;</span>,<span class="string">&quot;milan&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//6. 数组下标必须在指定范围内使用，否则报：下标越界异常，比如 </span></span><br><span class="line">		<span class="comment">//int [] arr=new int[6]; 则有效下标为 0-5 </span></span><br><span class="line">		<span class="comment">//即数组的下标/索引 最小 0 最大 数组长度-1(5)</span></span><br><span class="line">		<span class="type">int</span> [] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">6</span>];</span><br><span class="line">		<span class="comment">//System.out.println(arr[6]);//数组越界</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4、数组应用案例"><a href="#1-4、数组应用案例" class="headerlink" title="1.4、数组应用案例"></a>1.4、数组应用案例</h2><blockquote>
-<p>案例：创建一个char类型的26个元素的数组，分别 放置’A’-‘Z’。<br>           使用for循环访问所有元素并打印出来。<br>           提示：char类型数据运算 ‘A’+1 -&gt; ‘B’ </p>
-</blockquote>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayEx01</span> &#123;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        </span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		思路分析</span></span><br><span class="line"><span class="comment">		1. 定义一个 数组  char[] chars = new char[26]</span></span><br><span class="line"><span class="comment">		2. 因为 &#x27;A&#x27; + 1 = &#x27;B&#x27; 类推，所以老师使用for来赋值</span></span><br><span class="line"><span class="comment">		3. 使用for循环访问所有元素</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="type">char</span>[] chars = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">26</span>];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;chars.length;i++)&#123; <span class="comment">//循环26次</span></span><br><span class="line">			chars[i]=(<span class="type">char</span>)(<span class="string">&#x27;A&#x27;</span>+i); <span class="comment">//&#x27;A&#x27; + i 是int , 需要强制转换</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">//循环输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;==chars数组==&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;chars.length;i++)&#123;</span><br><span class="line">			System.out.print(chars[i]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/61512c6b08db4fdebbd65f0cca2706bc.png#pic_center"></p>
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java知识点复习（五）流程控制之循环语句</title>
     <url>/posts/java-loop/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、循环语句🔥"><a href="#1、循环语句🔥" class="headerlink" title="1、循环语句🔥"></a>1、循环语句🔥</h1><h2 id="1-1、for-循环🔥"><a href="#1-1、for-循环🔥" class="headerlink" title="1.1、for 循环🔥"></a>1.1、for 循环🔥</h2><ul>
@@ -444,6 +363,87 @@
 <br>
 
 <p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java知识点复习（六）数组</title>
+    <url>/posts/java-array/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-数组"><a href="#1-数组" class="headerlink" title="1.数组"></a>1.数组</h1><h2 id="1-1、数组概述"><a href="#1-1、数组概述" class="headerlink" title="1.1、数组概述"></a>1.1、数组概述</h2><ul>
+<li><p>数组：可以存放同一类型的数据。数组也是一种数据，是引用类型。</p>
+<p>即：数（数据）组（一组）就是一组数据。</p>
+</li>
+</ul>
+<h2 id="1-2、数组的使用"><a href="#1-2、数组的使用" class="headerlink" title="1.2、数组的使用"></a>1.2、数组的使用</h2><h3 id="1-2-1、使用方式1—动态初始化"><a href="#1-2-1、使用方式1—动态初始化" class="headerlink" title="1.2.1、使用方式1—动态初始化"></a>1.2.1、使用方式1—动态初始化</h3><ul>
+<li><p>数组的定义：</p>
+<p>数组类型  数据名[ ] = new 数据类型 [大小]</p>
+<p> int a [ ] = new int [5];      //创建了一个数组，名字a ，存放5个int</p>
+</li>
+<li><p>数组的引用 (使用/访问/获取数组元素) ：</p>
+<p>数组名 [下标/索引/index]   </p>
+<p><strong>数组的下标是从 0 开始编号的</strong></p>
+<p>通过 a[下标] 来访问其中的元素。</p>
+<p>比如：a [2]  表示使用a数组的第三个数</p>
+<p>通过 a.length（数据名.length），这种写法可以得到数组中元素的长度。</p>
+</li>
+</ul>
+<h3 id="1-2-2、使用方式2—动态初始化"><a href="#1-2-2、使用方式2—动态初始化" class="headerlink" title="1.2.2、使用方式2—动态初始化"></a>1.2.2、使用方式2—动态初始化</h3><ul>
+<li><p>先声明数组：</p>
+<p><strong>语法：</strong> <code>数据类型 数组名[]; </code>  或者   <code>数据类型[] 数组名; </code></p>
+<p>  <code>int a[];</code>  或者  <code>int[] a;</code></p>
+</li>
+<li><p>创建数组：</p>
+<p><strong>语法：</strong> <code> 数组名=new 数据类型[大小]；</code></p>
+<p>​            <code>a=new int[10];</code>    </p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">例：</span><br><span class="line"><span class="type">double</span> scores[];    <span class="comment">//声明数组，这时scores是 null</span></span><br><span class="line">scores = <span class="keyword">new</span> <span class="title class_">double</span>[<span class="number">5</span>];	<span class="comment">//分配内存空间，可以存放数据</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-2-3、使用方式3—静态初始化"><a href="#1-2-3、使用方式3—静态初始化" class="headerlink" title="1.2.3、使用方式3—静态初始化"></a>1.2.3、使用方式3—静态初始化</h3><ul>
+<li><p>初始化数组：</p>
+<p><strong>语法：</strong> <code>数据类型  数据名[] = &#123;元素值，元素值...&#125;</code></p>
+<p>例：int a[] = {2,5,6,7,8,20,30,40}    如果知道数组有多少元素，具体值</p>
+<p>上面的写法相当于：int a[] = new int[9];</p>
+<p>a[0]=2;  a[1]=5;  a[2]=6;  a[3]=7;  以此类推……</p>
+</li>
+</ul>
+<h2 id="1-3、数组使用注意事项"><a href="#1-3、数组使用注意事项" class="headerlink" title="1.3、数组使用注意事项"></a>1.3、数组使用注意事项</h2><ol>
+<li><p>数组是多个相同类型数据的组合，实现对这些数据的统一管理</p>
+</li>
+<li><p>数组中的元素可以是任何数据类型，包括基本类型和引用类型，但是不能混用。</p>
+</li>
+</ol>
+<ol start="3">
+<li>数组创建后，如果没有赋值，有默认值。<br> int 0，short 0, byte 0, long 0, float 0.0,double 0.0，char \u0000，boolean false，String null</li>
+</ol>
+<ol start="4">
+<li><p>使用数组的步骤 ①声明数组并开辟空间   ②给数组各个元素赋值   ③使用数组</p>
+</li>
+<li><p>数组的下标是从 0 开始的。</p>
+</li>
+<li><p>数组下标必须在指定范围内使用，否则报：下标越界异常，</p>
+</li>
+</ol>
+<p>  比如int[] arr=new int[6]; 则有效下标为 0-5</p>
+<ol start="7">
+<li>数组属引用类型，数组型数据是对象(object)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//部分注意事项理解</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayDetail</span> &#123; </span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//1. 数组是多个相同类型数据的组合，实现对这些数据的统一管理</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//int[] arr1 = &#123;1, 2, 3, 60,&quot;hello&quot;&#125;;//String -&gt;int</span></span><br><span class="line">		<span class="type">double</span>[] arr2 = &#123;<span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>, <span class="number">60.6</span>, <span class="number">100</span>&#125;;<span class="comment">//int -&gt;double</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//2. 数组中的元素可以是任何数据类型，包括基本类型和引用类型，但是不能混用</span></span><br><span class="line">		String[] arr3 = &#123;<span class="string">&quot;北京&quot;</span>,<span class="string">&quot;jack&quot;</span>,<span class="string">&quot;milan&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//6. 数组下标必须在指定范围内使用，否则报：下标越界异常，比如 </span></span><br><span class="line">		<span class="comment">//int [] arr=new int[6]; 则有效下标为 0-5 </span></span><br><span class="line">		<span class="comment">//即数组的下标/索引 最小 0 最大 数组长度-1(5)</span></span><br><span class="line">		<span class="type">int</span> [] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">6</span>];</span><br><span class="line">		<span class="comment">//System.out.println(arr[6]);//数组越界</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4、数组应用案例"><a href="#1-4、数组应用案例" class="headerlink" title="1.4、数组应用案例"></a>1.4、数组应用案例</h2><blockquote>
+<p>案例：创建一个char类型的26个元素的数组，分别 放置’A’-‘Z’。<br>           使用for循环访问所有元素并打印出来。<br>           提示：char类型数据运算 ‘A’+1 -&gt; ‘B’ </p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayEx01</span> &#123;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        </span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		思路分析</span></span><br><span class="line"><span class="comment">		1. 定义一个 数组  char[] chars = new char[26]</span></span><br><span class="line"><span class="comment">		2. 因为 &#x27;A&#x27; + 1 = &#x27;B&#x27; 类推，所以老师使用for来赋值</span></span><br><span class="line"><span class="comment">		3. 使用for循环访问所有元素</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="type">char</span>[] chars = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">26</span>];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;chars.length;i++)&#123; <span class="comment">//循环26次</span></span><br><span class="line">			chars[i]=(<span class="type">char</span>)(<span class="string">&#x27;A&#x27;</span>+i); <span class="comment">//&#x27;A&#x27; + i 是int , 需要强制转换</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">//循环输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;==chars数组==&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;chars.length;i++)&#123;</span><br><span class="line">			System.out.print(chars[i]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/61512c6b08db4fdebbd65f0cca2706bc.png#pic_center"></p>
 ]]></content>
       <categories>
         <category>编程技术</category>
@@ -680,65 +680,6 @@
       </tags>
   </entry>
   <entry>
-    <title>极光影视v2.4.1-去广告版</title>
-    <url>/posts/jgyy/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，软件已测试可以正常使用。</p>
-<p>国内外各种电影、电视剧、综艺、动漫等影视应有尽有，想看什么就搜什么，无广告支持投屏和下载功能。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/cb70cd8c.webp"></p>
-<p>免费观看院线大片、付费电影、高清资源。内置几十条资源线路几乎包含了当前所有热门和经典影视。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/b0f5c70b.webp"></p>
-<p><font color="red">注：</font>部分手机安装时，可能会误报病毒，因为敏感资源版权问题此类软件无法上架应用商店，可以放心使用。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>蓝奏云：<a href="https://xhge.lanzoui.com/iDMSvz99cfa">https://xhge.lanzoui.com/iDMSvz99cfa</a></p>
-]]></content>
-      <categories>
-        <category>手机软件</category>
-      </categories>
-      <tags>
-        <tag>手机软件</tag>
-        <tag>影视</tag>
-        <tag>电视盒子</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Office 2021专业增强版 下载及安装教程</title>
-    <url>/posts/office/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>office 2021是微软2021最新上线的办公软件套装，包括了excel、word、PPT等办公软件。增强版相比于之前的版本，全新推出了云存储功能，可以上传自己的办公文件至云端，避免重要文件丢失的问题，能够有效的提升工作效率。还带来了更好的性能、支持暗黑模式、无障碍优化、Excel的动态数组等功能。  </p>
-<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>1.在电脑上下载安装文件，鼠标左键双击ProPlus2021Retail.img打开文件（安装程序在这个映像文件里）。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/06b4c7764f0ba2da0d284ab0fe7e5179.png" alt="图片"></p>
-<p>3.找到Setup文件鼠标右击选择以管理员身份运行，即可开始执行安装。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/f5800d7eed639c90b1fe4b3cb416e2e3.png" alt="图片"></p>
-<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/0f9e957ded6a91beede12d0d965c4693.png" alt="图片"></p>
-<p>5.软件安装完成后，点击关闭按钮。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/9e5dfcf4e4a0aea49c2b22c5c4b03b8c.png" alt="图片"></p>
-<p>6.安装好后先不要使用，下面开始Office软件的激活教程。</p>
-<h2 id="激活教程"><a href="#激活教程" class="headerlink" title="激活教程"></a>激活教程</h2><p>1.解压下载的激活工具，鼠标选中压缩包右键单击，选择解压到当前文件夹。</p>
-<p><strong>注：</strong>开始激活前请先关闭360、电脑管家、系统自带杀毒等防护软件，防止误杀激活补丁。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/2e93d7ff79de6f4140fcc451d77db0d5.png" alt="图片"></p>
-<p>2.鼠标右击选择以管理员身份运行，打开激活工具。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/2c277d82dffcce143dba92037ab798a9.png" alt="图片"></p>
-<p>3.打开软件不需要更改什么复杂设置，我们用来激活office选择智能激活，直接点击开始按钮就可以自动识别激活了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/f5e5878db385e2828263367dff393e72.png" alt="图片"></p>
-<p>4.点击开始按钮后，可以看到下边有激活过程进度条，耐心等待一会。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/8f9d8a453ae38e66bcffac3131bd21e3.png" alt="图片"></p>
-<p>5.激活成功后会有弹窗提醒哦，Office激活一次有效期是180天，到期后使用此工具重复激活即可无限续期。</p>
-<p>如果你的电脑系统还没有激活，它识别到也能一块激活了，功能非常强大，内有多种激活方式，有兴趣的小伙伴可自行研究使用。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/c81a95ce95a97b372d85f8016d99c558.png" alt="图片"></p>
-<p>激活后可以在任务栏开始菜单里看到软件列表，或者在桌面右键菜单选择新建文档。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/4fcafd939662a52f8b6246311f187bbe.png" alt="图片"></p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw">https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw</a></p>
-<p>提取码: ki4s</p>
-<h2 id="激活工具"><a href="#激活工具" class="headerlink" title="激活工具"></a>激活工具</h2><p>链接：<a href="https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA">https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA</a> </p>
-<p>提取码: qtnj</p>
-]]></content>
-      <categories>
-        <category>电脑软件</category>
-      </categories>
-      <tags>
-        <tag>Office办公</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java语法基础知识点（一）</title>
     <url>/posts/java/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
@@ -819,6 +760,26 @@
       </tags>
   </entry>
   <entry>
+    <title>极光影视v2.4.1-去广告版</title>
+    <url>/posts/jgyy/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，软件已测试可以正常使用。</p>
+<p>国内外各种电影、电视剧、综艺、动漫等影视应有尽有，想看什么就搜什么，无广告支持投屏和下载功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/cb70cd8c.webp"></p>
+<p>免费观看院线大片、付费电影、高清资源。内置几十条资源线路几乎包含了当前所有热门和经典影视。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/b0f5c70b.webp"></p>
+<p><font color="red">注：</font>部分手机安装时，可能会误报病毒，因为敏感资源版权问题此类软件无法上架应用商店，可以放心使用。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>蓝奏云：<a href="https://xhge.lanzoui.com/iDMSvz99cfa">https://xhge.lanzoui.com/iDMSvz99cfa</a></p>
+]]></content>
+      <categories>
+        <category>手机软件</category>
+      </categories>
+      <tags>
+        <tag>手机软件</tag>
+        <tag>影视</tag>
+        <tag>电视盒子</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Pr 2021】Premiere 2021 下载及安装教程</title>
     <url>/posts/pr/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>adobe premiere pro 2021简称ps2021，是Adobe公司旗下的一款功能强大的视频编辑处理软件。它可以对视频进行剪辑、旋转、分割、字幕添加等超多实用功能。使用这款软件你可以尽情发挥自己的创意，制作出各种有创意、新意的优秀视频作品。</p>
@@ -846,6 +807,66 @@
       <tags>
         <tag>pr</tag>
         <tag>办公软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Office 2021专业增强版 下载及安装教程</title>
+    <url>/posts/office/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>office 2021是微软2021最新上线的办公软件套装，包括了excel、word、PPT等办公软件。增强版相比于之前的版本，全新推出了云存储功能，可以上传自己的办公文件至云端，避免重要文件丢失的问题，能够有效的提升工作效率。还带来了更好的性能、支持暗黑模式、无障碍优化、Excel的动态数组等功能。  </p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>1.在电脑上下载安装文件，鼠标左键双击ProPlus2021Retail.img打开文件（安装程序在这个映像文件里）。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/06b4c7764f0ba2da0d284ab0fe7e5179.png" alt="图片"></p>
+<p>3.找到Setup文件鼠标右击选择以管理员身份运行，即可开始执行安装。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f5800d7eed639c90b1fe4b3cb416e2e3.png" alt="图片"></p>
+<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/0f9e957ded6a91beede12d0d965c4693.png" alt="图片"></p>
+<p>5.软件安装完成后，点击关闭按钮。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/9e5dfcf4e4a0aea49c2b22c5c4b03b8c.png" alt="图片"></p>
+<p>6.安装好后先不要使用，下面开始Office软件的激活教程。</p>
+<h2 id="激活教程"><a href="#激活教程" class="headerlink" title="激活教程"></a>激活教程</h2><p>1.解压下载的激活工具，鼠标选中压缩包右键单击，选择解压到当前文件夹。</p>
+<p><strong>注：</strong>开始激活前请先关闭360、电脑管家、系统自带杀毒等防护软件，防止误杀激活补丁。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2e93d7ff79de6f4140fcc451d77db0d5.png" alt="图片"></p>
+<p>2.鼠标右击选择以管理员身份运行，打开激活工具。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/2c277d82dffcce143dba92037ab798a9.png" alt="图片"></p>
+<p>3.打开软件不需要更改什么复杂设置，我们用来激活office选择智能激活，直接点击开始按钮就可以自动识别激活了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/f5e5878db385e2828263367dff393e72.png" alt="图片"></p>
+<p>4.点击开始按钮后，可以看到下边有激活过程进度条，耐心等待一会。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/8f9d8a453ae38e66bcffac3131bd21e3.png" alt="图片"></p>
+<p>5.激活成功后会有弹窗提醒哦，Office激活一次有效期是180天，到期后使用此工具重复激活即可无限续期。</p>
+<p>如果你的电脑系统还没有激活，它识别到也能一块激活了，功能非常强大，内有多种激活方式，有兴趣的小伙伴可自行研究使用。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c81a95ce95a97b372d85f8016d99c558.png" alt="图片"></p>
+<p>激活后可以在任务栏开始菜单里看到软件列表，或者在桌面右键菜单选择新建文档。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/4fcafd939662a52f8b6246311f187bbe.png" alt="图片"></p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw">https://pan.baidu.com/s/1-Zm9cIHy48ZoBmPPU60Nnw</a></p>
+<p>提取码: ki4s</p>
+<h2 id="激活工具"><a href="#激活工具" class="headerlink" title="激活工具"></a>激活工具</h2><p>链接：<a href="https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA">https://pan.baidu.com/s/1OGK_Foq0vAZdA_Vx1VErRA</a> </p>
+<p>提取码: qtnj</p>
+]]></content>
+      <categories>
+        <category>电脑软件</category>
+      </categories>
+      <tags>
+        <tag>Office办公</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QMD音乐v1.7.1-听歌神器</title>
+    <url>/posts/qmd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
+<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
+<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
+<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
+<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
+<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
+]]></content>
+      <categories>
+        <category>手机软件</category>
+      </categories>
+      <tags>
+        <tag>手机软件</tag>
+        <tag>无损音乐</tag>
       </tags>
   </entry>
   <entry>
@@ -918,49 +939,14 @@
       </tags>
   </entry>
   <entry>
-    <title>QMD音乐v1.7.1-听歌神器</title>
-    <url>/posts/qmd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
-<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
-<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
-<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
-<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
-<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
-]]></content>
-      <categories>
-        <category>手机软件</category>
-      </categories>
-      <tags>
-        <tag>手机软件</tag>
-        <tag>无损音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单机游戏安装教程</title>
-    <url>/posts/jiao-cheng/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
-<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
-<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>单机游戏</tag>
-        <tag>游戏安装</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>模拟器类游戏合集</title>
     <url>/posts/mo-ni-qi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> 
 <ol>
-    <li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>了不起的修仙模拟器 </strong> <a href="https://pan.baidu.com/s/1YKu-oGDICDudpSZ-WonDlA" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：ps2h）<font color="#FF0000"></font><br />
-</span></span></li>
-<br />
+<li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>了不起的修仙模拟器</strong> <a href="https://pan.baidu.com/s/1NsFYz_9pGjmwaaGEp1WZ0A" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码: cfez）(
+            <font color="#FF0000">激活码：263558&nbsp;&nbsp;旧版密码587441</font>)<span style="font-size:13px; color: rgb(109, 109, 109);"><font color="#FF0000"></font></span><br />
+版本介绍：v1.23|容量2.6GB|官方简体中文,国语发音|支持键盘.鼠标|赠多项修改器|2022年05月更新</span></span>
+</li><br />
     <li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>小偷模拟器/窃贼模拟器</strong> <a href="https://pan.baidu.com/s/1B8gdBXu-Iy0C4KlkRyJ0rg" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：a7cz）(<font color="#FF0000">激活码：447854</font>)<br />
 版本介绍：v1.45|容量6.5GB|官方简体中文|支持键盘.鼠标|赠多项修改器|赠满金币.技能点初始存档</span></span>
 </li><br />
@@ -991,7 +977,10 @@
 <li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong> 汽车修理工模拟</strong> <a href="https://pan.baidu.com/s/1EDhEzv8Am-IbTpth9vra1g" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：zuvs）<br />
 </span></span></li>
 <br />
-<li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong> 料理模拟器</strong> <a href="https://pan.baidu.com/s/1SbooICCrhK-wfZ0taf1I9Q" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：cn88）(<font color="#FF0000">激活码：362223</font>)<br />
+<li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong> 料理模拟器</strong> <a href="https://pan.baidu.com/s/1SbooICCrhK-wfZ0taf1I9Q" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：cn88）(<font color="#FF0000">激活码：362223</font>)<br /><br />
+    <li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>了不起的修仙模拟器 </strong> <a href="https://pan.baidu.com/s/1YKu-oGDICDudpSZ-WonDlA" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码：ps2h）<font color="#FF0000"></font><br />
+</span></span></li>
+<br />
 </span></span></li></ol>
 </p>
 
@@ -1002,6 +991,21 @@
       <tags>
         <tag>单机游戏</tag>
         <tag>模拟器游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单机游戏安装教程</title>
+    <url>/posts/jiao-cheng/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
+<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
+<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>单机游戏</tag>
+        <tag>游戏安装</tag>
       </tags>
   </entry>
   <entry>
@@ -1047,6 +1051,10 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
 <h2 id="2022更新资源"><a href="#2022更新资源" class="headerlink" title="2022更新资源"></a>2022更新资源</h2><hr>
 <p>
 <ol>
+<li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>了不起的修仙模拟器</strong> <a href="https://pan.baidu.com/s/1NsFYz_9pGjmwaaGEp1WZ0A" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码: cfez）(
+            <font color="#FF0000">激活码：263558&nbsp;&nbsp;旧版密码587441</font>)<span style="font-size:13px; color: rgb(109, 109, 109);"><font color="#FF0000"></font></span><br />
+版本介绍：v1.23|容量2.6GB|官方简体中文,国语发音|支持键盘.鼠标|赠多项修改器|2022年05月更新</span></span>
+</li><br />
                 <li><span style="color: rgb(60, 60, 60); font-size: 15px;"><strong>死或生6</strong> <a href="https://pan.baidu.com/s/1aA883W2Efyt0TpuxouHbKg" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="点击下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);">（提取码: mchm）(
             <font color="#FF0000">激活码：578996&nbsp;&nbsp;旧版密码632211</font>)<br /><a href="https://xhgblog.club/posts/zi-yuan/" style="margin:0 0 0 20px" target="_blank"><input class="button" input="" style="width:90px;height:22px;font-family: 微软雅黑, sans-serif;font-weight:bold;font-size:13px;" type="button" value="天翼云下载" /></a> <span style="font-size:13px; color: rgb(109, 109, 109);"><font color="#FF0000">&nbsp;&nbsp;天翼云不限速，密码已在群公告分享，请加QQ群查看</font></span><br />
 版本介绍：v1.22版|容量59GB|集成全DLC|官方简体中文|支持键盘.鼠标.手柄|附带多项修改器|赠音乐原声BGM|赠全模式.称号.音乐.DOA百科.小知识全解锁存档</span></span>

@@ -35,13 +35,13 @@
     
   
   <!-- 样式表文件 -->
-  <link rel="stylesheet" id="kratos-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
   
-    <link rel="stylesheet" id="darkmode-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
-    <script src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/kr-dark.min.js"></script>
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <script src="/js/kr-dark.min.js"></script>
   
   
-    <link rel="stylesheet" id="highlight-css" href="https://unpkg.com/kratos-rebirth@1.8.1/source/css/highlight/night.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night.min.css" type="text/css" media="all">
   
   
   <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
@@ -193,7 +193,7 @@
     let friendNodes = '';
     while (flist.length > 0) {
         const rndNum = Math.floor(Math.random()*flist.length);
-        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar}" onerror="this.src='https://unpkg.com/kratos-rebirth@1.8.1/source/images/avatar.webp';this.onerror=null;"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio}</p></a></li>`;
+        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar}" onerror="this.src='/images/avatar.webp';this.onerror=null;"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio}</p></a></li>`;
         flist.splice(rndNum, 1);
     }
     document.getElementById("friendsList").innerHTML = friendNodes;
@@ -443,7 +443,7 @@
 </script>
 
 
-    <script async src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/candy.min.js"></script>
+    <script async src="/js/candy.min.js"></script>
 
 
 
@@ -464,8 +464,8 @@
     <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/kratosr.min.js"></script>
-<script defer src="https://unpkg.com/kratos-rebirth@1.8.1/source/js/pjax.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
 
     <script defer src="https://unpkg.com/layui-src@2.5.5/dist/layui.all.js"></script>
 

@@ -209,6 +209,132 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
+    <title>Java知识点复习（二）基本数据类型</title>
+    <url>/posts/java-data/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、基本数据类型"><a href="#1、基本数据类型" class="headerlink" title="1、基本数据类型"></a>1、基本数据类型</h1><p>每一种数据类型，可以看作一个容器，四个容器的区别是容量不同。</p>
+<h2 id="1-1、整数类型"><a href="#1-1、整数类型" class="headerlink" title="1.1、整数类型"></a>1.1、整数类型</h2><p>整数类型分为<code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code>用于存放整数</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用字节数</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1</td>
+<td>-128~127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>-2^15 ~ 2^15-1 约等于 正负3万多</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4</td>
+<td>-2^31 ~ 2^31-1  约等于 正负21亿</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8</td>
+<td>-2^63 ~ 2^63-1</td>
+</tr>
+</tbody></table>
+<h2 id="1-2、小数类型（浮点类型）"><a href="#1-2、小数类型（浮点类型）" class="headerlink" title="1.2、小数类型（浮点类型）"></a>1.2、小数类型（浮点类型）</h2><p>小数类型分为<code>float</code>、<code>double</code>，小数类型要大于整数类型</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用字节数（小数位）</th>
+<th>精度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>4</td>
+<td>单精度</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+<td>双精度</td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong> </p>
+<p>1.小数类型默认常量为double,如果要声明float类型，小数后面必须加”F”或”f”。</p>
+<p>2.通常情况下，应该使用double类型，以其更为精确。</p>
+<h3 id="1-3、逻辑类型"><a href="#1-3、逻辑类型" class="headerlink" title="1.3、逻辑类型"></a>1.3、逻辑类型</h3><p>boolean  布尔类型 只能取值ture或false，表示最基础的逻辑，通常用于程序流程控制。</p>
+<p>字面值：</p>
+<p><code>true</code>    对，正确，真…</p>
+<p><code>false</code>   错，错误，假…</p>
+<p>boolean flag = true;</p>
+<p><strong>注意：</strong> 布尔类型不可以用 0 或 非0 的整数替代 false 或 ture</p>
+<h2 id="1-4、字符类型"><a href="#1-4、字符类型" class="headerlink" title="1.4、字符类型"></a>1.4、字符类型</h2><p><code>char</code> 类型 表示字符</p>
+<p>1.可以表示单个字符  2.可以无符号表示  3.字符常量用单引号括起</p>
+<p>字符和字符串的区别：</p>
+<p>“abc” — 字符串</p>
+<p>“a”   — 字符</p>
+<p>char 占用2个字节</p>
+<p>还可以无符号表示整数 0~2^16-1  -&gt; 65535</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>基本数据类型有8种</p>
+<table>
+<thead>
+<tr>
+<th align="center">byte</th>
+<th align="center">short</th>
+<th align="center">int</th>
+<th align="center">long</th>
+<th align="center">float</th>
+<th align="center">double</th>
+<th align="center">boolean</th>
+<th align="center">char</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center"></td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<p>8种基本数据类型排序：</p>
+<p>bayte -&gt; short (char) -&gt; int -&gt;long -&gt;float -&gt;double</p>
+<p>String字符串不是基本数据类型，是引用数据类型。</p>
+<h1 id="2-基本数据类型转换"><a href="#2-基本数据类型转换" class="headerlink" title="2.基本数据类型转换"></a>2.基本数据类型转换</h1><h2 id="2-1、自动类型转换"><a href="#2-1、自动类型转换" class="headerlink" title="2.1、自动类型转换"></a>2.1、自动类型转换</h2><p>自动类型转换：在进行赋值或运算时，精度（容量）小的类型自动转换为精度（容量）大的类型。</p>
+<p>理解：小容量的数据转换到大容量</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	  <span class="comment">//1.自动转换</span></span><br><span class="line">      <span class="type">int</span> m1=<span class="number">10</span>,m2=<span class="number">5</span>;</span><br><span class="line">	  <span class="comment">//10在int容器，转换到double容器，后面会补.0000000</span></span><br><span class="line">	  <span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">	  <span class="comment">//5在int容器，自动转换到byte容器（特殊，大的容器的数据自动转到小容器）</span></span><br><span class="line">	  <span class="type">byte</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">	  System.out.println(<span class="string">&quot;a:&quot;</span>+a); <span class="comment">//10.0</span></span><br><span class="line">	  System.out.println(<span class="string">&quot;d:&quot;</span>+d); <span class="comment">//5</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2、强制类型转换"><a href="#2-2、强制类型转换" class="headerlink" title="2.2、强制类型转换"></a>2.2、强制类型转换</h2><p>大容量的数据转换到小容量，必须加上强制类型转换符。</p>
+<p>强制类型转换符问题：</p>
+<p>问题1：溢出，数据丢失，不会报错</p>
+<p>问题2：精度丢失</p>
+<p>只要最终转换的小于等于要转换的就没问题</p>
+<h2 id="2-3、其他特殊转换"><a href="#2-3、其他特殊转换" class="headerlink" title="2.3、其他特殊转换"></a>2.3、其他特殊转换</h2><p>shuort和char转换</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a0f2466319494f24839a544e12bb9858.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//溢出</span></span><br><span class="line">	<span class="type">short</span> <span class="variable">a1</span> <span class="operator">=</span> -<span class="number">200</span>;</span><br><span class="line">	<span class="type">char</span>  <span class="variable">a2</span> <span class="operator">=</span> (<span class="type">char</span>)a1;</span><br><span class="line">	System.out.println(a2);</span><br><span class="line">	<span class="type">char</span>  <span class="variable">b1</span> <span class="operator">=</span> <span class="number">50000</span>;</span><br><span class="line">	<span class="type">short</span> <span class="variable">b2</span> <span class="operator">=</span> (<span class="type">short</span>)b1;</span><br><span class="line">    System.out.println(b2);</span><br><span class="line">    <span class="comment">//0~3万转换</span></span><br><span class="line">	<span class="type">char</span> c1=<span class="number">97</span>;</span><br><span class="line">	<span class="type">short</span> c2=(<span class="type">short</span>)c1;</span><br><span class="line">    System.out.println(c2);</span><br><span class="line">	<span class="type">short</span> d1=<span class="number">97</span>;</span><br><span class="line">	<span class="type">char</span>  d2=(<span class="type">char</span>)d1;</span><br><span class="line">	System.out.println(d2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>byte short char只要参与运算 首先提升为int类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//short byte char参与运算，变成int</span></span><br><span class="line">	<span class="type">byte</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">	<span class="type">byte</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">	<span class="type">byte</span> <span class="variable">a3</span> <span class="operator">=</span> (<span class="type">byte</span>)(a1+a2);</span><br><span class="line">	System.out.println(a3);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>两个不同类型运算结果是更大的类型，两个相同类型运算结果一定是这个类型。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//两个不同类型运算，结果是大的类型</span></span><br><span class="line">	<span class="type">double</span> a1=<span class="number">3.14</span>;</span><br><span class="line">	<span class="type">int</span> a2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">double</span> <span class="variable">a3</span> <span class="operator">=</span> a1+a2;</span><br><span class="line">	System.out.println(a3); <span class="comment">//13.14</span></span><br><span class="line"></span><br><span class="line">    <span class="type">byte</span> b1=<span class="number">5</span>;</span><br><span class="line">	<span class="type">short</span> b2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">b3</span> <span class="operator">=</span> b1+b2;</span><br><span class="line">    System.out.println(b3); <span class="comment">//15</span></span><br><span class="line"></span><br><span class="line">	<span class="type">double</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="number">7</span>/<span class="number">5</span>;</span><br><span class="line">	System.out.println(c1); <span class="comment">//2.0</span></span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java知识点复习（五）流程控制之循环语句</title>
     <url>/posts/java-loop/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、循环语句🔥"><a href="#1、循环语句🔥" class="headerlink" title="1、循环语句🔥"></a>1、循环语句🔥</h1><h2 id="1-1、for-循环🔥"><a href="#1-1、for-循环🔥" class="headerlink" title="1.1、for 循环🔥"></a>1.1、for 循环🔥</h2><ul>
@@ -396,132 +522,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperator02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建Scanner类的对象</span></span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">       <span class="comment">// 2.提示用户输入考试成绩</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入您的成绩？&quot;</span>);</span><br><span class="line">      <span class="comment">// 3.获取用户输入的成绩</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> sc.nextDouble();</span><br><span class="line">      <span class="comment">// 4.判断用户的成绩是否及格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> score &gt;= <span class="number">60.0</span> ? <span class="string">&quot;爸爸带我去游乐场！&quot;</span>:<span class="string">&quot;爸爸揍我一顿！&quot;</span>;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>三元运算符 练习</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperatorExercise</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//案例：实现三个数的最大值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> <span class="number">456</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> <span class="number">49</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n3</span> <span class="operator">=</span> <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//思路</span></span><br><span class="line">        <span class="comment">//1.先得到n1和n2中最大数，保存到max1</span></span><br><span class="line">        <span class="comment">//2.然后再求出max1和n3中的最大数，保存到max2</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max1</span> <span class="operator">=</span> n1 &gt; n2 ? n1 : n2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max2</span> <span class="operator">=</span> max1 &gt; n3 ? max1 : n3;</span><br><span class="line">        System.out.println(<span class="string">&quot;最大数=&quot;</span>+max2); <span class="comment">//最大数=456</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java知识点复习（二）基本数据类型</title>
-    <url>/posts/java-data/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、基本数据类型"><a href="#1、基本数据类型" class="headerlink" title="1、基本数据类型"></a>1、基本数据类型</h1><p>每一种数据类型，可以看作一个容器，四个容器的区别是容量不同。</p>
-<h2 id="1-1、整数类型"><a href="#1-1、整数类型" class="headerlink" title="1.1、整数类型"></a>1.1、整数类型</h2><p>整数类型分为<code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code>用于存放整数</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>占用字节数</th>
-<th>范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>byte</td>
-<td>1</td>
-<td>-128~127</td>
-</tr>
-<tr>
-<td>short</td>
-<td>2</td>
-<td>-2^15 ~ 2^15-1 约等于 正负3万多</td>
-</tr>
-<tr>
-<td>int</td>
-<td>4</td>
-<td>-2^31 ~ 2^31-1  约等于 正负21亿</td>
-</tr>
-<tr>
-<td>long</td>
-<td>8</td>
-<td>-2^63 ~ 2^63-1</td>
-</tr>
-</tbody></table>
-<h2 id="1-2、小数类型（浮点类型）"><a href="#1-2、小数类型（浮点类型）" class="headerlink" title="1.2、小数类型（浮点类型）"></a>1.2、小数类型（浮点类型）</h2><p>小数类型分为<code>float</code>、<code>double</code>，小数类型要大于整数类型</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>占用字节数（小数位）</th>
-<th>精度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>float</td>
-<td>4</td>
-<td>单精度</td>
-</tr>
-<tr>
-<td>double</td>
-<td>8</td>
-<td>双精度</td>
-</tr>
-</tbody></table>
-<p><strong>注意：</strong> </p>
-<p>1.小数类型默认常量为double,如果要声明float类型，小数后面必须加”F”或”f”。</p>
-<p>2.通常情况下，应该使用double类型，以其更为精确。</p>
-<h3 id="1-3、逻辑类型"><a href="#1-3、逻辑类型" class="headerlink" title="1.3、逻辑类型"></a>1.3、逻辑类型</h3><p>boolean  布尔类型 只能取值ture或false，表示最基础的逻辑，通常用于程序流程控制。</p>
-<p>字面值：</p>
-<p><code>true</code>    对，正确，真…</p>
-<p><code>false</code>   错，错误，假…</p>
-<p>boolean flag = true;</p>
-<p><strong>注意：</strong> 布尔类型不可以用 0 或 非0 的整数替代 false 或 ture</p>
-<h2 id="1-4、字符类型"><a href="#1-4、字符类型" class="headerlink" title="1.4、字符类型"></a>1.4、字符类型</h2><p><code>char</code> 类型 表示字符</p>
-<p>1.可以表示单个字符  2.可以无符号表示  3.字符常量用单引号括起</p>
-<p>字符和字符串的区别：</p>
-<p>“abc” — 字符串</p>
-<p>“a”   — 字符</p>
-<p>char 占用2个字节</p>
-<p>还可以无符号表示整数 0~2^16-1  -&gt; 65535</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>基本数据类型有8种</p>
-<table>
-<thead>
-<tr>
-<th align="center">byte</th>
-<th align="center">short</th>
-<th align="center">int</th>
-<th align="center">long</th>
-<th align="center">float</th>
-<th align="center">double</th>
-<th align="center">boolean</th>
-<th align="center">char</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center"></td>
-<td align="center">2</td>
-</tr>
-</tbody></table>
-<p>8种基本数据类型排序：</p>
-<p>bayte -&gt; short (char) -&gt; int -&gt;long -&gt;float -&gt;double</p>
-<p>String字符串不是基本数据类型，是引用数据类型。</p>
-<h1 id="2-基本数据类型转换"><a href="#2-基本数据类型转换" class="headerlink" title="2.基本数据类型转换"></a>2.基本数据类型转换</h1><h2 id="2-1、自动类型转换"><a href="#2-1、自动类型转换" class="headerlink" title="2.1、自动类型转换"></a>2.1、自动类型转换</h2><p>自动类型转换：在进行赋值或运算时，精度（容量）小的类型自动转换为精度（容量）大的类型。</p>
-<p>理解：小容量的数据转换到大容量</p>
-<p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	  <span class="comment">//1.自动转换</span></span><br><span class="line">      <span class="type">int</span> m1=<span class="number">10</span>,m2=<span class="number">5</span>;</span><br><span class="line">	  <span class="comment">//10在int容器，转换到double容器，后面会补.0000000</span></span><br><span class="line">	  <span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">	  <span class="comment">//5在int容器，自动转换到byte容器（特殊，大的容器的数据自动转到小容器）</span></span><br><span class="line">	  <span class="type">byte</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">	  System.out.println(<span class="string">&quot;a:&quot;</span>+a); <span class="comment">//10.0</span></span><br><span class="line">	  System.out.println(<span class="string">&quot;d:&quot;</span>+d); <span class="comment">//5</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2、强制类型转换"><a href="#2-2、强制类型转换" class="headerlink" title="2.2、强制类型转换"></a>2.2、强制类型转换</h2><p>大容量的数据转换到小容量，必须加上强制类型转换符。</p>
-<p>强制类型转换符问题：</p>
-<p>问题1：溢出，数据丢失，不会报错</p>
-<p>问题2：精度丢失</p>
-<p>只要最终转换的小于等于要转换的就没问题</p>
-<h2 id="2-3、其他特殊转换"><a href="#2-3、其他特殊转换" class="headerlink" title="2.3、其他特殊转换"></a>2.3、其他特殊转换</h2><p>shuort和char转换</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a0f2466319494f24839a544e12bb9858.png"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//溢出</span></span><br><span class="line">	<span class="type">short</span> <span class="variable">a1</span> <span class="operator">=</span> -<span class="number">200</span>;</span><br><span class="line">	<span class="type">char</span>  <span class="variable">a2</span> <span class="operator">=</span> (<span class="type">char</span>)a1;</span><br><span class="line">	System.out.println(a2);</span><br><span class="line">	<span class="type">char</span>  <span class="variable">b1</span> <span class="operator">=</span> <span class="number">50000</span>;</span><br><span class="line">	<span class="type">short</span> <span class="variable">b2</span> <span class="operator">=</span> (<span class="type">short</span>)b1;</span><br><span class="line">    System.out.println(b2);</span><br><span class="line">    <span class="comment">//0~3万转换</span></span><br><span class="line">	<span class="type">char</span> c1=<span class="number">97</span>;</span><br><span class="line">	<span class="type">short</span> c2=(<span class="type">short</span>)c1;</span><br><span class="line">    System.out.println(c2);</span><br><span class="line">	<span class="type">short</span> d1=<span class="number">97</span>;</span><br><span class="line">	<span class="type">char</span>  d2=(<span class="type">char</span>)d1;</span><br><span class="line">	System.out.println(d2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>byte short char只要参与运算 首先提升为int类型</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//short byte char参与运算，变成int</span></span><br><span class="line">	<span class="type">byte</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">	<span class="type">byte</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">	<span class="type">byte</span> <span class="variable">a3</span> <span class="operator">=</span> (<span class="type">byte</span>)(a1+a2);</span><br><span class="line">	System.out.println(a3);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>两个不同类型运算结果是更大的类型，两个相同类型运算结果一定是这个类型。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//两个不同类型运算，结果是大的类型</span></span><br><span class="line">	<span class="type">double</span> a1=<span class="number">3.14</span>;</span><br><span class="line">	<span class="type">int</span> a2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">double</span> <span class="variable">a3</span> <span class="operator">=</span> a1+a2;</span><br><span class="line">	System.out.println(a3); <span class="comment">//13.14</span></span><br><span class="line"></span><br><span class="line">    <span class="type">byte</span> b1=<span class="number">5</span>;</span><br><span class="line">	<span class="type">short</span> b2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">b3</span> <span class="operator">=</span> b1+b2;</span><br><span class="line">    System.out.println(b3); <span class="comment">//15</span></span><br><span class="line"></span><br><span class="line">	<span class="type">double</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="number">7</span>/<span class="number">5</span>;</span><br><span class="line">	System.out.println(c1); <span class="comment">//2.0</span></span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>编程技术</category>
@@ -928,27 +928,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>QMD音乐v1.7.1-听歌神器</title>
-    <url>/posts/qmd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
-<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
-<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
-<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
-<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
-<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
-]]></content>
-      <categories>
-        <category>手机软件</category>
-      </categories>
-      <tags>
-        <tag>手机软件</tag>
-        <tag>无损音乐</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Pr 2021】Premiere 2021 下载及安装教程</title>
     <url>/posts/pr/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>adobe premiere pro 2021简称ps2021，是Adobe公司旗下的一款功能强大的视频编辑处理软件。它可以对视频进行剪辑、旋转、分割、字幕添加等超多实用功能。使用这款软件你可以尽情发挥自己的创意，制作出各种有创意、新意的优秀视频作品。</p>
@@ -1003,6 +982,27 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       <tags>
         <tag>Adobe软件</tag>
         <tag>ps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QMD音乐v1.7.1-听歌神器</title>
+    <url>/posts/qmd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
+<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
+<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
+<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
+<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
+<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
+]]></content>
+      <categories>
+        <category>手机软件</category>
+      </categories>
+      <tags>
+        <tag>手机软件</tag>
+        <tag>无损音乐</tag>
       </tags>
   </entry>
   <entry>
@@ -1115,34 +1115,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       <tags>
         <tag>单机游戏</tag>
         <tag>模拟器游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>游戏常见问题说明</title>
-    <url>/posts/shuo-ming/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
-<p style="line-height:1.8"> 
-<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
-<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
-
-<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
-<p style="line-height:1.8">4.如果运行游戏时
-<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
-<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
-
-<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
-<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
-<p>提取码：f1m7</p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>游戏说明</tag>
       </tags>
   </entry>
   <entry>
@@ -1891,6 +1863,34 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a><br />
       </categories>
       <tags>
         <tag>单机游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游戏常见问题说明</title>
+    <url>/posts/shuo-ming/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
+<p style="line-height:1.8"> 
+<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
+<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
+
+<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
+<p style="line-height:1.8">4.如果运行游戏时
+<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
+<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
+
+<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
+<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
+<p>提取码：f1m7</p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>游戏说明</tag>
       </tags>
   </entry>
   <entry>

@@ -209,6 +209,202 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
+    <title>Java知识点复习（五）流程控制之循环语句</title>
+    <url>/posts/java-loop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、循环语句🔥"><a href="#1、循环语句🔥" class="headerlink" title="1、循环语句🔥"></a>1、循环语句🔥</h1><h2 id="1-1、for-循环🔥"><a href="#1-1、for-循环🔥" class="headerlink" title="1.1、for 循环🔥"></a>1.1、for 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
+<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
+<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
+<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
+</li>
+<li><p><strong>理解：</strong> </p>
+<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
+<blockquote>
+<p>案例1：打印3次HelloWorld</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//普通写法:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">       		System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>重复性动作，可以用for循环语句解决</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//int i=1；是一个局部变量，作用域是for的循环体</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png"></p>
+<blockquote>
+<p>案例2：打印数字1到100</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(i + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环问题（条件恒成立）</p>
+<p>一直重复输出System.out.println( ) 内容</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for(;;)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(&quot;HelloWord&quot;);</span></span><br><span class="line"><span class="comment">//        &#125; </span></span><br><span class="line">  </span><br><span class="line">        <span class="keyword">for</span>(;<span class="literal">true</span>;)&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  2.初始表达式作用域问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;hello!&quot;</span>+i);<span class="comment">// 1 2 3 4 5</span></span><br><span class="line">     	 &#125;</span><br><span class="line">    System.out.println(i); <span class="comment">// 6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 输出结果为：1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
+
+<p>  例题：</p>
+<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
+<p>  3.迭代语句问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">10</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;hello&quot;</span>); <span class="comment">//输出 3次 hello</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  4.多个初始表达式，多个迭代语句</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">10</span>;i&lt;j;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;——&quot;</span>+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
+<h2 id="1-2、while-循环🔥"><a href="#1-2、while-循环🔥" class="headerlink" title="1.2、while 循环🔥"></a>1.2、while 循环🔥</h2><ul>
+<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
+<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：用while 循环 打印3次HelloWorld</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
+<ul>
+<li><strong>注意问题：</strong></li>
+</ul>
+<ol>
+<li>死循环（一直重复输出内容）</li>
+</ol>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我要变有钱。。。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="1-3、do-while-循环🔥"><a href="#1-3、do-while-循环🔥" class="headerlink" title="1.3、do-while 循环🔥"></a>1.3、do-while 循环🔥</h2><ul>
+<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
+<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
+</li>
+</ul>
+<blockquote>
+<p>案例：输出3次HelloWorld</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;<span class="keyword">while</span>(i&lt;=<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
+<ul>
+<li><p><strong>注意问题：</strong> </p>
+<p>1.死循环</p>
+<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;停不下来。。。&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">while</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+<h2 id="1-4、循环语句总结"><a href="#1-4、循环语句总结" class="headerlink" title="1.4、循环语句总结"></a>1.4、循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
+<p>while和do-while的区别：</p>
+<p>while是先判断，后执行</p>
+<p>do-while是先执行，后判断</p>
+<ul>
+<li><strong>注意：</strong> </li>
+</ul>
+<ol>
+<li>所有的循环语句都可以省略大括号</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//省略循环语句中的大括号</span></span><br><span class="line"><span class="comment">// 例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//for循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=<span class="number">3</span>)</span><br><span class="line">            <span class="comment">/*注：i++需要写在输出语句里面才可以省略大括号，</span></span><br><span class="line"><span class="comment">               否则会变成死循环（以下同理）*/</span></span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(j++));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//do-while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">while</span>(x&gt;=<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//do-while循环小括号后面必须加分号 写法正确</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">         <span class="keyword">do</span>&#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line">         &#125; <span class="keyword">while</span> (x&gt;=<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">          <span class="comment">//for循环小括号后加 ; 是错误的</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//while循环小括号后加 ; 也是是错误的</span></span><br><span class="line">         <span class="keyword">while</span> (j&lt;=<span class="number">3</span>); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span> + (j++));</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java知识点复习（三）运算符</title>
+    <url>/posts/java-operator/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、运算符🔥"><a href="#1、运算符🔥" class="headerlink" title="1、运算符🔥"></a>1、运算符🔥</h1><h2 id="1-1、算数运算符🔥"><a href="#1-1、算数运算符🔥" class="headerlink" title="1.1、算数运算符🔥"></a>1.1、算数运算符🔥</h2><p><strong>+　-　*　/　%</strong> </p>
+<p> 三种含义：<br>     1. 运算</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">  </span><br><span class="line">        <span class="type">int</span> a=<span class="number">20</span>;</span><br><span class="line">        <span class="type">int</span> b=<span class="number">10</span>;</span><br><span class="line">        System.out.println(a+b); <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+
+<p> 2.正负<br>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a1=+<span class="number">5</span>;</span><br><span class="line">System.out.println(a1);  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure><br>3.拼接，连接符<br>字符串和其他数据类型进行运算,结果一定是字符串类型<br> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">int</span> a2=<span class="number">10</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> s1 + a2;</span><br><span class="line">System.out.println(s3);</span><br><span class="line">System.out.println(<span class="string">&quot;helloworld&quot;</span>+a2+<span class="string">&quot;abc&quot;</span>+<span class="string">&#x27;d&#x27;</span>+<span class="literal">true</span>+<span class="number">3.14</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">//定义两个变量 m和n m的值是5，n的值是8，连接成 5+8=13;</span></span><br><span class="line"><span class="type">int</span> m=<span class="number">5</span>,n=<span class="number">8</span>;</span><br><span class="line">System.out.println(m+<span class="string">&quot;+&quot;</span>+n+<span class="string">&quot;=&quot;</span>+(m+n)+<span class="string">&quot;;&quot;</span>);</span><br></pre></td></tr></table></figure></p>
+<p>4、 符号<br>① 运算　　② 正负</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> System.out.println(<span class="number">10</span>-<span class="number">100</span>);</span><br><span class="line"> System.out.println(<span class="number">10</span>-(-<span class="number">5</span>));</span><br><span class="line"><span class="comment">// System.out.println(&quot;helloo&quot;-&quot;o&quot;);  错误的！</span></span><br></pre></td></tr></table></figure>
+
+<p>6.乘号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="number">3.5</span> * <span class="number">2.6</span>);</span><br><span class="line">System.out.println(<span class="number">2</span> * <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>7.除以</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="number">10</span>/<span class="number">2</span>);</span><br><span class="line">System.out.println(<span class="number">10</span>/<span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="number">0</span>/<span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="number">3</span>/<span class="number">3</span>);</span><br><span class="line"><span class="comment">//ArithmeticException 算术异常</span></span><br><span class="line"><span class="comment">//System.out.println(3/0);</span></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>取模 ，求余数<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        System.out.println(<span class="number">10</span>%<span class="number">3</span>); <span class="comment">// 1</span></span><br><span class="line">        System.out.println(<span class="number">5</span>%<span class="number">5</span>); <span class="comment">// 0</span></span><br><span class="line">        System.out.println(<span class="number">2</span>%<span class="number">10</span>); <span class="comment">// 2</span></span><br><span class="line">        System.out.println(<span class="number">0</span>%<span class="number">10</span>); <span class="comment">// 0</span></span><br><span class="line">        System.out.println(<span class="number">3.5</span>%<span class="number">2</span>); <span class="comment">// 1.5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr></li>
+</ol>
+<p>​         <strong>++　- -</strong>   (重点)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dome02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">         <span class="comment">// ++ 自增1</span></span><br><span class="line">        <span class="type">int</span> a=<span class="number">5</span>;</span><br><span class="line">        a++;</span><br><span class="line">        System.out.println(a); <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> b=<span class="number">5</span>;</span><br><span class="line">        ++b;</span><br><span class="line">        System.out.println(b); <span class="comment">// 6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> a=<span class="number">5</span>;</span><br><span class="line">        <span class="comment">//a先赋值给b,然后a再自增1</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> (a++);</span><br><span class="line">        System.out.println(<span class="string">&quot;a:&quot;</span>+a);</span><br><span class="line">        System.out.println(<span class="string">&quot;b:&quot;</span>+b);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> m=<span class="number">5</span>;</span><br><span class="line">        <span class="comment">//m先自增1，自增完成后把结果赋值给n</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> ++m;</span><br><span class="line">        System.out.println(<span class="string">&quot;m:&quot;</span>+m);</span><br><span class="line">        System.out.println(<span class="string">&quot;n:&quot;</span>+n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>总结：</strong>++在变量之前，先自增1，后其他操作！<br>　　　++在变量之后，先其他操作，再自增1！<br>　　　 即使有小括号，也不影响！　　<br><br></p>
+<h2 id="1-2、赋值运算符🔥"><a href="#1-2、赋值运算符🔥" class="headerlink" title="1.2、赋值运算符🔥"></a>1.2、赋值运算符🔥</h2><p>​    <strong>+=　- =</strong>　***=　/=　%=**</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// +=  -=   *=  /=  %=</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="comment">// 计算：相当于a=a+2;</span></span><br><span class="line">        <span class="comment">// a=a+2</span></span><br><span class="line">        a += <span class="number">2</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 7</span></span><br><span class="line">        a -= <span class="number">3</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 4</span></span><br><span class="line">        a *= <span class="number">2</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">//8</span></span><br><span class="line">        <span class="comment">//a /= 3;   除不尽保留整数部分</span></span><br><span class="line">        a /= <span class="number">4</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 2</span></span><br><span class="line">        <span class="comment">//a=a%1;</span></span><br><span class="line">        a %= <span class="number">1</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题1：a += 2 是不是等价于与 a = a+2 ?<br>　答：不等价</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        <span class="type">byte</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">             a1 += <span class="number">2</span>;</span><br><span class="line">        System.out.println(a1);<span class="comment">// 7</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">             a2 = (<span class="type">byte</span>)(a2 + <span class="number">2</span>);</span><br><span class="line">        System.out.println(a2);<span class="comment">// 7</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题2：+= 和 =+ 的问题 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">            m += <span class="number">2</span>; <span class="comment">// m=10+2=12</span></span><br><span class="line">        System.out.println(m);<span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        n=+<span class="number">2</span>;<span class="comment">// n=+2=2</span></span><br><span class="line">        System.out.println(n);<span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="1-3、比较-关系-运算符🔥"><a href="#1-3、比较-关系-运算符🔥" class="headerlink" title="1.3、比较(关系)运算符🔥"></a>1.3、比较(关系)运算符🔥</h2><p><strong>&gt;　&lt;　&gt;=　&lt;=　==　!= (不等于)</strong></p>
+<p>比较运算符的结果都是boolean类型的字面值（true,false）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="comment">// 关系(比较)运算符:</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>,b = <span class="number">10</span>;</span><br><span class="line">        System.out.println(a == b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a != b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt; b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a &lt; b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt;= b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a &lt;= b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt;= ++b);<span class="comment">// b=11  false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数学中比较用= ， java用 == 来比较 ， java的 = 是赋值</span></span><br><span class="line">        System.out.println(a == b); <span class="comment">// false</span></span><br><span class="line">        System.out.println(!!!!!!!!!!!(a!=b)); <span class="comment">// false  ! 两两抵消</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h2 id="1-4、逻辑运算符🔥"><a href="#1-4、逻辑运算符🔥" class="headerlink" title="1.4、逻辑运算符🔥"></a>1.4、逻辑运算符🔥</h2><p>用于连接多个条件（多个关系表达式），最终的结果也是一个 boolean 值。</p>
+<p>1、逻辑或 | ，逻辑与 &amp; ，^ 逻辑异或，取反！</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo06</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// | 或者</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *  左边一个条件，右边一个条件，只要有一个条件成立，最终结果是成立！(true)</span></span><br><span class="line"><span class="comment">        *  左边和右边都不成立，最终结果是不成立！（false）</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="type">int</span> a=<span class="number">7</span>,b=<span class="number">5</span>,c=<span class="number">10</span>;</span><br><span class="line">        System.out.println(a&gt;b | a&gt;c); <span class="comment">//true</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// &amp; 并且，与</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 左边一个条件，右边一个条件，只要有一个条件不成立，最终结果就不成立！</span></span><br><span class="line"><span class="comment">        * 两边都必须成立，最终结果才成立！</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        System.out.println(a&gt;b &amp; a&lt;c); <span class="comment">//false</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// ^ 异或</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 异 ，不同！</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 左边一个条件，右边一个条件，只要两个条件不同（异），那么最终结果就是true!</span></span><br><span class="line"><span class="comment">        * 两边条件只要是相同，结果是false!</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        System.out.println(a&gt;b ^ a&lt;c); <span class="comment">//false</span></span><br><span class="line">        System.out.println(a&gt;b ^ a&gt;c); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//！取反</span></span><br><span class="line">        System.out.println(!<span class="literal">true</span>);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> ! (<span class="number">5</span> != <span class="number">10</span>);</span><br><span class="line">        System.out.println(flag); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、短路或 || ，短路与 &amp;&amp; </p>
+<p> ||  短路或</p>
+<p> <strong>||  短路或和  |  最终结果都是一样的！</strong></p>
+<p> <strong>区别：</strong>|| 短路或，只要第一个条件就能判断最终结果的，第二个条件就不执行！   第一个条件成立，第二个条件就不判断！！！</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo07</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">            </span><br><span class="line">           <span class="type">int</span> a=<span class="number">5</span>,b=<span class="number">10</span>;</span><br><span class="line">           <span class="comment">//第二个条件执行</span></span><br><span class="line">        <span class="comment">//System.out.println( b&gt;a | 1==a++ );</span></span><br><span class="line">          <span class="comment">//第二个条件不执行</span></span><br><span class="line">          System.out.println( b&gt;a || <span class="number">1</span>==a++ );</span><br><span class="line">          <span class="comment">//第二个条件执行了</span></span><br><span class="line">        <span class="comment">//System.out.println( 1!=1 || 1==a++ );</span></span><br><span class="line">        System.out.println(a);</span><br></pre></td></tr></table></figure>
+
+<p> &amp;&amp; 短路与</p>
+<p>只要第一个条件就能判断最终结果的，第二个条件就不执行！<br>第一个条件不成立，第二个条件不会执行！</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">       <span class="comment">// System.out.println(5&gt;30 &amp; 1==b++);</span></span><br><span class="line">       System.out.println(<span class="number">5</span>&gt;<span class="number">30</span> &amp;&amp; <span class="number">1</span>==b++);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-5、三元运算符（三目运算）🔥"><a href="#1-5、三元运算符（三目运算）🔥" class="headerlink" title="1.5、三元运算符（三目运算）🔥"></a>1.5、三元运算符（三目运算）🔥</h2><p><strong>基本语法：</strong> 数据类型  变量名 = 条件表达式  ?  字面值1 ：字面值2；</p>
+<p>注意： 字面值必须和数据类型匹配</p>
+<p>条件表达式：只要结果是boolean类型字面值，就是条件表达式</p>
+<p><strong>运算规则：</strong><br>1.如果条件表达式为true，运算后的结果是字面值1；<br>2.如果条件表达式为false，运算后的结果是字面值2；</p>
+<p>理解：条件表达式是否成立，决定哪一个字面值赋值给变量，<br>          如果条件表达式成立，第一个字面值赋值给变量，<br>          如果条件表达式不成立，第二个字面值赋值给变量！</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperator01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">15</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">30</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a &gt; b ? a++ : b--;</span><br><span class="line">        System.out.println(<span class="string">&quot;result=&quot;</span>+ result); <span class="comment">// result=30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应用场景： 这次考试如果及格，爸爸带我去游乐场，否则爸爸揍我一顿！<br>用户在控制台输入成绩，来判断是去游乐场还是揍我一顿！
+　　　　　</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperator02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建Scanner类的对象</span></span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">       <span class="comment">// 2.提示用户输入考试成绩</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入您的成绩？&quot;</span>);</span><br><span class="line">      <span class="comment">// 3.获取用户输入的成绩</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> sc.nextDouble();</span><br><span class="line">      <span class="comment">// 4.判断用户的成绩是否及格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> score &gt;= <span class="number">60.0</span> ? <span class="string">&quot;爸爸带我去游乐场！&quot;</span>:<span class="string">&quot;爸爸揍我一顿！&quot;</span>;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>三元运算符 练习</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperatorExercise</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//案例：实现三个数的最大值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> <span class="number">456</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> <span class="number">49</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n3</span> <span class="operator">=</span> <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//思路</span></span><br><span class="line">        <span class="comment">//1.先得到n1和n2中最大数，保存到max1</span></span><br><span class="line">        <span class="comment">//2.然后再求出max1和n3中的最大数，保存到max2</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max1</span> <span class="operator">=</span> n1 &gt; n2 ? n1 : n2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max2</span> <span class="operator">=</span> max1 &gt; n3 ? max1 : n3;</span><br><span class="line">        System.out.println(<span class="string">&quot;最大数=&quot;</span>+max2); <span class="comment">//最大数=456</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java知识点复习（二）基本数据类型</title>
     <url>/posts/java-data/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、基本数据类型"><a href="#1、基本数据类型" class="headerlink" title="1、基本数据类型"></a>1、基本数据类型</h1><p>每一种数据类型，可以看作一个容器，四个容器的区别是容量不同。</p>
@@ -326,126 +522,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
 <p>两个不同类型运算结果是更大的类型，两个相同类型运算结果一定是这个类型。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	<span class="comment">//两个不同类型运算，结果是大的类型</span></span><br><span class="line">	<span class="type">double</span> a1=<span class="number">3.14</span>;</span><br><span class="line">	<span class="type">int</span> a2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">double</span> <span class="variable">a3</span> <span class="operator">=</span> a1+a2;</span><br><span class="line">	System.out.println(a3); <span class="comment">//13.14</span></span><br><span class="line"></span><br><span class="line">    <span class="type">byte</span> b1=<span class="number">5</span>;</span><br><span class="line">	<span class="type">short</span> b2=<span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> <span class="variable">b3</span> <span class="operator">=</span> b1+b2;</span><br><span class="line">    System.out.println(b3); <span class="comment">//15</span></span><br><span class="line"></span><br><span class="line">	<span class="type">double</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="number">7</span>/<span class="number">5</span>;</span><br><span class="line">	System.out.println(c1); <span class="comment">//2.0</span></span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java知识点复习（五）流程控制之循环语句</title>
-    <url>/posts/java-loop/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、循环语句🔥"><a href="#1、循环语句🔥" class="headerlink" title="1、循环语句🔥"></a>1、循环语句🔥</h1><h2 id="1-1、for-循环🔥"><a href="#1-1、for-循环🔥" class="headerlink" title="1.1、for 循环🔥"></a>1.1、for 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> for (初始表达式; 条件表达式; 迭代语句) { 循环体 }</p>
-<p>初始表达式：定义有初始值的变量  例如  int i=1;</p>
-<p><strong>迭代语句：</strong> 例如：++i      i++    i+=2 …</p>
-<p><strong>循环体：</strong> 每次循环要执行的内容，1.输出语句  2.变量  3.流程控制语句</p>
-</li>
-<li><p><strong>理解：</strong> </p>
-<p>先执行初始表达式，然后执行条件表达式，如果成立，执行循环体，然后执行迭代语句，然后再次执行条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<p>for 循环流程图<br><img src="https://img-blog.csdnimg.cn/img_convert/fdcfd9fcd440acffd72ce0268678e1a6.png"></p>
-<blockquote>
-<p>案例1：打印3次HelloWorld</p>
-</blockquote>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//普通写法:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">       		System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        	System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>重复性动作，可以用for循环语句解决</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//int i=1；是一个局部变量，作用域是for的循环体</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/8544bf4cb24a893d0ef4360e2437a75a.png"></p>
-<blockquote>
-<p>案例2：打印数字1到100</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ForExample02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(i + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/73150b229c82434bc4435fb48c9d5627.png"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环问题（条件恒成立）</p>
-<p>一直重复输出System.out.println( ) 内容</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for(;;)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(&quot;HelloWord&quot;);</span></span><br><span class="line"><span class="comment">//        &#125; </span></span><br><span class="line">  </span><br><span class="line">        <span class="keyword">for</span>(;<span class="literal">true</span>;)&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            </span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  2.初始表达式作用域问题</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;hello!&quot;</span>+i);<span class="comment">// 1 2 3 4 5</span></span><br><span class="line">     	 &#125;</span><br><span class="line">    System.out.println(i); <span class="comment">// 6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 输出结果为：1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
-
-<p>  例题：</p>
-<p>  判断下面哪个选项是错误的（B）<br>  A.int i=1; for( ; i&lt;=5 ; i++){ }<br>  B.int i=1; for( i ; i&lt;=5 ; i++){ }<br>  C.int i; for( i=1 ; i&lt;=5 ; i++){ }<br>  D. for( ; ; ){ }</p>
-<p>  3.迭代语句问题</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">10</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;hello&quot;</span>); <span class="comment">//输出 3次 hello</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  4.多个初始表达式，多个迭代语句</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">10</span>;i&lt;j;i++,j--)&#123;</span><br><span class="line">            System.out.println(i+<span class="string">&quot;——&quot;</span>+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/323a47e6683482e821d0c91dedf18c85.png"><br><br></p>
-<h2 id="1-2、while-循环🔥"><a href="#1-2、while-循环🔥" class="headerlink" title="1.2、while 循环🔥"></a>1.2、while 循环🔥</h2><ul>
-<li><p><strong>语法:</strong>  while (条件表达式) { 循环体 }</p>
-<p>理解：条件表达式成立，循环体执行，然后继续判断条件表达式，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：用while 循环 打印3次HelloWorld</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/3fc27465080df2fa70f95faa729b2d10.png"></p>
-<ul>
-<li><strong>注意问题：</strong></li>
-</ul>
-<ol>
-<li>死循环（一直重复输出内容）</li>
-</ol>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我要变有钱。。。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h2 id="1-3、do-while-循环🔥"><a href="#1-3、do-while-循环🔥" class="headerlink" title="1.3、do-while 循环🔥"></a>1.3、do-while 循环🔥</h2><ul>
-<li><p><strong>语法：</strong> do {循环体} while (条件表达式)；</p>
-<p>理解：先执行循环体，再判断条件表达式，如果条件表达式成立，继续执行循环体，直到条件表达式不成立为止。</p>
-</li>
-</ul>
-<blockquote>
-<p>案例：输出3次HelloWorld</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;<span class="keyword">while</span>(i&lt;=<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a3108b83e7432f365b73f885a8ac67bb.png"></p>
-<ul>
-<li><p><strong>注意问题：</strong> </p>
-<p>1.死循环</p>
-<p>do-while的死循环要比while死循环多执行一次，因为do-while是先执行后判断</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoWhileExamle02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;停不下来。。。&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">while</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-<h2 id="1-4、循环语句总结"><a href="#1-4、循环语句总结" class="headerlink" title="1.4、循环语句总结"></a>1.4、循环语句总结</h2><p>实际开发中for循环使用最多，while的死循环使用很多，do-while循环使用较少</p>
-<p>while和do-while的区别：</p>
-<p>while是先判断，后执行</p>
-<p>do-while是先执行，后判断</p>
-<ul>
-<li><strong>注意：</strong> </li>
-</ul>
-<ol>
-<li>所有的循环语句都可以省略大括号</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//省略循环语句中的大括号</span></span><br><span class="line"><span class="comment">// 例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//for循环</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=<span class="number">3</span>)</span><br><span class="line">            <span class="comment">/*注：i++需要写在输出语句里面才可以省略大括号，</span></span><br><span class="line"><span class="comment">               否则会变成死循环（以下同理）*/</span></span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(j++));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//do-while循环</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">while</span>(x&gt;=<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.只有do-while循环小括号后面有分号，其他的都没有</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//例：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">loop02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//do-while循环小括号后面必须加分号 写法正确</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">         <span class="keyword">do</span>&#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>+(x--));</span><br><span class="line">         &#125; <span class="keyword">while</span> (x&gt;=<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">          <span class="comment">//for循环小括号后加 ; 是错误的</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//while循环小括号后加 ; 也是是错误的</span></span><br><span class="line">         <span class="keyword">while</span> (j&lt;=<span class="number">3</span>); &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;HelloWord&quot;</span> + (j++));</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<p>选择语句就这些内容了，如果发现错误欢迎小伙伴们在评论区指正，感谢阅读。</p>
 ]]></content>
       <categories>
         <category>编程技术</category>
@@ -606,162 +682,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>Java知识点复习（三）运算符</title>
-    <url>/posts/java-operator/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、运算符🔥"><a href="#1、运算符🔥" class="headerlink" title="1、运算符🔥"></a>1、运算符🔥</h1><h2 id="1-1、算数运算符🔥"><a href="#1-1、算数运算符🔥" class="headerlink" title="1.1、算数运算符🔥"></a>1.1、算数运算符🔥</h2><p><strong>+　-　*　/　%</strong> </p>
-<p> 三种含义：<br>     1. 运算</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">  </span><br><span class="line">        <span class="type">int</span> a=<span class="number">20</span>;</span><br><span class="line">        <span class="type">int</span> b=<span class="number">10</span>;</span><br><span class="line">        System.out.println(a+b); <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
-
-<p> 2.正负<br>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a1=+<span class="number">5</span>;</span><br><span class="line">System.out.println(a1);  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure><br>3.拼接，连接符<br>字符串和其他数据类型进行运算,结果一定是字符串类型<br> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">int</span> a2=<span class="number">10</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> s1 + a2;</span><br><span class="line">System.out.println(s3);</span><br><span class="line">System.out.println(<span class="string">&quot;helloworld&quot;</span>+a2+<span class="string">&quot;abc&quot;</span>+<span class="string">&#x27;d&#x27;</span>+<span class="literal">true</span>+<span class="number">3.14</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">//定义两个变量 m和n m的值是5，n的值是8，连接成 5+8=13;</span></span><br><span class="line"><span class="type">int</span> m=<span class="number">5</span>,n=<span class="number">8</span>;</span><br><span class="line">System.out.println(m+<span class="string">&quot;+&quot;</span>+n+<span class="string">&quot;=&quot;</span>+(m+n)+<span class="string">&quot;;&quot;</span>);</span><br></pre></td></tr></table></figure></p>
-<p>4、 符号<br>① 运算　　② 正负</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> System.out.println(<span class="number">10</span>-<span class="number">100</span>);</span><br><span class="line"> System.out.println(<span class="number">10</span>-(-<span class="number">5</span>));</span><br><span class="line"><span class="comment">// System.out.println(&quot;helloo&quot;-&quot;o&quot;);  错误的！</span></span><br></pre></td></tr></table></figure>
-
-<p>6.乘号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="number">3.5</span> * <span class="number">2.6</span>);</span><br><span class="line">System.out.println(<span class="number">2</span> * <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-
-<p>7.除以</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="number">10</span>/<span class="number">2</span>);</span><br><span class="line">System.out.println(<span class="number">10</span>/<span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="number">0</span>/<span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="number">3</span>/<span class="number">3</span>);</span><br><span class="line"><span class="comment">//ArithmeticException 算术异常</span></span><br><span class="line"><span class="comment">//System.out.println(3/0);</span></span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>取模 ，求余数<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        System.out.println(<span class="number">10</span>%<span class="number">3</span>); <span class="comment">// 1</span></span><br><span class="line">        System.out.println(<span class="number">5</span>%<span class="number">5</span>); <span class="comment">// 0</span></span><br><span class="line">        System.out.println(<span class="number">2</span>%<span class="number">10</span>); <span class="comment">// 2</span></span><br><span class="line">        System.out.println(<span class="number">0</span>%<span class="number">10</span>); <span class="comment">// 0</span></span><br><span class="line">        System.out.println(<span class="number">3.5</span>%<span class="number">2</span>); <span class="comment">// 1.5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr></li>
-</ol>
-<p>​         <strong>++　- -</strong>   (重点)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dome02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">         <span class="comment">// ++ 自增1</span></span><br><span class="line">        <span class="type">int</span> a=<span class="number">5</span>;</span><br><span class="line">        a++;</span><br><span class="line">        System.out.println(a); <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> b=<span class="number">5</span>;</span><br><span class="line">        ++b;</span><br><span class="line">        System.out.println(b); <span class="comment">// 6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> a=<span class="number">5</span>;</span><br><span class="line">        <span class="comment">//a先赋值给b,然后a再自增1</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> (a++);</span><br><span class="line">        System.out.println(<span class="string">&quot;a:&quot;</span>+a);</span><br><span class="line">        System.out.println(<span class="string">&quot;b:&quot;</span>+b);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> m=<span class="number">5</span>;</span><br><span class="line">        <span class="comment">//m先自增1，自增完成后把结果赋值给n</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> ++m;</span><br><span class="line">        System.out.println(<span class="string">&quot;m:&quot;</span>+m);</span><br><span class="line">        System.out.println(<span class="string">&quot;n:&quot;</span>+n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <strong>总结：</strong>++在变量之前，先自增1，后其他操作！<br>　　　++在变量之后，先其他操作，再自增1！<br>　　　 即使有小括号，也不影响！　　<br><br></p>
-<h2 id="1-2、赋值运算符🔥"><a href="#1-2、赋值运算符🔥" class="headerlink" title="1.2、赋值运算符🔥"></a>1.2、赋值运算符🔥</h2><p>​    <strong>+=　- =</strong>　***=　/=　%=**</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// +=  -=   *=  /=  %=</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="comment">// 计算：相当于a=a+2;</span></span><br><span class="line">        <span class="comment">// a=a+2</span></span><br><span class="line">        a += <span class="number">2</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 7</span></span><br><span class="line">        a -= <span class="number">3</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 4</span></span><br><span class="line">        a *= <span class="number">2</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">//8</span></span><br><span class="line">        <span class="comment">//a /= 3;   除不尽保留整数部分</span></span><br><span class="line">        a /= <span class="number">4</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 2</span></span><br><span class="line">        <span class="comment">//a=a%1;</span></span><br><span class="line">        a %= <span class="number">1</span>;</span><br><span class="line">        System.out.println(a);<span class="comment">// 0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题1：a += 2 是不是等价于与 a = a+2 ?<br>　答：不等价</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        <span class="type">byte</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">             a1 += <span class="number">2</span>;</span><br><span class="line">        System.out.println(a1);<span class="comment">// 7</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">             a2 = (<span class="type">byte</span>)(a2 + <span class="number">2</span>);</span><br><span class="line">        System.out.println(a2);<span class="comment">// 7</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>问题2：+= 和 =+ 的问题 </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">            m += <span class="number">2</span>; <span class="comment">// m=10+2=12</span></span><br><span class="line">        System.out.println(m);<span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        n=+<span class="number">2</span>;<span class="comment">// n=+2=2</span></span><br><span class="line">        System.out.println(n);<span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="1-3、比较-关系-运算符🔥"><a href="#1-3、比较-关系-运算符🔥" class="headerlink" title="1.3、比较(关系)运算符🔥"></a>1.3、比较(关系)运算符🔥</h2><p><strong>&gt;　&lt;　&gt;=　&lt;=　==　!= (不等于)</strong></p>
-<p>比较运算符的结果都是boolean类型的字面值（true,false）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="comment">// 关系(比较)运算符:</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>,b = <span class="number">10</span>;</span><br><span class="line">        System.out.println(a == b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a != b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt; b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a &lt; b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt;= b);<span class="comment">// false</span></span><br><span class="line">        System.out.println(a &lt;= b);<span class="comment">// true</span></span><br><span class="line">        System.out.println(a &gt;= ++b);<span class="comment">// b=11  false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数学中比较用= ， java用 == 来比较 ， java的 = 是赋值</span></span><br><span class="line">        System.out.println(a == b); <span class="comment">// false</span></span><br><span class="line">        System.out.println(!!!!!!!!!!!(a!=b)); <span class="comment">// false  ! 两两抵消</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-
-<h2 id="1-4、逻辑运算符🔥"><a href="#1-4、逻辑运算符🔥" class="headerlink" title="1.4、逻辑运算符🔥"></a>1.4、逻辑运算符🔥</h2><p>用于连接多个条件（多个关系表达式），最终的结果也是一个 boolean 值。</p>
-<p>1、逻辑或 | ，逻辑与 &amp; ，^ 逻辑异或，取反！</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo06</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// | 或者</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *  左边一个条件，右边一个条件，只要有一个条件成立，最终结果是成立！(true)</span></span><br><span class="line"><span class="comment">        *  左边和右边都不成立，最终结果是不成立！（false）</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="type">int</span> a=<span class="number">7</span>,b=<span class="number">5</span>,c=<span class="number">10</span>;</span><br><span class="line">        System.out.println(a&gt;b | a&gt;c); <span class="comment">//true</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// &amp; 并且，与</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 左边一个条件，右边一个条件，只要有一个条件不成立，最终结果就不成立！</span></span><br><span class="line"><span class="comment">        * 两边都必须成立，最终结果才成立！</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        System.out.println(a&gt;b &amp; a&lt;c); <span class="comment">//false</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// ^ 异或</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 异 ，不同！</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * 左边一个条件，右边一个条件，只要两个条件不同（异），那么最终结果就是true!</span></span><br><span class="line"><span class="comment">        * 两边条件只要是相同，结果是false!</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        System.out.println(a&gt;b ^ a&lt;c); <span class="comment">//false</span></span><br><span class="line">        System.out.println(a&gt;b ^ a&gt;c); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//！取反</span></span><br><span class="line">        System.out.println(!<span class="literal">true</span>);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> ! (<span class="number">5</span> != <span class="number">10</span>);</span><br><span class="line">        System.out.println(flag); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、短路或 || ，短路与 &amp;&amp; </p>
-<p> ||  短路或</p>
-<p> <strong>||  短路或和  |  最终结果都是一样的！</strong></p>
-<p> <strong>区别：</strong>|| 短路或，只要第一个条件就能判断最终结果的，第二个条件就不执行！   第一个条件成立，第二个条件就不判断！！！</p>
- <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo07</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">            </span><br><span class="line">           <span class="type">int</span> a=<span class="number">5</span>,b=<span class="number">10</span>;</span><br><span class="line">           <span class="comment">//第二个条件执行</span></span><br><span class="line">        <span class="comment">//System.out.println( b&gt;a | 1==a++ );</span></span><br><span class="line">          <span class="comment">//第二个条件不执行</span></span><br><span class="line">          System.out.println( b&gt;a || <span class="number">1</span>==a++ );</span><br><span class="line">          <span class="comment">//第二个条件执行了</span></span><br><span class="line">        <span class="comment">//System.out.println( 1!=1 || 1==a++ );</span></span><br><span class="line">        System.out.println(a);</span><br></pre></td></tr></table></figure>
-
-<p> &amp;&amp; 短路与</p>
-<p>只要第一个条件就能判断最终结果的，第二个条件就不执行！<br>第一个条件不成立，第二个条件不会执行！</p>
- <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">       <span class="comment">// System.out.println(5&gt;30 &amp; 1==b++);</span></span><br><span class="line">       System.out.println(<span class="number">5</span>&gt;<span class="number">30</span> &amp;&amp; <span class="number">1</span>==b++);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="1-5、三元运算符（三目运算）🔥"><a href="#1-5、三元运算符（三目运算）🔥" class="headerlink" title="1.5、三元运算符（三目运算）🔥"></a>1.5、三元运算符（三目运算）🔥</h2><p><strong>基本语法：</strong> 数据类型  变量名 = 条件表达式  ?  字面值1 ：字面值2；</p>
-<p>注意： 字面值必须和数据类型匹配</p>
-<p>条件表达式：只要结果是boolean类型字面值，就是条件表达式</p>
-<p><strong>运算规则：</strong><br>1.如果条件表达式为true，运算后的结果是字面值1；<br>2.如果条件表达式为false，运算后的结果是字面值2；</p>
-<p>理解：条件表达式是否成立，决定哪一个字面值赋值给变量，<br>          如果条件表达式成立，第一个字面值赋值给变量，<br>          如果条件表达式不成立，第二个字面值赋值给变量！</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperator01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">15</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">30</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a &gt; b ? a++ : b--;</span><br><span class="line">        System.out.println(<span class="string">&quot;result=&quot;</span>+ result); <span class="comment">// result=30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>应用场景： 这次考试如果及格，爸爸带我去游乐场，否则爸爸揍我一顿！<br>用户在控制台输入成绩，来判断是去游乐场还是揍我一顿！
-　　　　　</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperator02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建Scanner类的对象</span></span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">       <span class="comment">// 2.提示用户输入考试成绩</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入您的成绩？&quot;</span>);</span><br><span class="line">      <span class="comment">// 3.获取用户输入的成绩</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> sc.nextDouble();</span><br><span class="line">      <span class="comment">// 4.判断用户的成绩是否及格</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> score &gt;= <span class="number">60.0</span> ? <span class="string">&quot;爸爸带我去游乐场！&quot;</span>:<span class="string">&quot;爸爸揍我一顿！&quot;</span>;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>三元运算符 练习</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TernaryOperatorExercise</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//案例：实现三个数的最大值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> <span class="number">456</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> <span class="number">49</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n3</span> <span class="operator">=</span> <span class="number">234</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//思路</span></span><br><span class="line">        <span class="comment">//1.先得到n1和n2中最大数，保存到max1</span></span><br><span class="line">        <span class="comment">//2.然后再求出max1和n3中的最大数，保存到max2</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max1</span> <span class="operator">=</span> n1 &gt; n2 ? n1 : n2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max2</span> <span class="operator">=</span> max1 &gt; n3 ? max1 : n3;</span><br><span class="line">        System.out.println(<span class="string">&quot;最大数=&quot;</span>+max2); <span class="comment">//最大数=456</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java语法基础知识点（一）</title>
-    <url>/posts/java/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
-<p>2.编译</p>
-<p>3.类加载</p>
-<p>4.class文件进一步转换成二进制机器码</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/1bd010cebf33a2b7c76ba8b4cdf3a182.png"></p>
-<h2 id="1-2、Java运行的机制"><a href="#1-2、Java运行的机制" class="headerlink" title="1.2、Java运行的机制"></a>1.2、Java运行的机制</h2><p><strong>JDK：</strong> JDK是Java语言的软件开发工具包，包含JRE。</p>
-<p><strong>JRE：</strong> JRE运行Java程序所必需的的基本条件，包含JVM标准实现及核心类库。</p>
-<p><strong>JVM：</strong> JVM（Java虚拟机），是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的，JVM是Java跨平台的基础。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/df2fc4abb87be45728b7dc6e8440f955.png"></p>
-<h2 id="1-3、注释"><a href="#1-3、注释" class="headerlink" title="1.3、注释"></a>1.3、注释</h2><p><strong>注释：</strong> 用于注解说明解释程序的文字，增加代码的阅读性。</p>
-<p>注释的分类： </p>
-<ul>
-<li><p><strong>单行注释</strong></p>
-<p>格式：// 注释文字  </p>
-<p>单行注释，只作用于一行</p>
-</li>
-<li><p><strong>多行注释</strong></p>
-<p>格式：/* 注释文字 */</p>
-<p>多行注释，作用于一个区间</p>
-</li>
-<li><p><strong>文档注释（javadoc注释）</strong></p>
-<p>格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author   作者名字</span><br><span class="line"> * @version  版本号</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
-<p>多行注释的文档注释，作用于一个区间。</p>
-</li>
-</ul>
-<p>多行注释和文档注释区别：</p>
-<p>可以使用javadoc xxx.java 生成文档</p>
-<p>代码生成的文档，只有文档注释的内容可以嵌入，多行注释的内容不可嵌入</p>
-<p><strong>注意：</strong> 多行注释里面不能有多行注释嵌入，对于单行和多行注释被注释的文字，都不会被JVM（java虚拟机）执行。</p>
-<p>注释写法示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">	<span class="comment">//单行注释</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这是多行注释</span></span><br><span class="line"><span class="comment">      这是一个main方法</span></span><br><span class="line"><span class="comment">  	  这是主函数</span></span><br><span class="line"><span class="comment">      这是程序入口</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">		  这是文档注释</span></span><br><span class="line"><span class="comment">		  下面是输出语句</span></span><br><span class="line"><span class="comment">		  输出内容随意  </span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(<span class="string">&quot;注释测试&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4、关键字"><a href="#1-4、关键字" class="headerlink" title="1.4、关键字"></a>1.4、关键字</h2><p>概述：关键字是系统赋予一些单词特定的含义。</p>
-<p>特点：关键字中所有单词字母都为小写</p>
-<p>比如：class、public、static、void等都是关键字</p>
-<p>特殊关键字：goto 和 const 是保留关键字，没有具体含义，不能使用</p>
-<p><strong>注意：</strong> java是严格区分大小写的</p>
-<p>比如：static是关键字，Static就不是关键字了</p>
-<h2 id="1-5、标识符"><a href="#1-5、标识符" class="headerlink" title="1.5、标识符"></a>1.5、标识符</h2><ul>
-<li><p>理解：自己命名的单词就叫标识符</p>
-<p>比如：public class Hello{}</p>
-<p>​    类名Hello就是标识符</p>
-</li>
-<li><p>编写规定：</p>
-<p>1.标识符是由 字母、数字、_ 、$ 组成</p>
-<p>2.不能以数字开头</p>
-<p>3.关键字不能作为标识符，但能包含关键字</p>
-<p>4.中文 ￥ 可以作为标识符，但是开发禁用</p>
-</li>
-</ul>
-<h2 id="1-6、变量"><a href="#1-6、变量" class="headerlink" title="1.6、变量"></a>1.6、变量</h2><h3 id="1-6-1、变量概述"><a href="#1-6-1、变量概述" class="headerlink" title="1.6.1、变量概述"></a>1.6.1、变量概述</h3><p><strong>变量</strong>是内存中储存数据最基本的单元，将数据（字面量）放到内存中，给这块内存空间起一个名字，就叫变量。</p>
-<p>理解：变量代表的数据类型是一个容器，用来存储字面值，</p>
-<p>​    一个变量代表的数据类型只能存储一个字面值数据。</p>
-<p><strong>语法：</strong> 数据类型 变量名 = 字面值;</p>
-<h3 id="1-6-2、变量名"><a href="#1-6-2、变量名" class="headerlink" title="1.6.2、变量名"></a>1.6.2、变量名</h3><p>概述：自己取名字，第一个单词小写，第二个单词开始首字母大写。</p>
-<p>例：把20这个字面值数据，赋值给age这个变量，age是int类型。</p>
-<p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;小明&quot;</span>;  <span class="comment">//姓名</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">20</span>;			<span class="comment">//年龄</span></span><br><span class="line">		<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">1.78</span>;  <span class="comment">//身高</span></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">		System.out.println(name);</span><br><span class="line">		System.out.println(age);</span><br><span class="line">		System.out.println(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/5fe6268b7aaaadfe42c6dd2f5ea3bf2e.png"></p>
-<h3 id="1-6-3、变量的分类"><a href="#1-6-3、变量的分类" class="headerlink" title="1.6.3、变量的分类"></a>1.6.3、变量的分类</h3><p>变量根据声明的位置不同分为：局部变量和成员变量。</p>
-<p><strong>成员变量：</strong> 在方法体外，类体内声明的变量称为成员变量。</p>
-<p>成员变量声明如果使用static关键字修饰的为静态变量，没有static修饰的则称为实例变量。</p>
-<p><strong>局部变量：</strong> 在方法体当中声明的变量称为局部变量。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/9058da8f6e8b2d652d0e0e94b545140e.png"><br>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span>&#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">20</span>;  <span class="comment">//静态变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; <span class="comment">//形参</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">firstNum</span> <span class="operator">=</span> <span class="number">50</span>;  <span class="comment">//局部变量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java知识点复习（七）多线程</title>
     <url>/posts/java-thread/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1、进程与线程的概念"><a href="#1、进程与线程的概念" class="headerlink" title="1、进程与线程的概念"></a>1、进程与线程的概念</h2><h3 id="1-1、进程是什么？"><a href="#1-1、进程是什么？" class="headerlink" title="1.1、进程是什么？"></a>1.1、进程是什么？</h3><p><strong>进程</strong>是在操作系统上体现的，进程就是应用程序，例如：QQ、微信、王者荣耀，只要是应用程序并且打开了就是一个进程。</p>
@@ -869,6 +789,106 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
+    <title>Java语法基础知识点（一）</title>
+    <url>/posts/java/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
+<p>2.编译</p>
+<p>3.类加载</p>
+<p>4.class文件进一步转换成二进制机器码</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1bd010cebf33a2b7c76ba8b4cdf3a182.png"></p>
+<h2 id="1-2、Java运行的机制"><a href="#1-2、Java运行的机制" class="headerlink" title="1.2、Java运行的机制"></a>1.2、Java运行的机制</h2><p><strong>JDK：</strong> JDK是Java语言的软件开发工具包，包含JRE。</p>
+<p><strong>JRE：</strong> JRE运行Java程序所必需的的基本条件，包含JVM标准实现及核心类库。</p>
+<p><strong>JVM：</strong> JVM（Java虚拟机），是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的，JVM是Java跨平台的基础。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/df2fc4abb87be45728b7dc6e8440f955.png"></p>
+<h2 id="1-3、注释"><a href="#1-3、注释" class="headerlink" title="1.3、注释"></a>1.3、注释</h2><p><strong>注释：</strong> 用于注解说明解释程序的文字，增加代码的阅读性。</p>
+<p>注释的分类： </p>
+<ul>
+<li><p><strong>单行注释</strong></p>
+<p>格式：// 注释文字  </p>
+<p>单行注释，只作用于一行</p>
+</li>
+<li><p><strong>多行注释</strong></p>
+<p>格式：/* 注释文字 */</p>
+<p>多行注释，作用于一个区间</p>
+</li>
+<li><p><strong>文档注释（javadoc注释）</strong></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author   作者名字</span><br><span class="line"> * @version  版本号</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p>多行注释的文档注释，作用于一个区间。</p>
+</li>
+</ul>
+<p>多行注释和文档注释区别：</p>
+<p>可以使用javadoc xxx.java 生成文档</p>
+<p>代码生成的文档，只有文档注释的内容可以嵌入，多行注释的内容不可嵌入</p>
+<p><strong>注意：</strong> 多行注释里面不能有多行注释嵌入，对于单行和多行注释被注释的文字，都不会被JVM（java虚拟机）执行。</p>
+<p>注释写法示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">	<span class="comment">//单行注释</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这是多行注释</span></span><br><span class="line"><span class="comment">      这是一个main方法</span></span><br><span class="line"><span class="comment">  	  这是主函数</span></span><br><span class="line"><span class="comment">      这是程序入口</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">		  这是文档注释</span></span><br><span class="line"><span class="comment">		  下面是输出语句</span></span><br><span class="line"><span class="comment">		  输出内容随意  </span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(<span class="string">&quot;注释测试&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4、关键字"><a href="#1-4、关键字" class="headerlink" title="1.4、关键字"></a>1.4、关键字</h2><p>概述：关键字是系统赋予一些单词特定的含义。</p>
+<p>特点：关键字中所有单词字母都为小写</p>
+<p>比如：class、public、static、void等都是关键字</p>
+<p>特殊关键字：goto 和 const 是保留关键字，没有具体含义，不能使用</p>
+<p><strong>注意：</strong> java是严格区分大小写的</p>
+<p>比如：static是关键字，Static就不是关键字了</p>
+<h2 id="1-5、标识符"><a href="#1-5、标识符" class="headerlink" title="1.5、标识符"></a>1.5、标识符</h2><ul>
+<li><p>理解：自己命名的单词就叫标识符</p>
+<p>比如：public class Hello{}</p>
+<p>​    类名Hello就是标识符</p>
+</li>
+<li><p>编写规定：</p>
+<p>1.标识符是由 字母、数字、_ 、$ 组成</p>
+<p>2.不能以数字开头</p>
+<p>3.关键字不能作为标识符，但能包含关键字</p>
+<p>4.中文 ￥ 可以作为标识符，但是开发禁用</p>
+</li>
+</ul>
+<h2 id="1-6、变量"><a href="#1-6、变量" class="headerlink" title="1.6、变量"></a>1.6、变量</h2><h3 id="1-6-1、变量概述"><a href="#1-6-1、变量概述" class="headerlink" title="1.6.1、变量概述"></a>1.6.1、变量概述</h3><p><strong>变量</strong>是内存中储存数据最基本的单元，将数据（字面量）放到内存中，给这块内存空间起一个名字，就叫变量。</p>
+<p>理解：变量代表的数据类型是一个容器，用来存储字面值，</p>
+<p>​    一个变量代表的数据类型只能存储一个字面值数据。</p>
+<p><strong>语法：</strong> 数据类型 变量名 = 字面值;</p>
+<h3 id="1-6-2、变量名"><a href="#1-6-2、变量名" class="headerlink" title="1.6.2、变量名"></a>1.6.2、变量名</h3><p>概述：自己取名字，第一个单词小写，第二个单词开始首字母大写。</p>
+<p>例：把20这个字面值数据，赋值给age这个变量，age是int类型。</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;小明&quot;</span>;  <span class="comment">//姓名</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">20</span>;			<span class="comment">//年龄</span></span><br><span class="line">		<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">1.78</span>;  <span class="comment">//身高</span></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">		System.out.println(name);</span><br><span class="line">		System.out.println(age);</span><br><span class="line">		System.out.println(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/5fe6268b7aaaadfe42c6dd2f5ea3bf2e.png"></p>
+<h3 id="1-6-3、变量的分类"><a href="#1-6-3、变量的分类" class="headerlink" title="1.6.3、变量的分类"></a>1.6.3、变量的分类</h3><p>变量根据声明的位置不同分为：局部变量和成员变量。</p>
+<p><strong>成员变量：</strong> 在方法体外，类体内声明的变量称为成员变量。</p>
+<p>成员变量声明如果使用static关键字修饰的为静态变量，没有static修饰的则称为实例变量。</p>
+<p><strong>局部变量：</strong> 在方法体当中声明的变量称为局部变量。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9058da8f6e8b2d652d0e0e94b545140e.png"><br>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span>&#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">20</span>;  <span class="comment">//静态变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; <span class="comment">//形参</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">firstNum</span> <span class="operator">=</span> <span class="number">50</span>;  <span class="comment">//局部变量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极光影视v2.4.1-去广告版</title>
+    <url>/posts/jgyy/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，软件已测试可以正常使用。</p>
+<p>国内外各种电影、电视剧、综艺、动漫等影视应有尽有，想看什么就搜什么，无广告支持投屏和下载功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/cb70cd8c.webp"></p>
+<p>免费观看院线大片、付费电影、高清资源。内置几十条资源线路几乎包含了当前所有热门和经典影视。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/b0f5c70b.webp"></p>
+<p><font color="red">注：</font>部分手机安装时，可能会误报病毒，因为敏感资源版权问题此类软件无法上架应用商店，可以放心使用。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>蓝奏云：<a href="https://xhge.lanzoui.com/iDMSvz99cfa">https://xhge.lanzoui.com/iDMSvz99cfa</a></p>
+]]></content>
+      <categories>
+        <category>手机软件</category>
+      </categories>
+      <tags>
+        <tag>手机软件</tag>
+        <tag>影视</tag>
+        <tag>电视盒子</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Office 2021专业增强版 下载及安装教程</title>
     <url>/posts/office/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>office 2021是微软2021最新上线的办公软件套装，包括了excel、word、PPT等办公软件。增强版相比于之前的版本，全新推出了云存储功能，可以上传自己的办公文件至云端，避免重要文件丢失的问题，能够有效的提升工作效率。还带来了更好的性能、支持暗黑模式、无障碍优化、Excel的动态数组等功能。  </p>
@@ -908,23 +928,24 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>极光影视v2.4.1-去广告版</title>
-    <url>/posts/jgyy/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，软件已测试可以正常使用。</p>
-<p>国内外各种电影、电视剧、综艺、动漫等影视应有尽有，想看什么就搜什么，无广告支持投屏和下载功能。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/cb70cd8c.webp"></p>
-<p>免费观看院线大片、付费电影、高清资源。内置几十条资源线路几乎包含了当前所有热门和经典影视。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/b0f5c70b.webp"></p>
-<p><font color="red">注：</font>部分手机安装时，可能会误报病毒，因为敏感资源版权问题此类软件无法上架应用商店，可以放心使用。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>蓝奏云：<a href="https://xhge.lanzoui.com/iDMSvz99cfa">https://xhge.lanzoui.com/iDMSvz99cfa</a></p>
+    <title>QMD音乐v1.7.1-听歌神器</title>
+    <url>/posts/qmd/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
+<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
+<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
+<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
+<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
+<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
 ]]></content>
       <categories>
         <category>手机软件</category>
       </categories>
       <tags>
         <tag>手机软件</tag>
-        <tag>影视</tag>
-        <tag>电视盒子</tag>
+        <tag>无损音乐</tag>
       </tags>
   </entry>
   <entry>
@@ -985,42 +1006,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>QMD音乐v1.7.1-听歌神器</title>
-    <url>/posts/qmd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>QMD是一款免费的无损音乐下载神器，它的功能很强大，可以免费下载播放各大音乐平台的会员和付费歌曲。</p>
-<p>这款软件之前也在公众号给大家分享过，新版增加了高解析无损(Hi-Res)音质，真牛。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd01.webp"></p>
-<p>搜索自己想听什么歌曲，找到后就可以根据自己的需求选择下载的音质了，还可以在线播放。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qmd02.webp"></p>
-<p>下载完成后就可以使用自己常用的播放器来听歌曲了，无损音质给你不一样的听觉体验。</p>
-<p>注：部分音乐可能会下载失败，你可以更换其他音质下载，或者关闭软件后台进程，尝试重新打开是否能下载，大部分音乐都是可以下载的。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>下载地址</p>
-<p>蓝奏云：<a href="https://xhge.lanzouq.com/irTXg03mzf5g">https://xhge.lanzouq.com/irTXg03mzf5g</a></p>
-]]></content>
-      <categories>
-        <category>手机软件</category>
-      </categories>
-      <tags>
-        <tag>手机软件</tag>
-        <tag>无损音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单机游戏安装教程</title>
-    <url>/posts/jiao-cheng/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
-<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
-<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>单机游戏</tag>
-        <tag>游戏安装</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>极光影视 安卓&amp;电视TV版-无广告免费看V1P影视</title>
     <url>/posts/ying-shi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，支持安卓手机和智能电视端安装，均已测试可以正常使用，安装包获取方式在文章底部查看。</p>
@@ -1060,6 +1045,21 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
         <tag>手机软件</tag>
         <tag>影视</tag>
         <tag>电视盒子</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单机游戏安装教程</title>
+    <url>/posts/jiao-cheng/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
+<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
+<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>单机游戏</tag>
+        <tag>游戏安装</tag>
       </tags>
   </entry>
   <entry>

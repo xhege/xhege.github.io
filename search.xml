@@ -682,86 +682,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>Java语法基础知识点（一）</title>
-    <url>/posts/java/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
-<p>2.编译</p>
-<p>3.类加载</p>
-<p>4.class文件进一步转换成二进制机器码</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/1bd010cebf33a2b7c76ba8b4cdf3a182.png"></p>
-<h2 id="1-2、Java运行的机制"><a href="#1-2、Java运行的机制" class="headerlink" title="1.2、Java运行的机制"></a>1.2、Java运行的机制</h2><p><strong>JDK：</strong> JDK是Java语言的软件开发工具包，包含JRE。</p>
-<p><strong>JRE：</strong> JRE运行Java程序所必需的的基本条件，包含JVM标准实现及核心类库。</p>
-<p><strong>JVM：</strong> JVM（Java虚拟机），是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的，JVM是Java跨平台的基础。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/df2fc4abb87be45728b7dc6e8440f955.png"></p>
-<h2 id="1-3、注释"><a href="#1-3、注释" class="headerlink" title="1.3、注释"></a>1.3、注释</h2><p><strong>注释：</strong> 用于注解说明解释程序的文字，增加代码的阅读性。</p>
-<p>注释的分类： </p>
-<ul>
-<li><p><strong>单行注释</strong></p>
-<p>格式：// 注释文字  </p>
-<p>单行注释，只作用于一行</p>
-</li>
-<li><p><strong>多行注释</strong></p>
-<p>格式：/* 注释文字 */</p>
-<p>多行注释，作用于一个区间</p>
-</li>
-<li><p><strong>文档注释（javadoc注释）</strong></p>
-<p>格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author   作者名字</span><br><span class="line"> * @version  版本号</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
-<p>多行注释的文档注释，作用于一个区间。</p>
-</li>
-</ul>
-<p>多行注释和文档注释区别：</p>
-<p>可以使用javadoc xxx.java 生成文档</p>
-<p>代码生成的文档，只有文档注释的内容可以嵌入，多行注释的内容不可嵌入</p>
-<p><strong>注意：</strong> 多行注释里面不能有多行注释嵌入，对于单行和多行注释被注释的文字，都不会被JVM（java虚拟机）执行。</p>
-<p>注释写法示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">	<span class="comment">//单行注释</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这是多行注释</span></span><br><span class="line"><span class="comment">      这是一个main方法</span></span><br><span class="line"><span class="comment">  	  这是主函数</span></span><br><span class="line"><span class="comment">      这是程序入口</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">		  这是文档注释</span></span><br><span class="line"><span class="comment">		  下面是输出语句</span></span><br><span class="line"><span class="comment">		  输出内容随意  </span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(<span class="string">&quot;注释测试&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4、关键字"><a href="#1-4、关键字" class="headerlink" title="1.4、关键字"></a>1.4、关键字</h2><p>概述：关键字是系统赋予一些单词特定的含义。</p>
-<p>特点：关键字中所有单词字母都为小写</p>
-<p>比如：class、public、static、void等都是关键字</p>
-<p>特殊关键字：goto 和 const 是保留关键字，没有具体含义，不能使用</p>
-<p><strong>注意：</strong> java是严格区分大小写的</p>
-<p>比如：static是关键字，Static就不是关键字了</p>
-<h2 id="1-5、标识符"><a href="#1-5、标识符" class="headerlink" title="1.5、标识符"></a>1.5、标识符</h2><ul>
-<li><p>理解：自己命名的单词就叫标识符</p>
-<p>比如：public class Hello{}</p>
-<p>​    类名Hello就是标识符</p>
-</li>
-<li><p>编写规定：</p>
-<p>1.标识符是由 字母、数字、_ 、$ 组成</p>
-<p>2.不能以数字开头</p>
-<p>3.关键字不能作为标识符，但能包含关键字</p>
-<p>4.中文 ￥ 可以作为标识符，但是开发禁用</p>
-</li>
-</ul>
-<h2 id="1-6、变量"><a href="#1-6、变量" class="headerlink" title="1.6、变量"></a>1.6、变量</h2><h3 id="1-6-1、变量概述"><a href="#1-6-1、变量概述" class="headerlink" title="1.6.1、变量概述"></a>1.6.1、变量概述</h3><p><strong>变量</strong>是内存中储存数据最基本的单元，将数据（字面量）放到内存中，给这块内存空间起一个名字，就叫变量。</p>
-<p>理解：变量代表的数据类型是一个容器，用来存储字面值，</p>
-<p>​    一个变量代表的数据类型只能存储一个字面值数据。</p>
-<p><strong>语法：</strong> 数据类型 变量名 = 字面值;</p>
-<h3 id="1-6-2、变量名"><a href="#1-6-2、变量名" class="headerlink" title="1.6.2、变量名"></a>1.6.2、变量名</h3><p>概述：自己取名字，第一个单词小写，第二个单词开始首字母大写。</p>
-<p>例：把20这个字面值数据，赋值给age这个变量，age是int类型。</p>
-<p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;小明&quot;</span>;  <span class="comment">//姓名</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">20</span>;			<span class="comment">//年龄</span></span><br><span class="line">		<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">1.78</span>;  <span class="comment">//身高</span></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">		System.out.println(name);</span><br><span class="line">		System.out.println(age);</span><br><span class="line">		System.out.println(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/5fe6268b7aaaadfe42c6dd2f5ea3bf2e.png"></p>
-<h3 id="1-6-3、变量的分类"><a href="#1-6-3、变量的分类" class="headerlink" title="1.6.3、变量的分类"></a>1.6.3、变量的分类</h3><p>变量根据声明的位置不同分为：局部变量和成员变量。</p>
-<p><strong>成员变量：</strong> 在方法体外，类体内声明的变量称为成员变量。</p>
-<p>成员变量声明如果使用static关键字修饰的为静态变量，没有static修饰的则称为实例变量。</p>
-<p><strong>局部变量：</strong> 在方法体当中声明的变量称为局部变量。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/9058da8f6e8b2d652d0e0e94b545140e.png"><br>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span>&#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">20</span>;  <span class="comment">//静态变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; <span class="comment">//形参</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">firstNum</span> <span class="operator">=</span> <span class="number">50</span>;  <span class="comment">//局部变量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java知识点复习（七）多线程</title>
     <url>/posts/java-thread/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1、进程与线程的概念"><a href="#1、进程与线程的概念" class="headerlink" title="1、进程与线程的概念"></a>1、进程与线程的概念</h2><h3 id="1-1、进程是什么？"><a href="#1-1、进程是什么？" class="headerlink" title="1.1、进程是什么？"></a>1.1、进程是什么？</h3><p><strong>进程</strong>是在操作系统上体现的，进程就是应用程序，例如：QQ、微信、王者荣耀，只要是应用程序并且打开了就是一个进程。</p>
@@ -869,6 +789,86 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
+    <title>Java语法基础知识点（一）</title>
+    <url>/posts/java/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
+<p>2.编译</p>
+<p>3.类加载</p>
+<p>4.class文件进一步转换成二进制机器码</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1bd010cebf33a2b7c76ba8b4cdf3a182.png"></p>
+<h2 id="1-2、Java运行的机制"><a href="#1-2、Java运行的机制" class="headerlink" title="1.2、Java运行的机制"></a>1.2、Java运行的机制</h2><p><strong>JDK：</strong> JDK是Java语言的软件开发工具包，包含JRE。</p>
+<p><strong>JRE：</strong> JRE运行Java程序所必需的的基本条件，包含JVM标准实现及核心类库。</p>
+<p><strong>JVM：</strong> JVM（Java虚拟机），是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的，JVM是Java跨平台的基础。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/df2fc4abb87be45728b7dc6e8440f955.png"></p>
+<h2 id="1-3、注释"><a href="#1-3、注释" class="headerlink" title="1.3、注释"></a>1.3、注释</h2><p><strong>注释：</strong> 用于注解说明解释程序的文字，增加代码的阅读性。</p>
+<p>注释的分类： </p>
+<ul>
+<li><p><strong>单行注释</strong></p>
+<p>格式：// 注释文字  </p>
+<p>单行注释，只作用于一行</p>
+</li>
+<li><p><strong>多行注释</strong></p>
+<p>格式：/* 注释文字 */</p>
+<p>多行注释，作用于一个区间</p>
+</li>
+<li><p><strong>文档注释（javadoc注释）</strong></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author   作者名字</span><br><span class="line"> * @version  版本号</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p>多行注释的文档注释，作用于一个区间。</p>
+</li>
+</ul>
+<p>多行注释和文档注释区别：</p>
+<p>可以使用javadoc xxx.java 生成文档</p>
+<p>代码生成的文档，只有文档注释的内容可以嵌入，多行注释的内容不可嵌入</p>
+<p><strong>注意：</strong> 多行注释里面不能有多行注释嵌入，对于单行和多行注释被注释的文字，都不会被JVM（java虚拟机）执行。</p>
+<p>注释写法示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">	<span class="comment">//单行注释</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这是多行注释</span></span><br><span class="line"><span class="comment">      这是一个main方法</span></span><br><span class="line"><span class="comment">  	  这是主函数</span></span><br><span class="line"><span class="comment">      这是程序入口</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">		  这是文档注释</span></span><br><span class="line"><span class="comment">		  下面是输出语句</span></span><br><span class="line"><span class="comment">		  输出内容随意  </span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(<span class="string">&quot;注释测试&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4、关键字"><a href="#1-4、关键字" class="headerlink" title="1.4、关键字"></a>1.4、关键字</h2><p>概述：关键字是系统赋予一些单词特定的含义。</p>
+<p>特点：关键字中所有单词字母都为小写</p>
+<p>比如：class、public、static、void等都是关键字</p>
+<p>特殊关键字：goto 和 const 是保留关键字，没有具体含义，不能使用</p>
+<p><strong>注意：</strong> java是严格区分大小写的</p>
+<p>比如：static是关键字，Static就不是关键字了</p>
+<h2 id="1-5、标识符"><a href="#1-5、标识符" class="headerlink" title="1.5、标识符"></a>1.5、标识符</h2><ul>
+<li><p>理解：自己命名的单词就叫标识符</p>
+<p>比如：public class Hello{}</p>
+<p>​    类名Hello就是标识符</p>
+</li>
+<li><p>编写规定：</p>
+<p>1.标识符是由 字母、数字、_ 、$ 组成</p>
+<p>2.不能以数字开头</p>
+<p>3.关键字不能作为标识符，但能包含关键字</p>
+<p>4.中文 ￥ 可以作为标识符，但是开发禁用</p>
+</li>
+</ul>
+<h2 id="1-6、变量"><a href="#1-6、变量" class="headerlink" title="1.6、变量"></a>1.6、变量</h2><h3 id="1-6-1、变量概述"><a href="#1-6-1、变量概述" class="headerlink" title="1.6.1、变量概述"></a>1.6.1、变量概述</h3><p><strong>变量</strong>是内存中储存数据最基本的单元，将数据（字面量）放到内存中，给这块内存空间起一个名字，就叫变量。</p>
+<p>理解：变量代表的数据类型是一个容器，用来存储字面值，</p>
+<p>​    一个变量代表的数据类型只能存储一个字面值数据。</p>
+<p><strong>语法：</strong> 数据类型 变量名 = 字面值;</p>
+<h3 id="1-6-2、变量名"><a href="#1-6-2、变量名" class="headerlink" title="1.6.2、变量名"></a>1.6.2、变量名</h3><p>概述：自己取名字，第一个单词小写，第二个单词开始首字母大写。</p>
+<p>例：把20这个字面值数据，赋值给age这个变量，age是int类型。</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;小明&quot;</span>;  <span class="comment">//姓名</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">20</span>;			<span class="comment">//年龄</span></span><br><span class="line">		<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">1.78</span>;  <span class="comment">//身高</span></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">		System.out.println(name);</span><br><span class="line">		System.out.println(age);</span><br><span class="line">		System.out.println(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/5fe6268b7aaaadfe42c6dd2f5ea3bf2e.png"></p>
+<h3 id="1-6-3、变量的分类"><a href="#1-6-3、变量的分类" class="headerlink" title="1.6.3、变量的分类"></a>1.6.3、变量的分类</h3><p>变量根据声明的位置不同分为：局部变量和成员变量。</p>
+<p><strong>成员变量：</strong> 在方法体外，类体内声明的变量称为成员变量。</p>
+<p>成员变量声明如果使用static关键字修饰的为静态变量，没有static修饰的则称为实例变量。</p>
+<p><strong>局部变量：</strong> 在方法体当中声明的变量称为局部变量。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9058da8f6e8b2d652d0e0e94b545140e.png"><br>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span>&#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">20</span>;  <span class="comment">//静态变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; <span class="comment">//形参</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">firstNum</span> <span class="operator">=</span> <span class="number">50</span>;  <span class="comment">//局部变量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>极光影视v2.4.1-去广告版</title>
     <url>/posts/jgyy/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p><font color="orange">极光影院</font>是一个资源很丰富的影视软件，它拥有超级强大的视频搜索引擎，超多高品质影视资源，软件已测试可以正常使用。</p>
@@ -928,33 +928,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
-    <title>【Ps 2021】 Photoshop2021 下载及安装教程</title>
-    <url>/posts/ps/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>adobe photoshop2021简称ps2021，是由Adobe Systems开发和发行的图像处理软件。它不仅涵盖了照片编辑、绘画、动画以及图形设计等方面，而且还内置了画笔、套索、图章等超多工具来帮助你把所有的创意想法都能统统实现，从而更好的创建出你想要的精美图像。</p>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1.在电脑上下载好软件安装包后，鼠标右键单击压缩包，选择解压到当前文件夹（如下图）。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/eafb540ef3ede05ff586d464aba092b5.png" alt="图片"></p>
-<p>2.打开解压后的文件夹，找到Set-up文件右键选择以管理员身份运行。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/5def0986df4fa4be7b7f8232b79b0700.png" alt="图片"></p>
-<p>3.运行后弹出安装界面，先点击右下角文件夹图标，【更改位置】设置软件的安装路径，然后点击“继续”（注意，选择的安装路径不能有中文文件夹）。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/b612c23e039050d972809b4a1c3a63fa.png" alt="图片"></p>
-<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/ccdf439d59a6a6e3945eea35fb7de094.png" alt="图片"></p>
-<p>5.软件安装完成后，点击关闭按钮。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/479683907da8f73259e7dfb64db471f9.png" alt="图片"></p>
-<p>6.在电脑桌面找到PS软件，双击运行就可以开始使用了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/1ca173727ca3db0f645e52caced7a7ca.png" alt="图片"></p>
-<p>安装后就是破解版的，可以永久使用，教程结束。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1hb72Tdg5JDlFH2T3tHxqtg">https://pan.baidu.com/s/1hb72Tdg5JDlFH2T3tHxqtg</a><br>提取码：vtwy</p>
-]]></content>
-      <categories>
-        <category>电脑软件</category>
-      </categories>
-      <tags>
-        <tag>Adobe软件</tag>
-        <tag>ps</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Pr 2021】Premiere 2021 下载及安装教程</title>
     <url>/posts/pr/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>adobe premiere pro 2021简称ps2021，是Adobe公司旗下的一款功能强大的视频编辑处理软件。它可以对视频进行剪辑、旋转、分割、字幕添加等超多实用功能。使用这款软件你可以尽情发挥自己的创意，制作出各种有创意、新意的优秀视频作品。</p>
@@ -982,6 +955,33 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       <tags>
         <tag>pr</tag>
         <tag>办公软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Ps 2021】 Photoshop2021 下载及安装教程</title>
+    <url>/posts/ps/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><p>adobe photoshop2021简称ps2021，是由Adobe Systems开发和发行的图像处理软件。它不仅涵盖了照片编辑、绘画、动画以及图形设计等方面，而且还内置了画笔、套索、图章等超多工具来帮助你把所有的创意想法都能统统实现，从而更好的创建出你想要的精美图像。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1.在电脑上下载好软件安装包后，鼠标右键单击压缩包，选择解压到当前文件夹（如下图）。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/eafb540ef3ede05ff586d464aba092b5.png" alt="图片"></p>
+<p>2.打开解压后的文件夹，找到Set-up文件右键选择以管理员身份运行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/5def0986df4fa4be7b7f8232b79b0700.png" alt="图片"></p>
+<p>3.运行后弹出安装界面，先点击右下角文件夹图标，【更改位置】设置软件的安装路径，然后点击“继续”（注意，选择的安装路径不能有中文文件夹）。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b612c23e039050d972809b4a1c3a63fa.png" alt="图片"></p>
+<p>4.软件正在安装，安装需要一些时间，耐心等待一会就好了。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ccdf439d59a6a6e3945eea35fb7de094.png" alt="图片"></p>
+<p>5.软件安装完成后，点击关闭按钮。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/479683907da8f73259e7dfb64db471f9.png" alt="图片"></p>
+<p>6.在电脑桌面找到PS软件，双击运行就可以开始使用了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/1ca173727ca3db0f645e52caced7a7ca.png" alt="图片"></p>
+<p>安装后就是破解版的，可以永久使用，教程结束。</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>链接：<a href="https://pan.baidu.com/s/1hb72Tdg5JDlFH2T3tHxqtg">https://pan.baidu.com/s/1hb72Tdg5JDlFH2T3tHxqtg</a><br>提取码：vtwy</p>
+]]></content>
+      <categories>
+        <category>电脑软件</category>
+      </categories>
+      <tags>
+        <tag>Adobe软件</tag>
+        <tag>ps</tag>
       </tags>
   </entry>
   <entry>
@@ -1048,6 +1048,21 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       </tags>
   </entry>
   <entry>
+    <title>单机游戏安装教程</title>
+    <url>/posts/jiao-cheng/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
+<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
+<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>单机游戏</tag>
+        <tag>游戏安装</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>模拟器类游戏合集</title>
     <url>/posts/mo-ni-qi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> 
@@ -1100,49 +1115,6 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a>&nbsp;&nb
       <tags>
         <tag>单机游戏</tag>
         <tag>模拟器游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单机游戏安装教程</title>
-    <url>/posts/jiao-cheng/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-bin文件安装步骤"><a href="#1-bin文件安装步骤" class="headerlink" title="1.bin文件安装步骤"></a>1.bin文件安装步骤</h2><h3 id="文件完整性校验工具"><a href="#文件完整性校验工具" class="headerlink" title="文件完整性校验工具"></a>文件完整性校验工具</h3><p>下载链接：<a href="https://www.lanzoui.com/i87mzuh" title="https://www.lanzoui.com/i87mzuh">https://www.lanzoui.com/i87mzuh</a><br><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/425454ae584bd4b2f156b35d3bdd29d9"></p>
-<h2 id="2-压缩包文件安装步骤"><a href="#2-压缩包文件安装步骤" class="headerlink" title="2.压缩包文件安装步骤"></a>2.压缩包文件安装步骤</h2><p>有些游戏是免安装版的，安装文件是很多大小一样的压缩包，例如文件格式是“.rar、part.rar、.zip等后缀名”，文件全部下载后只需右键选择解压其中一个就可以了，如果右键菜单没有显示解压选项，请先安装一个解压软件再选择文件进行解压。</p>
-<h2 id="其它说明"><a href="#其它说明" class="headerlink" title="其它说明"></a>其它说明</h2><h3 id="常见问题及解决方法"><a href="#常见问题及解决方法" class="headerlink" title="常见问题及解决方法"></a>常见问题及解决方法</h3><p>点击查看： <a href="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA" title="https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA">https://mp.weixin.qq.com/s/hJUXvhESwLKOKext18-UBA</a></p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>单机游戏</tag>
-        <tag>游戏安装</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>游戏常见问题说明</title>
-    <url>/posts/shuo-ming/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
-<p style="line-height:1.8"> 
-<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
-<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
-
-<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
-<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
-<p style="line-height:1.8">4.如果运行游戏时
-<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
-<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
-
-<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
-<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
-<p>提取码：f1m7</p>
-]]></content>
-      <categories>
-        <category>单机游戏</category>
-      </categories>
-      <tags>
-        <tag>游戏说明</tag>
       </tags>
   </entry>
   <entry>
@@ -1956,6 +1928,34 @@ QQ群：<a href="https://jq.qq.com/?_wv=1027&k=d1YSH37A">1040610096</a><br />
       </categories>
       <tags>
         <tag>单机游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游戏常见问题说明</title>
+    <url>/posts/shuo-ming/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="游戏说明"><a href="#游戏说明" class="headerlink" title="游戏说明"></a>游戏说明</h2><p style="line-height:1.8"> 1.本网站和微信公众号内的所有游戏都是免费资源，附带有修改器，都免费分享给你们，<font color="#FF0000">仅供个人学习研究使用，切勿用于商业用途；</font><br />部分游戏首次运行时需要激活码，<font color="#FF0000">激活码会在链接下面显示</font>，安装后输入激活就可以开始游戏了，<font color="#FF0000">没有激活码的则不需要激活</font>。</p>
+<p style="line-height:1.8"> 
+<img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640.jpg" alt="获取方式" align="center" width="540"></p>
+<p style="line-height:1.8">2.如果你需要安装游戏的教程和文件校验工具，可以在公众号内回复"安装教程"获取；<br />游戏安装时，注意<font color="#FF0000">不能选择有中文的文件夹</font>，大家可以在硬盘根目录下新建一个英文名称的文件夹来存放游戏，<font color="#FF0000">安装解压前要关闭杀毒软件！</font></p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(1).jpg" alt="安装路径" width="540"></p>
+
+<h2 id="错误提示解决方法"><a href="#错误提示解决方法" class="headerlink" title="错误提示解决方法"></a>错误提示解决方法</h2><p>3.安装中遇到下图弹框提示，请删除损坏的源文件重新下载即可：</p>
+<p style="line-height:1.8"> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/coo.png" alt="安装路径" width="540"></p>
+<p style="line-height:1.8">4.如果运行游戏时
+<font color="#FF0000">提示“缺失xxx.dll文件，缺少组件，打不开游戏”</font>等问题，是因为电脑缺少运行库，请下载本页底部的游戏运行库，或者在<font color="#FF0000">公众号内回复“运行库”</font>在电脑上安装修复一下就好了；<br />如果运行时出现下图中<font color="#FF0000">丢失steam_api.dll错误</font>，这是因为杀毒软件将补丁文件拦截删除造成的，解决方法：<font color="#FF0000">退出杀软重新安装</font>。</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/xhege/blog-imgs/640%20(2).jpg" alt="关闭杀毒软件" align="center" width="730"></p>
+<p style="line-height:1.8">5.如果还有<font color="#FF0000">其他解决不了的问题</font>，请<font color="#FF0000">加入</font>我们的<font color="#FF0000">游戏交流群</font>，在群里问哦！群里有很多热心大佬和资深游戏玩家，另外还会有新游戏资源分享抢先体验哦。</p>
+
+<h2 id="游戏玩家交流"><a href="#游戏玩家交流" class="headerlink" title="游戏玩家交流"></a>游戏玩家交流</h2><p><br /><p align="center"><b>QQ群：1040610096</b></p><br /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/xhege/xhg-images/qun.webp"></p>
+<h2 id="游戏运行库下载"><a href="#游戏运行库下载" class="headerlink" title="游戏运行库下载"></a>游戏运行库下载</h2><p>链接：<a href="https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw">https://pan.baidu.com/s/19RgUkj45eKZa6uVDumTaTw</a></p>
+<p>提取码：f1m7</p>
+]]></content>
+      <categories>
+        <category>单机游戏</category>
+      </categories>
+      <tags>
+        <tag>游戏说明</tag>
       </tags>
   </entry>
   <entry>

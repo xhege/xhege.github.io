@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.webp">
+  
+  <title>Java语法基础知识点（一） | 小鹤资源屋</title>
+  <meta name="author" content="小鹤哥" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="Java" />
+  
+  <meta name="description" content="java语言概述、注释、关键字、标识符、变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java语法基础知识点（一）">
+<meta property="og:url" content="http://xhgblog.club/posts/java/index.html">
+<meta property="og:site_name" content="小鹤资源屋">
+<meta property="og:description" content="java语言概述、注释、关键字、标识符、变量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xhgblog.club/images/favicon.webp">
+<meta property="article:published_time" content="2022-03-01T03:10:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T03:10:27.989Z">
+<meta property="article:author" content="小鹤哥">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xhgblog.club/images/favicon.webp">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a><i class="fa fa-th-large"></i>分类</a>
+                                                <ul class="sub-menu">
+                                                    
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/">单机游戏</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6/">电脑软件</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/">手机软件</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</a></li>
+                                                        
+                                                    
+                                                </ul>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-archive"></i>文章</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/donate/"><i class="fa fa-heartbeat"></i>捐赠</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/contact/"><i class="fa fa-comments"></i>留言板</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-heart"></i>关于</a></li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a><i class="fa fa-list"></i>更多</a>
+                                                <ul class="sub-menu">
+                                                    
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/chat/">QQ交流群</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/ems-cnpl/">微信公众号</a></li>
+                                                        
+                                                    
+                                                </ul>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li><a href="/search/"><i class="fa fa-search"></i>搜索</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">小鹤资源屋</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>小鹤资源屋</h2> <br />
+                        <span>学无止境，热爱分享</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://xhgblog.club/posts/java/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Java语法基础知识点（一）</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2022-03-01T03:10:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2022-03-01</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">小鹤哥</span>
+                </li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~1.98K
+                    
+                    字
+                </li>
+                
+                    <li id="/posts/java/" class="leancloud_visitors" data-flag-title="Java语法基础知识点（一）">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-xid="/posts/java/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1649992227989"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%F0%9F%94%A5"><span class="toc-text">1、Java语法基础🔥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E3%80%81%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">1.1、一个程序执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E3%80%81Java%E8%BF%90%E8%A1%8C%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="toc-text">1.2、Java运行的机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E3%80%81%E6%B3%A8%E9%87%8A"><span class="toc-text">1.3、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">1.4、关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-text">1.5、标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-text">1.6、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1%E3%80%81%E5%8F%98%E9%87%8F%E6%A6%82%E8%BF%B0"><span class="toc-text">1.6.1、变量概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2%E3%80%81%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-text">1.6.2、变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3%E3%80%81%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">1.6.3、变量的分类</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="1、Java语法基础🔥"><a href="#1、Java语法基础🔥" class="headerlink" title="1、Java语法基础🔥"></a>1、Java语法基础🔥</h1><h2 id="1-1、一个程序执行过程"><a href="#1-1、一个程序执行过程" class="headerlink" title="1.1、一个程序执行过程"></a>1.1、一个程序执行过程</h2><p>1.编码</p>
+<p>2.编译</p>
+<p>3.类加载</p>
+<p>4.class文件进一步转换成二进制机器码</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1bd010cebf33a2b7c76ba8b4cdf3a182.png"></p>
+<h2 id="1-2、Java运行的机制"><a href="#1-2、Java运行的机制" class="headerlink" title="1.2、Java运行的机制"></a>1.2、Java运行的机制</h2><p><strong>JDK：</strong> JDK是Java语言的软件开发工具包，包含JRE。</p>
+<p><strong>JRE：</strong> JRE运行Java程序所必需的的基本条件，包含JVM标准实现及核心类库。</p>
+<p><strong>JVM：</strong> JVM（Java虚拟机），是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的，JVM是Java跨平台的基础。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/df2fc4abb87be45728b7dc6e8440f955.png"></p>
+<h2 id="1-3、注释"><a href="#1-3、注释" class="headerlink" title="1.3、注释"></a>1.3、注释</h2><p><strong>注释：</strong> 用于注解说明解释程序的文字，增加代码的阅读性。</p>
+<p>注释的分类： </p>
+<ul>
+<li><p><strong>单行注释</strong></p>
+<p>格式：&#x2F;&#x2F; 注释文字  </p>
+<p>单行注释，只作用于一行</p>
+</li>
+<li><p><strong>多行注释</strong></p>
+<p>格式：&#x2F;* 注释文字 *&#x2F;</p>
+<p>多行注释，作用于一个区间</p>
+</li>
+<li><p><strong>文档注释（javadoc注释）</strong></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author   作者名字</span><br><span class="line"> * @version  版本号</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p>多行注释的文档注释，作用于一个区间。</p>
+</li>
+</ul>
+<p>多行注释和文档注释区别：</p>
+<p>可以使用javadoc xxx.java 生成文档</p>
+<p>代码生成的文档，只有文档注释的内容可以嵌入，多行注释的内容不可嵌入</p>
+<p><strong>注意：</strong> 多行注释里面不能有多行注释嵌入，对于单行和多行注释被注释的文字，都不会被JVM（java虚拟机）执行。</p>
+<p>注释写法示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//单行注释</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">      这是多行注释</span></span><br><span class="line"><span class="comment">      这是一个main方法</span></span><br><span class="line"><span class="comment">  	  这是主函数</span></span><br><span class="line"><span class="comment">      这是程序入口</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">		  这是文档注释</span></span><br><span class="line"><span class="comment">		  下面是输出语句</span></span><br><span class="line"><span class="comment">		  输出内容随意  </span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(<span class="string">&quot;注释测试&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4、关键字"><a href="#1-4、关键字" class="headerlink" title="1.4、关键字"></a>1.4、关键字</h2><p>概述：关键字是系统赋予一些单词特定的含义。</p>
+<p>特点：关键字中所有单词字母都为小写</p>
+<p>比如：class、public、static、void等都是关键字</p>
+<p>特殊关键字：goto 和 const 是保留关键字，没有具体含义，不能使用</p>
+<p><strong>注意：</strong> java是严格区分大小写的</p>
+<p>比如：static是关键字，Static就不是关键字了</p>
+<h2 id="1-5、标识符"><a href="#1-5、标识符" class="headerlink" title="1.5、标识符"></a>1.5、标识符</h2><ul>
+<li><p>理解：自己命名的单词就叫标识符</p>
+<p>比如：public class Hello{}</p>
+<p>​	类名Hello就是标识符</p>
+</li>
+<li><p>编写规定：</p>
+<p>1.标识符是由 字母、数字、_ 、$ 组成</p>
+<p>2.不能以数字开头</p>
+<p>3.关键字不能作为标识符，但能包含关键字</p>
+<p>4.中文 ￥ 可以作为标识符，但是开发禁用</p>
+</li>
+</ul>
+<h2 id="1-6、变量"><a href="#1-6、变量" class="headerlink" title="1.6、变量"></a>1.6、变量</h2><h3 id="1-6-1、变量概述"><a href="#1-6-1、变量概述" class="headerlink" title="1.6.1、变量概述"></a>1.6.1、变量概述</h3><p><strong>变量</strong>是内存中储存数据最基本的单元，将数据（字面量）放到内存中，给这块内存空间起一个名字，就叫变量。</p>
+<p>理解：变量代表的数据类型是一个容器，用来存储字面值，</p>
+<p>​	一个变量代表的数据类型只能存储一个字面值数据。</p>
+<p><strong>语法：</strong> 数据类型 变量名 &#x3D; 字面值;</p>
+<h3 id="1-6-2、变量名"><a href="#1-6-2、变量名" class="headerlink" title="1.6.2、变量名"></a>1.6.2、变量名</h3><p>概述：自己取名字，第一个单词小写，第二个单词开始首字母大写。</p>
+<p>例：把20这个字面值数据，赋值给age这个变量，age是int类型。</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;小明&quot;</span>;  <span class="comment">//姓名</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">20</span>;			<span class="comment">//年龄</span></span><br><span class="line">		<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">1.78</span>;  <span class="comment">//身高</span></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">		System.out.println(name);</span><br><span class="line">		System.out.println(age);</span><br><span class="line">		System.out.println(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="https://img-blog.csdnimg.cn/img_convert/5fe6268b7aaaadfe42c6dd2f5ea3bf2e.png"></p>
+<h3 id="1-6-3、变量的分类"><a href="#1-6-3、变量的分类" class="headerlink" title="1.6.3、变量的分类"></a>1.6.3、变量的分类</h3><p>变量根据声明的位置不同分为：局部变量和成员变量。</p>
+<p><strong>成员变量：</strong> 在方法体外，类体内声明的变量称为成员变量。</p>
+<p>成员变量声明如果使用static关键字修饰的为静态变量，没有static修饰的则称为实例变量。</p>
+<p><strong>局部变量：</strong> 在方法体当中声明的变量称为局部变量。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9058da8f6e8b2d652d0e0e94b545140e.png"><br>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span>&#123;</span><br><span class="line">	<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//实例变量</span></span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">20</span>;  <span class="comment">//静态变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; <span class="comment">//形参</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">firstNum</span> <span class="operator">=</span> <span class="number">50</span>;  <span class="comment">//局部变量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://xhgblog.club/posts/java/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://xhgblog.club/posts/java/";
+            const title         = "「Java语法基础知识点（一）」";
+            const excerpt       = `java语言概述、注释、关键字、标识符、变量`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/Java/" rel="tag">Java</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2022-04-15T03:10:27.989Z" itemprop="dateModified">最后编辑：2022-04-15</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 极光影视 安卓&amp;电视TV版-无广告免费看V1P影视" href="/posts/ying-shi/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" Java知识点复习（二）基本数据类型" href="/posts/java-data/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments bg-image"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/posts/java/'
+            }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true,"placeholder":"欢迎留言。(建议填写邮箱可在被回复时收到邮件提醒)"}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@1.6.0/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">小鹤哥资源站，PC游戏资源、实用软件免费分享，喜欢的朋友请帮忙转发分享</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                23
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                20
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%F0%9F%94%A5"><span class="toc-text">1、Java语法基础🔥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E3%80%81%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">1.1、一个程序执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E3%80%81Java%E8%BF%90%E8%A1%8C%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="toc-text">1.2、Java运行的机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E3%80%81%E6%B3%A8%E9%87%8A"><span class="toc-text">1.3、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">1.4、关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-text">1.5、标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-text">1.6、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1%E3%80%81%E5%8F%98%E9%87%8F%E6%A6%82%E8%BF%B0"><span class="toc-text">1.6.1、变量概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2%E3%80%81%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-text">1.6.2、变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3%E3%80%81%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">1.6.3、变量的分类</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/">单机游戏</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/">手机软件</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6/">电脑软件</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</a><span class="category-list-count">7</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/AE/" style="font-size: 0.6em;">AE</a> <a href="/tags/Adobe%E8%BD%AF%E4%BB%B6/" style="font-size: 0.73em;">Adobe软件</a> <a href="/tags/Ai/" style="font-size: 0.6em;">Ai</a> <a href="/tags/Java/" style="font-size: 0.8em;">Java</a> <a href="/tags/Office%E5%8A%9E%E5%85%AC/" style="font-size: 0.6em;">Office办公</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/ps/" style="font-size: 0.6em;">ps</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" style="font-size: 0.6em;">下载工具</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%95%99%E7%A8%8B/" style="font-size: 0.6em;">下载教程</a> <a href="/tags/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/" style="font-size: 0.6em;">办公软件</a> <a href="/tags/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/" style="font-size: 0.73em;">单机游戏</a> <a href="/tags/%E5%A4%A9%E7%BF%BC%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90/" style="font-size: 0.6em;">天翼游戏资源</a> <a href="/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.67em;">影视</a> <a href="/tags/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/" style="font-size: 0.73em;">手机软件</a> <a href="/tags/%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90/" style="font-size: 0.6em;">无损音乐</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F/" style="font-size: 0.6em;">模拟器游戏</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E8%A3%85/" style="font-size: 0.6em;">游戏安装</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AE%A8%E8%AE%BA/" style="font-size: 0.6em;">游戏讨论</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/posts/jiao-cheng/"><i class="fa  fa-book"></i> 单机游戏安装教程</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/you-xi/"><i class="fa  fa-book"></i> 单机游戏资源分享</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/qmd/"><i class="fa  fa-book"></i> QMD音乐v1.7.1-听歌神器</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/jgyy/"><i class="fa  fa-book"></i> 极光影视v2.4.1-去广告版</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/chat/"><i class="fa  fa-book"></i> 游戏交流QQ群</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2022 小鹤资源屋 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 小鹤哥.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2021024515号-1</a></li>
+                            <li><a href="http://www.beian.gov.cn" rel="external nofollow" target="_blank"><img src="/images/psr.webp" width="12" height="12" loading="lazy" decoding="auto" />41012202000323</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                    <div class="box group-box">
+                        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=AcRDKZ03JwFUffMzFGJZkm0eiungjnN_&authKey=RvpN3SwOKbIdKVYI%2F1sMAwJWww2b74vAHDVNpBG86OEPKGjiCthHk2BW3Id%2B2MM0&noverify=0&group_code=1040610096" target="_blank" rel="nofollow">
+                            <span class="fa fa-users"></span>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/vendors/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

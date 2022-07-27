@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.webp">
+  
+  <title>Java知识点复习（七）多线程 | 小鹤资源屋</title>
+  <meta name="author" content="小鹤哥" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="Java" />
+  
+  <meta name="description" content="Java基础—多线程（上）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java知识点复习（七）多线程">
+<meta property="og:url" content="http://xhgblog.club/posts/java-thread/index.html">
+<meta property="og:site_name" content="小鹤资源屋">
+<meta property="og:description" content="Java基础—多线程（上）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xhgblog.club/images/favicon.webp">
+<meta property="article:published_time" content="2022-03-15T07:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-22T05:52:52.036Z">
+<meta property="article:author" content="小鹤哥">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xhgblog.club/images/favicon.webp">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a><i class="fa fa-th-large"></i>分类</a>
+                                                <ul class="sub-menu">
+                                                    
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/">单机游戏</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6/">电脑软件</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/">手机软件</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</a></li>
+                                                        
+                                                    
+                                                </ul>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-archive"></i>文章</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/donate/"><i class="fa fa-heartbeat"></i>捐赠</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/contact/"><i class="fa fa-comments"></i>留言板</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-heart"></i>关于</a></li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a><i class="fa fa-list"></i>更多</a>
+                                                <ul class="sub-menu">
+                                                    
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/chat/">QQ交流群</a></li>
+                                                        
+                                                    
+                                                        
+                                                            <li><a href="/ems-cnpl/">微信公众号</a></li>
+                                                        
+                                                    
+                                                </ul>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li><a href="/search/"><i class="fa fa-search"></i>搜索</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">小鹤资源屋</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>小鹤资源屋</h2> <br />
+                        <span>学无止境，热爱分享</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://xhgblog.club/posts/java-thread/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Java知识点复习（七）多线程</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2022-03-15T07:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2022-03-15</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">小鹤哥</span>
+                </li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~7.98K
+                    
+                    字
+                </li>
+                
+                    <li id="/posts/java-thread/" class="leancloud_visitors" data-flag-title="Java知识点复习（七）多线程">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-xid="/posts/java-thread/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1653198772036"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">1、进程与线程的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.1、进程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E7%BA%BF%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.2、线程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81Java%E4%B8%AD%E8%B0%81%E6%98%AF%E7%BA%BF%E7%A8%8B%E8%B0%81%E6%98%AF%E8%BF%9B%E7%A8%8B%EF%BC%9F"><span class="toc-text">1.3、Java中谁是线程谁是进程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%9A%84%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-text">1.4、并发和并行的概念以及区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1%E3%80%81%E5%B9%B6%E5%8F%91%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.4.1、并发是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2%E3%80%81%E5%B9%B6%E8%A1%8C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.4.2、并行是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-3%E3%80%81%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.4.3、并发和并行的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">1.5、并发编程和并行编程的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Java%E4%B8%AD%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-text">2、Java中线程创建的几种方式（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81Java%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%B1%BB%E6%A6%82%E8%BF%B0"><span class="toc-text">2.1、Java中线程类概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1%E3%80%81Thread%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.1、Thread类的构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2%E3%80%81Thread%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.2、Thread类的常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3%E3%80%81Thread%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F"><span class="toc-text">2.1.3、Thread类的静态常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%E8%8E%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.4、线程的常用设置获取方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E7%AC%AC%E4%B8%80%E7%A7%8D%EF%BC%9A%E7%BB%A7%E6%89%BFThread%E7%B1%BB"><span class="toc-text">2.2、第一种：继承Thread类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1%E3%80%81%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.2.1、创建多线程的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2%E3%80%81%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="toc-text">2.2.2、创建多线程的具体代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81%E7%AC%AC%E4%BA%8C%E7%A7%8D%EF%BC%9A%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E9%87%8D%E5%86%99run%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E7%B1%BB%E5%88%9B%E5%BB%BARunnable%E6%8E%A5%E5%8F%A3"><span class="toc-text">2.3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.3.1、实现Runnable步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="toc-text">2.3.2、实现Runnable创建多线程具体代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81%E7%AC%AC%E4%B8%89%E7%A7%8D%EF%BC%9A%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-text">2.4、第三种：实现Callable接口创建线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.4.1、实现Callable创建线程步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B"><span class="toc-text">2.4.2、实现Callable创建线程代码案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E4%B8%8E%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%9A%84%E6%98%AF%E5%93%AA%E4%B8%AA"><span class="toc-text">2.5、三种创建线程的优缺点与区别以及常用的是哪个</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1%E3%80%81%E7%BB%A7%E6%89%BFThread%E7%B1%BB%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.1、继承Thread类的优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.2、实现Runnable接口的优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-3%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BAFutureTask%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.3、实现Callable接口创建FutureTask对象的优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">2.6.多线程注意事项</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1、进程与线程的概念"><a href="#1、进程与线程的概念" class="headerlink" title="1、进程与线程的概念"></a>1、进程与线程的概念</h2><h3 id="1-1、进程是什么？"><a href="#1-1、进程是什么？" class="headerlink" title="1.1、进程是什么？"></a>1.1、进程是什么？</h3><p><strong>进程</strong>是在操作系统上体现的，进程就是应用程序，例如：QQ、微信、王者荣耀，只要是应用程序并且打开了就是一个进程。</p>
+<blockquote>
+<p>1.程序的概念：<br>程序是一个静态的概念，代表的是系统中的应用程序的启动程序（exe等结尾的可执行文件）一旦执行程序系统就会生成一个进程。</p>
+</blockquote>
+<blockquote>
+<p>2.进程的概念：<br>执行中的程序就是<code>进程</code>，此进程是一个动态的概念–&gt;进程中会有执行内容（运行状态会有交互）并且赋予一定的独立功能</p>
+<p>电脑中进程是单个还是多个？<br>1.电脑中的进程是多个–&gt;多进程</p>
+</blockquote>
+<blockquote>
+<p>3.多进程的概念：<br><strong>多进程</strong>就是在电脑的运行状态下，可以打开多个应用程序开启多个进程，进程之间不会有相互干扰，并且可以同时运行，进程的运行要看的是CPU的核心数–&gt;一个核心代表你可以开启一个进程，所有的进程都会抢占CPU的执行权–&gt;所以软件程序开的越多越消耗CPU的资源</p>
+</blockquote>
+<h3 id="1-2、线程是什么？"><a href="#1-2、线程是什么？" class="headerlink" title="1.2、线程是什么？"></a>1.2、线程是什么？</h3><blockquote>
+<p>线程的概念：在应用程序中体现，并且应用程序（进程）想要执行就必须有一个线程（一般这个线程叫做主线程），线程的体现在应用程序运行。</p>
+<p>比如：打开QQ时在一个聊天窗口那QQ会不会继续接收其他信息？–&gt;如果QQ打开一个聊天窗口则代表开启了一个线程</p>
+</blockquote>
+<blockquote>
+<p>1.单线程：一个应用程序中只有一个线程，也就是在执行时不能同时执行其他任务，只能等待第一个任务结束才能继续<br>2.多线程：在一个应用程序中可以执行多个任务</p>
+</blockquote>
+<h3 id="1-3、Java中谁是线程谁是进程？"><a href="#1-3、Java中谁是线程谁是进程？" class="headerlink" title="1.3、Java中谁是线程谁是进程？"></a>1.3、Java中谁是线程谁是进程？</h3><blockquote>
+<p>Java运行是使用JRE–&gt;JVM虚拟机中运行–JVM虚拟机是进程–&gt;JVM虚拟机是多线程的，所以Java虚拟机执行时会出现各种的溢出（执行超载了）,我们所写所有的程序是线程<br>JVM虚拟机是进程，我们写的可执行代码是线程</p>
+</blockquote>
+<h3 id="1-4、并发和并行的概念以及区别"><a href="#1-4、并发和并行的概念以及区别" class="headerlink" title="1.4、并发和并行的概念以及区别"></a>1.4、并发和并行的概念以及区别</h3><h4 id="1-4-1、并发是什么？"><a href="#1-4-1、并发是什么？" class="headerlink" title="1.4.1、并发是什么？"></a>1.4.1、并发是什么？</h4><blockquote>
+<p>并发是指同一时刻只能一条指令执行，但是多个进程&#x2F;线程在执行时使用轮询方式快速切换执行，使得宏观上显示的是多个进程&#x2F;线程同时执行，但是在微观上则不是同时执行，而是交替执行。</p>
+</blockquote>
+<h4 id="1-4-2、并行是什么？"><a href="#1-4-2、并行是什么？" class="headerlink" title="1.4.2、并行是什么？"></a>1.4.2、并行是什么？</h4><blockquote>
+<p>并行是指同一时刻可以执行多条指令，在宏观意义上是同时执行，同样在微观意义上也是同时执行</p>
+</blockquote>
+<h4 id="1-4-3、并发和并行的区别"><a href="#1-4-3、并发和并行的区别" class="headerlink" title="1.4.3、并发和并行的区别"></a>1.4.3、并发和并行的区别</h4><blockquote>
+<p>1.并发：同时刻只能执行一条指令<br>2.并行：同时刻可以执行多条指令</p>
+</blockquote>
+<ul>
+<li><strong>注：</strong> 在使用多线程时，一定要明白什么是<code>并发</code>什么是<code>并行</code>，并且这俩不能搞混–&gt;什么是并发编程什么是并行编程</li>
+</ul>
+<h3 id="1-5、并发编程和并行编程的概念"><a href="#1-5、并发编程和并行编程的概念" class="headerlink" title="1.5、并发编程和并行编程的概念"></a>1.5、并发编程和并行编程的概念</h3><blockquote>
+<p>1.在CPU执行繁忙时资源不足时，则这时开启多进程代表就是并发，如果程序开启较少时CPU可以实现意义上的并行执行<br>2.在单核CPU中执行多个程序时是由操作系统切换执行<br>3.在多核CPU中执行多个程序时是可以并行执行多个程序</p>
+</blockquote>
+<h2 id="2、Java中线程创建的几种方式（掌握）"><a href="#2、Java中线程创建的几种方式（掌握）" class="headerlink" title="2、Java中线程创建的几种方式（掌握）"></a>2、Java中线程创建的几种方式（掌握）</h2><blockquote>
+<p>Java中创建线程分为三种方式，并且三种方式有异同，最终其中方式相同，功能以及实现会有所不同</p>
+</blockquote>
+<h3 id="2-1、Java中线程类概述"><a href="#2-1、Java中线程类概述" class="headerlink" title="2.1、Java中线程类概述"></a>2.1、Java中线程类概述</h3><blockquote>
+<p>Java创建多线程使用<code>Thread</code>类，其中Thread是线程的启动与实现方式，并且定义了一些静态方法供开发人员使用<br>Thread类是直接实现于Runnable接口，Runnable接口是线程祖先</p>
+</blockquote>
+<h4 id="2-1-1、Thread类的构造方法"><a href="#2-1-1、Thread类的构造方法" class="headerlink" title="2.1.1、Thread类的构造方法"></a>2.1.1、Thread类的构造方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 使用空参构造方法创建多线程,并且使用默认线程名称</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">()</span> &#123;</span><br><span class="line">    init(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">&quot;Thread-&quot;</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 指定线程名名称创建多线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(String name)</span> &#123;</span><br><span class="line">    init(<span class="literal">null</span>, <span class="literal">null</span>, name, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用Runnable内部类创建或使用实现Runnable的子类创建多线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(Runnable target)</span> &#123;</span><br><span class="line">    init(<span class="literal">null</span>, target, <span class="string">&quot;Thread-&quot;</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用Runnable内部类创建或使用实现Runnable的子类创建多线程,并且指定名称</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(Runnable target, String name)</span> &#123;</span><br><span class="line">    init(<span class="literal">null</span>, target, name, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用Runnable内部类创建或使用实现Runnable的子类创建多线程,并且指定分组</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(ThreadGroup group, Runnable target)</span> &#123;</span><br><span class="line">    init(group, target, <span class="string">&quot;Thread-&quot;</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建多线程并指定分组名称以及线程名称</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(ThreadGroup group, String name)</span> &#123;</span><br><span class="line">    init(group, <span class="literal">null</span>, name, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用Runnable内部类创建或使用实现Runnable的子类创建多线程,并指定分组名称以及线程名称</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Thread</span><span class="params">(ThreadGroup group, Runnable target, String name)</span> &#123;</span><br><span class="line">    init(group, target, name, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2、Thread类的常用方法"><a href="#2-1-2、Thread类的常用方法" class="headerlink" title="2.1.2、Thread类的常用方法"></a>2.1.2、Thread类的常用方法</h4><p>1.<code>public void run()</code> : 线程执行的方法–&gt;线程中需要写的逻辑代码，并且不能调用此run方法，run方法是由虚拟机调用执行。<br>2.<code>public synchronized void start()</code>: 线程启动方法–&gt;启动线程并自动执行run方法，使该线程开始执行；Java虚拟机调用该线程的run方法。</p>
+<h4 id="2-1-3、Thread类的静态常量"><a href="#2-1-3、Thread类的静态常量" class="headerlink" title="2.1.3、Thread类的静态常量"></a>2.1.3、Thread类的静态常量</h4><ol>
+<li><code>public final static int MIN_PRIORITY = 1;</code>:设置线程最低优先级</li>
+<li><code>public final static int NORM_PRIORITY = 5;</code>:设置线程默认优先级</li>
+<li><code>public final static int MAX_PRIORITY = 10;</code>:设置线程最高优先级</li>
+</ol>
+<h4 id="2-1-4、线程的常用设置获取方法"><a href="#2-1-4、线程的常用设置获取方法" class="headerlink" title="2.1.4、线程的常用设置获取方法"></a>2.1.4、线程的常用设置获取方法</h4><ol>
+<li><code>public long getId()</code>:获取当前执行的线程id</li>
+<li><code>public final String getName()</code>:获取当前执行的线程名称</li>
+<li><code>public final int getPriority()</code>:获取当前执行的线程优先级</li>
+<li><code>public State getState()</code>:获取当前执行的线程状态</li>
+<li><code>public final ThreadGroup getThreadGroup()</code>:获取当前执行的线程分组</li>
+<li><code>public final void setDaemon(boolean on)</code>:是否开启守护线程</li>
+<li><code>public final synchronized void setName(String name)</code>:设置线程的名称</li>
+<li><code>public final void setPriority(int newPriority)</code>:设置线程优先级</li>
+<li><code>public static native Thread currentThread()</code>:获取当前线程–&gt;获取非继承Thread类的线程</li>
+</ol>
+<h3 id="2-2、第一种：继承Thread类"><a href="#2-2、第一种：继承Thread类" class="headerlink" title="2.2、第一种：继承Thread类"></a>2.2、第一种：继承Thread类</h3><h4 id="2-2-1、创建多线程的步骤"><a href="#2-2-1、创建多线程的步骤" class="headerlink" title="2.2.1、创建多线程的步骤"></a>2.2.1、创建多线程的步骤</h4><blockquote>
+<p>1.创建一个类，继承Thread类<br>2.实现Thread类中run方法-&gt;run方法是多线程的执行体（线程执行的逻辑代码）<br>3.创建测试类，并继承了Thread类的类对象<br>4.调用ctart方法启动线程</p>
+</blockquote>
+<h4 id="2-2-2、创建多线程的具体代码"><a href="#2-2-2、创建多线程的具体代码" class="headerlink" title="2.2.2、创建多线程的具体代码"></a>2.2.2、创建多线程的具体代码</h4><p>1.创建自定义类继承Thread类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> String name;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyThread</span><span class="params">(String name)</span> &#123;  </span><br><span class="line">        <span class="built_in">super</span>(name);  </span><br><span class="line">        <span class="built_in">this</span>.name = name;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyThread</span><span class="params">()</span> &#123;  </span><br><span class="line">    &#125;    <span class="comment">//如果想要实现多线程 必须重写run方法  </span></span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;  </span><br><span class="line">        <span class="comment">//注释父类的调用自己实现  </span></span><br><span class="line">        <span class="comment">//super.run();  </span></span><br><span class="line">        <span class="comment">//写一个for循环代表多线程的执行逻辑  </span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">            System.out.println(name+<span class="string">&quot;线程执行：&quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.创建测试方法并创建线程启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadDemo</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">		<span class="comment">//创建多线程对象  </span></span><br><span class="line">		MyThread myThread1=<span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;线程1&quot;</span>);  </span><br><span class="line">		<span class="comment">//启动线程  </span></span><br><span class="line">		<span class="comment">//错误示范：  </span></span><br><span class="line">		<span class="comment">//myThread1.run();  </span></span><br><span class="line">		<span class="comment">//正确启动方式  </span></span><br><span class="line">		myThread1.start();  </span><br><span class="line">	</span><br><span class="line">		MyThread myThread2=<span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;线程2&quot;</span>);  </span><br><span class="line">		myThread2.start();  </span><br><span class="line">	</span><br><span class="line">		System.out.println(<span class="string">&quot;程序结束...&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口"><a href="#2-3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口" class="headerlink" title="2.3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口"></a>2.3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口</h3><h4 id="2-3-1、实现Runnable步骤"><a href="#2-3-1、实现Runnable步骤" class="headerlink" title="2.3.1、实现Runnable步骤"></a>2.3.1、实现Runnable步骤</h4><blockquote>
+<p>1.创建线程类，并实现Runnable<br>2.重写run方法并编写逻辑代码<br>3.创建测试类，创建实现Runnable接口的类<br>4.创建Thread，并将线程类做参数传入<br>5.启动线程测试</p>
+</blockquote>
+<h4 id="2-3-2、实现Runnable创建多线程具体代码"><a href="#2-3-2、实现Runnable创建多线程具体代码" class="headerlink" title="2.3.2、实现Runnable创建多线程具体代码"></a>2.3.2、实现Runnable创建多线程具体代码</h4><p>1.线程类实现Runnable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">//多线程执行的逻辑的方法  </span></span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">            System.out.println(<span class="string">&quot;多线程执行：&quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.线程测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadDemo</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        <span class="comment">//创建线程类  </span></span><br><span class="line">        MyThread myThread=<span class="keyword">new</span> <span class="title class_">MyThread</span>();  </span><br><span class="line">        <span class="comment">//创建线程对象  </span></span><br><span class="line">        Thread thread1=<span class="keyword">new</span> <span class="title class_">Thread</span>(myThread);  </span><br><span class="line">        Thread thread2=<span class="keyword">new</span> <span class="title class_">Thread</span>(myThread);  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">//启动线程  </span></span><br><span class="line">        thread1.start();  </span><br><span class="line">        thread2.start();  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">//使用内部类创建多线程  </span></span><br><span class="line">        Thread thread3=<span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>()&#123;  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;  </span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">                    System.out.println(<span class="string">&quot;匿名内部类多线程执行：&quot;</span>+i);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;);  </span><br><span class="line">        <span class="comment">//启动线程  </span></span><br><span class="line">        thread3.start();  </span><br><span class="line">        System.out.println(<span class="string">&quot;程序结束&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4、第三种：实现Callable接口创建线程"><a href="#2-4、第三种：实现Callable接口创建线程" class="headerlink" title="2.4、第三种：实现Callable接口创建线程"></a>2.4、第三种：实现Callable接口创建线程</h3><h4 id="2-4-1、实现Callable创建线程步骤"><a href="#2-4-1、实现Callable创建线程步骤" class="headerlink" title="2.4.1、实现Callable创建线程步骤"></a>2.4.1、实现Callable创建线程步骤</h4><blockquote>
+<p>第三种方式与前两不同，这里没有run方法，而是使用call方法去实现线程的逻辑代码，并且可以拥有返回值，但是接收返回值时会造成线程的阻塞（暂停等待接收数据），同样不能通过同一个FutureTask对象创建两个多线程</p>
+</blockquote>
+<blockquote>
+<p>创建方式：<br>1.创建线程类实现Callable接口，并实现call方法<br>2.通过FutureTask类创建线程–&gt;传入Callable的实现类<br>3.创建Thread线程对象，并将FutureTask对象传入当做参数<br>4.启动线程<br>5.接收线程返回值</p>
+</blockquote>
+<h4 id="2-4-2、实现Callable创建线程代码案例"><a href="#2-4-2、实现Callable创建线程代码案例" class="headerlink" title="2.4.2、实现Callable创建线程代码案例"></a>2.4.2、实现Callable创建线程代码案例</h4><p>1.创建线程类实现Callable接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现Callable接口并指定泛型类型--&gt;泛型类型是Value,并且是多线程的返回值  </span></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;  </span><br><span class="line"><span class="comment">/**  </span></span><br><span class="line"><span class="comment"> * call方法与之前的两种方式中的 run方法 相同，都是线程的执行体  </span></span><br><span class="line"><span class="comment"> * 不同点在于call有返回值  </span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回值  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> Exception 线程的异常  </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;  </span><br><span class="line">            System.out.println(<span class="string">&quot;线程执行&quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;线程执行完毕&quot;</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.创建测试类启动线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadDemo</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;  </span><br><span class="line">        <span class="comment">//创建线程  </span></span><br><span class="line">        <span class="comment">//1.创建实现Callable接口的类  </span></span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">myThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();  </span><br><span class="line">        <span class="comment">// 2. 使用FutureTask创建此线程,泛型类型与Callable实现时的相同  </span></span><br><span class="line">        <span class="comment">// 参数为Callable实现类  </span></span><br><span class="line">        FutureTask&lt;String&gt; futureTask1=<span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(myThread);  </span><br><span class="line">        FutureTask&lt;String&gt; futureTask2=<span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(myThread);  </span><br><span class="line">        <span class="comment">//3.创建线程类  </span></span><br><span class="line">        Thread thread1=<span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask1);  </span><br><span class="line">        <span class="comment">//4.启动线程  </span></span><br><span class="line">        thread1.start();  </span><br><span class="line">        Thread thread2=<span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask2);  </span><br><span class="line">        thread2.start();  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 5. 接收线程返回的参数使用public V get() throws InterruptedException, ExecutionException方法  </span></span><br><span class="line">        <span class="comment">// get方法会造成程序阻塞(会停止),等待接收线程返回的数据  </span></span><br><span class="line">        <span class="type">String</span> <span class="variable">result1</span> <span class="operator">=</span> futureTask1.get();  </span><br><span class="line">        System.out.println(result1);  </span><br><span class="line">        String result2=futureTask2.get();  </span><br><span class="line">        System.out.println(result2);  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">//最后输出程序结束  </span></span><br><span class="line">        System.out.println(<span class="string">&quot;程序结束&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5、三种创建线程的优缺点与区别以及常用的是哪个"><a href="#2-5、三种创建线程的优缺点与区别以及常用的是哪个" class="headerlink" title="2.5、三种创建线程的优缺点与区别以及常用的是哪个"></a>2.5、三种创建线程的优缺点与区别以及常用的是哪个</h3><h4 id="2-5-1、继承Thread类的优缺点"><a href="#2-5-1、继承Thread类的优缺点" class="headerlink" title="2.5.1、继承Thread类的优缺点"></a>2.5.1、继承Thread类的优缺点</h4><p>1.优点：继承后直接可以启动线程<br>2.缺点：Java是单继承的语言一旦继承了则无法继承其他的类的.造成我们的可扩展性非常低并且没有返回值</p>
+<h4 id="2-5-2、实现Runnable接口的优缺点"><a href="#2-5-2、实现Runnable接口的优缺点" class="headerlink" title="2.5.2、实现Runnable接口的优缺点"></a>2.5.2、实现Runnable接口的优缺点</h4><p>1.优点：解决了单继承的扩展性低缺点<br>2.缺点：没有返回值需要单独创建Thread线程类启动<br>3.使用非常简单的方式实现多线程</p>
+<h4 id="2-5-3、实现Callable接口创建FutureTask对象的优缺点"><a href="#2-5-3、实现Callable接口创建FutureTask对象的优缺点" class="headerlink" title="2.5.3、实现Callable接口创建FutureTask对象的优缺点"></a>2.5.3、实现Callable接口创建FutureTask对象的优缺点</h4><p>1.优点：带有返回值并且也是通过接口实现方式创建<br>2.缺点：使用麻烦并且接收返回值会造成程序阻塞（暂停）并且一个FutureTask对象只能启动一个线程</p>
+<h3 id="2-6-多线程注意事项"><a href="#2-6-多线程注意事项" class="headerlink" title="2.6.多线程注意事项"></a>2.6.多线程注意事项</h3><blockquote>
+<p>线程创建后不允许重复启动（不允许在同一时间启动两次）<br>以及run方法是由JVM虚拟机负责调用，如果我们自己调用则无法实现多线程的程序<br>start方法是启动线程并由JVM虚拟机负贡调用run方法实现多线程<br>多线程调用时是非常严谨的，一定不能出错，否则会影响程序的执行</p>
+</blockquote>
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://xhgblog.club/posts/java-thread/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://xhgblog.club/posts/java-thread/";
+            const title         = "「Java知识点复习（七）多线程」";
+            const excerpt       = `Java基础—多线程（上）`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/Java/" rel="tag">Java</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2022-05-22T05:52:52.036Z" itemprop="dateModified">最后编辑：2022-05-22</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Java知识点复习（六）数组" href="/posts/java-array/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" IDM下载神器最新版" href="/posts/idm/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments bg-image"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/posts/java-thread/'
+            }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true,"placeholder":"欢迎留言。(建议填写邮箱可在被回复时收到邮件提醒)"}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@1.6.0/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">小鹤哥资源站，PC游戏资源、实用软件免费分享，喜欢的朋友请帮忙转发分享</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                23
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                4
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                20
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">1、进程与线程的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.1、进程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E7%BA%BF%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.2、线程是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81Java%E4%B8%AD%E8%B0%81%E6%98%AF%E7%BA%BF%E7%A8%8B%E8%B0%81%E6%98%AF%E8%BF%9B%E7%A8%8B%EF%BC%9F"><span class="toc-text">1.3、Java中谁是线程谁是进程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%9A%84%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-text">1.4、并发和并行的概念以及区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1%E3%80%81%E5%B9%B6%E5%8F%91%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.4.1、并发是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2%E3%80%81%E5%B9%B6%E8%A1%8C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.4.2、并行是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-3%E3%80%81%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.4.3、并发和并行的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5%E3%80%81%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%92%8C%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">1.5、并发编程和并行编程的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Java%E4%B8%AD%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-text">2、Java中线程创建的几种方式（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81Java%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%B1%BB%E6%A6%82%E8%BF%B0"><span class="toc-text">2.1、Java中线程类概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1%E3%80%81Thread%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.1、Thread类的构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2%E3%80%81Thread%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.2、Thread类的常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3%E3%80%81Thread%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F"><span class="toc-text">2.1.3、Thread类的静态常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%E8%8E%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-text">2.1.4、线程的常用设置获取方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E7%AC%AC%E4%B8%80%E7%A7%8D%EF%BC%9A%E7%BB%A7%E6%89%BFThread%E7%B1%BB"><span class="toc-text">2.2、第一种：继承Thread类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1%E3%80%81%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.2.1、创建多线程的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2%E3%80%81%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="toc-text">2.2.2、创建多线程的具体代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81%E7%AC%AC%E4%BA%8C%E7%A7%8D%EF%BC%9A%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E9%87%8D%E5%86%99run%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8%E7%B1%BB%E5%88%9B%E5%BB%BARunnable%E6%8E%A5%E5%8F%A3"><span class="toc-text">2.3、第二种：实现Runnable接口重写run方法，以及使用内部类创建Runnable接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.3.1、实现Runnable步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="toc-text">2.3.2、实现Runnable创建多线程具体代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81%E7%AC%AC%E4%B8%89%E7%A7%8D%EF%BC%9A%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-text">2.4、第三种：实现Callable接口创建线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.4.1、实现Callable创建线程步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B"><span class="toc-text">2.4.2、实现Callable创建线程代码案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E4%B8%8E%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%9A%84%E6%98%AF%E5%93%AA%E4%B8%AA"><span class="toc-text">2.5、三种创建线程的优缺点与区别以及常用的是哪个</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1%E3%80%81%E7%BB%A7%E6%89%BFThread%E7%B1%BB%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.1、继承Thread类的优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2%E3%80%81%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.2、实现Runnable接口的优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-3%E3%80%81%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BAFutureTask%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.5.3、实现Callable接口创建FutureTask对象的优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">2.6.多线程注意事项</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/">单机游戏</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/">手机软件</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6/">电脑软件</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</a><span class="category-list-count">7</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/AE/" style="font-size: 0.6em;">AE</a> <a href="/tags/Adobe%E8%BD%AF%E4%BB%B6/" style="font-size: 0.73em;">Adobe软件</a> <a href="/tags/Ai/" style="font-size: 0.6em;">Ai</a> <a href="/tags/Java/" style="font-size: 0.8em;">Java</a> <a href="/tags/Office%E5%8A%9E%E5%85%AC/" style="font-size: 0.6em;">Office办公</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/ps/" style="font-size: 0.6em;">ps</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" style="font-size: 0.6em;">下载工具</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%95%99%E7%A8%8B/" style="font-size: 0.6em;">下载教程</a> <a href="/tags/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/" style="font-size: 0.6em;">办公软件</a> <a href="/tags/%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F/" style="font-size: 0.73em;">单机游戏</a> <a href="/tags/%E5%A4%A9%E7%BF%BC%E6%B8%B8%E6%88%8F%E8%B5%84%E6%BA%90/" style="font-size: 0.6em;">天翼游戏资源</a> <a href="/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.67em;">影视</a> <a href="/tags/%E6%89%8B%E6%9C%BA%E8%BD%AF%E4%BB%B6/" style="font-size: 0.73em;">手机软件</a> <a href="/tags/%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90/" style="font-size: 0.6em;">无损音乐</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%B8%B8%E6%88%8F/" style="font-size: 0.6em;">模拟器游戏</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E8%A3%85/" style="font-size: 0.6em;">游戏安装</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AE%A8%E8%AE%BA/" style="font-size: 0.6em;">游戏讨论</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/posts/jiao-cheng/"><i class="fa  fa-book"></i> 单机游戏安装教程</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/you-xi/"><i class="fa  fa-book"></i> 单机游戏资源分享</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/qmd/"><i class="fa  fa-book"></i> QMD音乐v1.7.1-听歌神器</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/jgyy/"><i class="fa  fa-book"></i> 极光影视v2.4.1-去广告版</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/posts/chat/"><i class="fa  fa-book"></i> 游戏交流QQ群</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2022 小鹤资源屋 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 小鹤哥.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">豫ICP备2021024515号-1</a></li>
+                            <li><a href="http://www.beian.gov.cn" rel="external nofollow" target="_blank"><img src="/images/psr.webp" width="12" height="12" loading="lazy" decoding="auto" />41012202000323</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                    <div class="box group-box">
+                        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=AcRDKZ03JwFUffMzFGJZkm0eiungjnN_&authKey=RvpN3SwOKbIdKVYI%2F1sMAwJWww2b74vAHDVNpBG86OEPKGjiCthHk2BW3Id%2B2MM0&noverify=0&group_code=1040610096" target="_blank" rel="nofollow">
+                            <span class="fa fa-users"></span>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/vendors/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

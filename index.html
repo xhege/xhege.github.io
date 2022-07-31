@@ -408,6 +408,68 @@
 
     
     
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">title: MySQL8.0修改root密码的方法</span><br><span class="line">tags:</span><br><span class="line">  - Java</span><br><span class="line">  - MySQL</span><br><span class="line">comments: true</span><br><span class="line">toc: true</span><br><span class="line">excerpt: 记录一下，MySQL8.0及以上版本修改root密码的方法</span><br><span class="line">only:</span><br><span class="line">  - home</span><br><span class="line">  - category</span><br><span class="line">  - tag</span><br><span class="line">date: 2022-07-31 15:00:00</span><br><span class="line">categories: 编程技术</span><br><span class="line">pic:</span><br></pre></td></tr></table></figure>
+
+<p>﻿## MySQL8.0修改root密码</p>
+<p>1.打开DOS命令窗口</p>
+<p>2.使用原密码连接数据库</p>
+<p>3.在窗口中输入下面的语句更改即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;你要修改的密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>如下图：<br><img src="https://img-blog.csdnimg.cn/38df9ae7eb2c4fe6ae0079e9bba100d8.jpeg#pic_center"></p>
+<p>执行语句后，出现 Query OK … 就说明已经修改成功了，以后就可以使用新密码连接数据库了。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2022-07-31T10:03:16.095Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2022-07-31</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <a id="/posts/mysql-root/" class="leancloud_visitors" data-flag-title="">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </a>
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                                <a>
+                                    <i class="fa fa-commenting-o"></i>
+                                    <span data-xid="/posts/mysql-root/" class="waline-comment-count"> </span> 条评论
+                                </a>
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/posts/mysql-root/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
         <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
             <div class="kratos-entry-border-new clearfix">
                 
@@ -914,69 +976,6 @@
         </article>
     
 
-    
-    
-        <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-entry-border-new clearfix">
-                
-                <div class="kratos-entry-thumb-new">
-                    <a href="/posts/java-select/">
-                        
-                            <img class="kratos-entry-thumb-new-img" alt="">
-                        
-                    </a>
-                </div>
-                <div class="kratos-post-inner-new">
-                    <header class="kratos-entry-header-new">
-                            <a class="label-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</a>
-                        <h2 class="kratos-entry-title-new"><a href="/posts/java-select/" itemprop="mainEntityOfPage"><span itemprop="name headline">Java知识点复习（四）流程控制之选择语句</span></a>
-                    </header>
-                    <div class="kratos-entry-content-new">
-                        <p itemProp="description">
-                            
-                                Java基础基础语法—流程控制之选择语句
-                            
-                        </p>
-                    </div>
-                </div>
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2022-03-11T11:28:14.000Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2022-03-11</a>
-                        </time>
-                        <a>
-                            
-                                <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/Java/" rel="tag">Java</a>
-                            
-                        </a>
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                                <a id="/posts/java-select/" class="leancloud_visitors" data-flag-title="Java知识点复习（四）流程控制之选择语句">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="leancloud-visitors-count"> </span> 次阅读
-                                </a>
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <a>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-xid="/posts/java-select/" class="waline-comment-count"> </span> 条评论
-                                </a>
-                            
-                        
-                    </span>
-                    <span class="pull-right">
-                        <a class="read-more" href="/posts/java-select/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-                    </span>
-                </footer>
-            </div>
-        </article>
-    
-
 
 
     <div class='text-center pagination'>
@@ -1043,7 +1042,7 @@
                 文章
             </span>
             <span class="count">
-                23
+                24
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -1088,6 +1087,9 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
         
           
           

@@ -225,17 +225,6 @@
                     字
                 </li>
                 
-                    <li id="/posts/java-select/" class="leancloud_visitors" data-flag-title="Java知识点复习（四）流程控制之选择语句">
-                        <i class="fa fa-eye"></i>
-                        <span class="leancloud-visitors-count"> </span> 次阅读
-                    </li>
-                    
-                        <li>
-                            <i class="fa fa-commenting-o"></i>
-                            <span data-xid="/posts/java-select/" class="waline-comment-count"> </span> 条评论
-                        </li>
-                    
-                
             </ul>
         </header>
         <div class="kratos-post-content">
@@ -493,25 +482,23 @@
         </nav>
     
     
-        <div id="w-comments" class="post-comments bg-image"></div>
+        <div class="post-comments lazy-load bg-image">
+    <div id="tcomment"></div>
+</div>
 <script>
     var load_comm = () => {
         const init = () => {
-            new Waline(Object.assign({
-                el: '#w-comments',
-                path: '/posts/java-select/'
-            }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true,"placeholder":"欢迎留言。(请填写昵称和邮箱可在被回复时收到邮件提醒)"}')));
+            twikoo.init({ envId: 'https://mytwikoo-bice.vercel.app/', el: '#tcomment' });
         }
-        if (typeof Waline === 'undefined') {
-            const src = '/vendors/@waline/client@1.6.0/dist/Waline.min.js';
+        if (typeof twikoo === 'undefined') {
+            const src = '/vendors/twikoo@1.5.11/dist/twikoo.all.min.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
-
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://twikoo.js.org/">comments powered by Twikoo.</a></noscript>
     
 </article>
 

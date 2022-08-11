@@ -208,7 +208,7 @@
         <div class="kratos-post-content">
             <h2 class="title-h2 text-center" itemprop="name headline">关于站长-小鹤哥简介</h2>
             <div itemprop="articleBody"><p>　　你好啊，我是小鹤哥，从2019年创建公众号免费分享资源至今，已经有两年多了，从刚开始的小白到现在拥有自己的博客网站，一步步走来经历过不少挫折，还好坚持下来了，沉浸在分享的快乐中，未来我会继续为大家带来更多资源，感谢每一位小伙伴的关注。</p>
-<p>　　网名：小鹤哥<br>　　年龄：22<br>　　爱好：打篮球、看电影、听音乐<br>　　微信：xhge886<br>　　QQ号：2041275789<br>　　Email: <a href="mailto:&#120;&#104;&#x67;&#x65;&#56;&#x38;&#x36;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#x6d;">&#120;&#104;&#x67;&#x65;&#56;&#x38;&#x36;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>　　网名：小鹤哥<br>　　年龄：22<br>　　爱好：打篮球、看电影、听音乐<br>　　微信：xhge886<br>　　QQ号：2041275789<br>　　Email: <a href="mailto:&#120;&#104;&#x67;&#101;&#x38;&#x38;&#x36;&#x40;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#120;&#104;&#x67;&#101;&#x38;&#x38;&#x36;&#x40;&#x31;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h3 align="center">本站信息</h3>
 
 <p>　　网站名称：小鹤资源屋<br>　　网站网址：<a target="_blank" rel="noopener" href="https://www.xhgblog.club/">https://www.xhgblog.club</a><br>　　网站描述：一个分享免费资源和编程经验的技术小站。</p>
@@ -227,25 +227,23 @@
     </div>
     
     
-        <div id="w-comments" class="post-comments bg-image"></div>
+        <div class="post-comments lazy-load bg-image">
+    <div id="tcomment"></div>
+</div>
 <script>
     var load_comm = () => {
         const init = () => {
-            new Waline(Object.assign({
-                el: '#w-comments',
-                path: '/about/index.html'
-            }, JSON.parse('{"serverURL":"https://blog-m6z684kp2-xhege.vercel.app","visitor":true,"placeholder":"欢迎留言。(请填写昵称和邮箱可在被回复时收到邮件提醒)"}')));
+            twikoo.init({ envId: 'https://mytwikoo-bice.vercel.app/', el: '#tcomment' });
         }
-        if (typeof Waline === 'undefined') {
-            const src = '/vendors/@waline/client@1.6.0/dist/Waline.min.js';
+        if (typeof twikoo === 'undefined') {
+            const src = '/vendors/twikoo@1.5.11/dist/twikoo.all.min.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
-
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://twikoo.js.org/">comments powered by Twikoo.</a></noscript>
     
 </article>
 
